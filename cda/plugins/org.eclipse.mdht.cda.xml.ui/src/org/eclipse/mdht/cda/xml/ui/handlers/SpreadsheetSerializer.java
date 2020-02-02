@@ -141,19 +141,10 @@ public class SpreadsheetSerializer {
 	 */
 	public static int serializeStrucDocText(Row row, int offset, StrucDocText text) {
 
-		String narrative = text.getText();
-		if (!StringUtils.isEmpty(narrative)) {
-
+		if (text != null && !StringUtils.isEmpty(text.getText())) {
+			String narrative = text.getText();
 			HTMLToExcel hte = new HTMLToExcel();
-
 			RichTextString s = hte.fromHtmlToCellValue(narrative, row.getSheet().getWorkbook());
-
-			// String richText = s.getRichText();
-			// int length = richText.length() > 100
-			// ? richText.length() - 1
-			// : 150;
-			// sb.append(richText.substring(0, length));
-			// System.out.println(richText);
 			row.createCell(offset++).setCellValue(s);
 		} else {
 			row.createCell(offset++).setCellValue("No Narrative");

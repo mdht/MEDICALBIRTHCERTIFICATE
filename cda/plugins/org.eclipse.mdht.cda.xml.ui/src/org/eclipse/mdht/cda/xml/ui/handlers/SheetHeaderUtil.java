@@ -424,4 +424,17 @@ public class SheetHeaderUtil {
 		return offset;
 	}
 
+	/**
+	 * @param row1
+	 * @param row2
+	 * @param offset
+	 * @return
+	 */
+	public static int createNarrativeHeader(Row row1, Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("Narrative");
+		row2.createCell(offset++).setCellValue("Section Title");
+		row2.createCell(offset++).setCellValue("File Name");
+		return offset;
+	}
+
 }

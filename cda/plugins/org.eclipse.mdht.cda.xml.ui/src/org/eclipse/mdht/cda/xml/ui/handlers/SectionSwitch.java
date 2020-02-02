@@ -35,14 +35,14 @@ import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.openhealthtools.mdht.uml.cda.consol.AdmissionMedication;
 import org.openhealthtools.mdht.uml.cda.consol.AdvanceDirectiveObservation;
 import org.openhealthtools.mdht.uml.cda.consol.AdvanceDirectivesSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.AllergiesSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.AllergyObservation;
 import org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct;
-import org.openhealthtools.mdht.uml.cda.consol.AssessmentSection;
 import org.openhealthtools.mdht.uml.cda.consol.ChiefComplaintAndReasonForVisitSection;
-import org.openhealthtools.mdht.uml.cda.consol.ChiefComplaintSection;
+import org.openhealthtools.mdht.uml.cda.consol.ComplicationsSection;
 import org.openhealthtools.mdht.uml.cda.consol.CoverageActivity;
 import org.openhealthtools.mdht.uml.cda.consol.DischargeMedication;
 import org.openhealthtools.mdht.uml.cda.consol.DischargeMedicationsSectionEntriesOptional2;
@@ -50,21 +50,27 @@ import org.openhealthtools.mdht.uml.cda.consol.FamilyHistorySection;
 import org.openhealthtools.mdht.uml.cda.consol.GoalsSection;
 import org.openhealthtools.mdht.uml.cda.consol.HealthStatusEvaluationsAndOutcomesSection;
 import org.openhealthtools.mdht.uml.cda.consol.HistoryOfPastIllnessSection;
+import org.openhealthtools.mdht.uml.cda.consol.HospitalAdmissionMedicationsSectionEntriesOptional;
+import org.openhealthtools.mdht.uml.cda.consol.HospitalDischargeDiagnosisSection;
 import org.openhealthtools.mdht.uml.cda.consol.ImmunizationsSectionEntriesOptional;
+import org.openhealthtools.mdht.uml.cda.consol.Indication;
 import org.openhealthtools.mdht.uml.cda.consol.Instructions;
 import org.openhealthtools.mdht.uml.cda.consol.InstructionsSection;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationsAdministeredSection;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.OutcomeObservation;
 import org.openhealthtools.mdht.uml.cda.consol.PayersSection;
+import org.openhealthtools.mdht.uml.cda.consol.PostprocedureDiagnosisSection;
+import org.openhealthtools.mdht.uml.cda.consol.PreoperativeDiagnosisSection;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemConcernAct;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityAct;
 import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityObservation;
+import org.openhealthtools.mdht.uml.cda.consol.ProcedureFindingsSection;
+import org.openhealthtools.mdht.uml.cda.consol.ProcedureIndicationsSection;
 import org.openhealthtools.mdht.uml.cda.consol.ProceduresSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.ReactionObservation;
-import org.openhealthtools.mdht.uml.cda.consol.ReasonForReferralSection;
 import org.openhealthtools.mdht.uml.cda.consol.ResultOrganizer;
 import org.openhealthtools.mdht.uml.cda.consol.ResultsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.SeverityObservation;
@@ -73,6 +79,92 @@ import org.openhealthtools.mdht.uml.cda.consol.VitalSignsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch;
 
 class SectionSwitch extends ConsolSwitch<Boolean> {
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseHospitalAdmissionMedicationsSectionEntriesOptional(org.openhealthtools.mdht.uml.cda.
+	 * consol.HospitalAdmissionMedicationsSectionEntriesOptional)
+	 */
+	@Override
+	public Boolean caseHospitalAdmissionMedicationsSectionEntriesOptional(
+			HospitalAdmissionMedicationsSectionEntriesOptional section) {
+
+		if (section.getAdmissionMedications() != null && !section.getAdmissionMedications().isEmpty()) {
+
+			for (AdmissionMedication admissionMedication : section.getAdmissionMedications()) {
+				SpreadsheetSerializer.appendToSubstanceAdministrationSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
+					admissionMedication.getMedicationActivities(), fileName);
+			}
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseHospitalDischargeDiagnosisSection(org.openhealthtools.mdht.uml.cda.consol.
+	 * HospitalDischargeDiagnosisSection)
+	 */
+	@Override
+	public Boolean caseHospitalDischargeDiagnosisSection(HospitalDischargeDiagnosisSection section) {
+
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemObservationHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getHospitalDischargeDiagnosis() != null &&
+				!section.getHospitalDischargeDiagnosis().getProblemObservations().isEmpty()) {
+			appendToProblemsSheet2(
+				query, sheet, patientRole, serviceEvent,
+				section.getHospitalDischargeDiagnosis().getProblemObservations(), encounters, fileName);
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseComplicationsSection(org.openhealthtools.mdht.uml.cda.consol.ComplicationsSection)
+	 */
+	@Override
+	public Boolean caseComplicationsSection(ComplicationsSection section) {
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemObservationHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getProblemObservations() != null && !section.getProblemObservations().isEmpty()) {
+
+			appendToProblemsSheet2(
+				query, sheet, patientRole, serviceEvent, section.getProblemObservations(), encounters, fileName);
+
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+	}
 
 	private static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
 
@@ -100,6 +192,128 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 		this.serviceEvent = serviceEvent;
 		this.encounters = encounters;
 		this.fileName = fileName;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseProcedureIndicationsSection(org.openhealthtools.mdht.uml.cda.consol.
+	 * ProcedureIndicationsSection)
+	 */
+	@Override
+	public Boolean caseProcedureIndicationsSection(ProcedureIndicationsSection section) {
+
+		section.getIndications();
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getIndications() != null && !section.getIndications().isEmpty()) {
+
+			appendIndicationSheet(
+				query, sheet, documentMetadata, patientRole, serviceEvent, section.getIndications(), encounters,
+				fileName);
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#casePostprocedureDiagnosisSection(org.openhealthtools.mdht.uml.cda.consol.
+	 * PostprocedureDiagnosisSection)
+	 */
+	@Override
+	public Boolean casePostprocedureDiagnosisSection(PostprocedureDiagnosisSection section) {
+
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemObservationHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getPostprocedureDiagnosis() != null &&
+				!section.getPostprocedureDiagnosis().getProblemObservations().isEmpty()) {
+			appendToProblemsSheet2(
+				query, sheet, patientRole, serviceEvent, section.getPostprocedureDiagnosis().getProblemObservations(),
+				encounters, fileName);
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#casePreoperativeDiagnosisSection(org.openhealthtools.mdht.uml.cda.consol.
+	 * PreoperativeDiagnosisSection)
+	 */
+	@Override
+	public Boolean casePreoperativeDiagnosisSection(PreoperativeDiagnosisSection section) {
+
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemObservationHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getPreoperativeDiagnosis() != null &&
+				!section.getPreoperativeDiagnosis().getProblemObservations().isEmpty()) {
+			appendToProblemsSheet2(
+				query, sheet, patientRole, serviceEvent, section.getPreoperativeDiagnosis().getProblemObservations(),
+				encounters, fileName);
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseProcedureFindingsSection(org.openhealthtools.mdht.uml.cda.consol.
+	 * ProcedureFindingsSection)
+	 */
+	@Override
+	public Boolean caseProcedureFindingsSection(ProcedureFindingsSection section) {
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemObservationHeader(row1, row2, offset);
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getProblemObservations() != null && !section.getProblemObservations().isEmpty()) {
+
+			appendToProblemsSheet2(
+				query, sheet, patientRole, serviceEvent, section.getProblemObservations(), encounters, fileName);
+
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+
+		return Boolean.TRUE;
 	}
 
 	/*
@@ -170,25 +384,25 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 	 *
 	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseAssessmentSection(org.openhealthtools.mdht.uml.cda.consol.AssessmentSection)
 	 */
-	@Override
-	public Boolean caseAssessmentSection(AssessmentSection section) {
-		if (sheet.getPhysicalNumberOfRows() == 0) {
-			Row row1 = null; // sheet.createRow(0);
-			Row row2 = sheet.createRow(0);
-			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
-			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
-			// offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
-			emptySectionOffset.put(sheet, offset);
-		}
-
-		if (section.getText() != null) {
-			appendNarrative(
-				query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
-		} else {
-			appendEmptySection(query, sheet, section, fileName);
-		}
-		return Boolean.TRUE;
-	}
+	// @Override
+	// public Boolean caseAssessmentSection(AssessmentSection section) {
+	// if (sheet.getPhysicalNumberOfRows() == 0) {
+	// Row row1 = null; // sheet.createRow(0);
+	// Row row2 = sheet.createRow(0);
+	// int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+	// offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+	// // offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
+	// emptySectionOffset.put(sheet, offset);
+	// }
+	//
+	// if (section.getText() != null) {
+	// appendNarrative(
+	// query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
+	// } else {
+	// appendEmptySection(query, sheet, section, fileName);
+	// }
+	// return Boolean.TRUE;
+	// }
 
 	/*
 	 * (non-Javadoc)
@@ -627,26 +841,26 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 	 * @see
 	 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseChiefComplaintSection(org.openhealthtools.mdht.uml.cda.consol.ChiefComplaintSection)
 	 */
-	@Override
-	public Boolean caseChiefComplaintSection(ChiefComplaintSection section) {
-		if (sheet.getPhysicalNumberOfRows() == 0) {
-			Row row1 = null; // sheet.createRow(0);
-			Row row2 = sheet.createRow(0);
-			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
-			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
-			// offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
-			emptySectionOffset.put(sheet, offset);
-		}
-
-		if (section.getText() != null) {
-			appendNarrative(
-				query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
-		} else {
-			appendEmptySection(query, sheet, section, fileName);
-		}
-		return Boolean.TRUE;
-
-	}
+	// @Override
+	// public Boolean caseChiefComplaintSection(ChiefComplaintSection section) {
+	// if (sheet.getPhysicalNumberOfRows() == 0) {
+	// Row row1 = null; // sheet.createRow(0);
+	// Row row2 = sheet.createRow(0);
+	// int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+	// offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+	// // offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
+	// emptySectionOffset.put(sheet, offset);
+	// }
+	//
+	// if (section.getText() != null) {
+	// appendNarrative(
+	// query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
+	// } else {
+	// appendEmptySection(query, sheet, section, fileName);
+	// }
+	// return Boolean.TRUE;
+	//
+	// }
 
 	/*
 	 * (non-Javadoc)
@@ -685,26 +899,27 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 	 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseReasonForReferralSection(org.openhealthtools.mdht.uml.cda.consol.
 	 * ReasonForReferralSection)
 	 */
-	@Override
-	public Boolean caseReasonForReferralSection(ReasonForReferralSection section) {
-
-		if (sheet.getPhysicalNumberOfRows() == 0) {
-			Row row1 = null; // sheet.createRow(0);
-			Row row2 = sheet.createRow(0);
-			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
-			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
-			// offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
-			emptySectionOffset.put(sheet, offset);
-		}
-
-		if (section.getText() != null) {
-			appendNarrative(
-				query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
-		} else {
-			appendEmptySection(query, sheet, section, fileName);
-		}
-		return Boolean.TRUE;
-	}
+	// @Override
+	// public Boolean caseReasonForReferralSection(ReasonForReferralSection section) {
+	//
+	// if (sheet.getPhysicalNumberOfRows() == 0) {
+	// Row row1 = null; // sheet.createRow(0);
+	// Row row2 = sheet.createRow(0);
+	// int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+	// offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+	// offset = SheetHeaderUtil.createNarrativeHeader(row1, row2, offset);
+	// // offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
+	// emptySectionOffset.put(sheet, offset);
+	// }
+	//
+	// if (section.getText() != null) {
+	// appendNarrative(
+	// query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
+	// } else {
+	// appendEmptySection(query, sheet, section, fileName);
+	// }
+	// return Boolean.TRUE;
+	// }
 
 	/*
 	 * (non-Javadoc)
@@ -724,8 +939,25 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 	 */
 	@Override
 	public Boolean defaultCase(EObject object) {
-		System.out.println(object.getClass().getCanonicalName());
-		return false;
+		Section section = (Section) object;
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createNarrativeHeader(row1, row2, offset);
+			// offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Discharged Medications");
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getText() != null) {
+			appendNarrative(
+				query, sheet, documentMetadata, patientRole, serviceEvent, encounters, section.getText(), fileName);
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+		return Boolean.TRUE;
+
 	}
 
 	private void appendActToProcedureSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
@@ -1076,6 +1308,27 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 			PatientRole patientRole, ServiceEvent serviceEvent, EList<OutcomeObservation> outcomeObservations,
 			List<Encounter> encounters, String fileName2) {
 		for (OutcomeObservation sa : outcomeObservations) {
+
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = SpreadsheetSerializer.serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, sa);
+
+			SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+		}
+
+	}
+
+	private void appendIndicationSheet(Query query2, Sheet sheet, DocumentMetadata organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent, EList<Indication> indications,
+			List<Encounter> encounters, String fileName2) {
+		for (Indication sa : indications) {
 
 			int offset = 0;
 

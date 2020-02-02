@@ -487,7 +487,6 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 		Sheet sheet = wb.getSheet(sheetIndex);
 
 		if (section.getEntries().isEmpty()) {
-			System.out.println("NO ENTRIES");
 
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null; // sheet.createRow(0);
