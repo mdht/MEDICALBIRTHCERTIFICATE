@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
 import org.eclipse.mdht.cda.xml.ui.handlers.html.HTMLToExcel;
 import org.eclipse.mdht.uml.cda.Act;
@@ -2027,6 +2028,52 @@ public class SpreadsheetSerializer {
 		}
 
 		return offset;
+	}
+
+	/**
+	 * @param query
+	 * @param metricsSheet
+	 * @param documentMetadata
+	 * @param patientRole
+	 * @param metrics
+	 * @param name
+	 */
+	public static void appendToMetricsSheet(Query query, SXSSFSheet metricsSheet, DocumentMetadata documentMetadata,
+			PatientRole patientRole, CDAMetrics metrics, String name) {
+
+		Row row = metricsSheet.createRow(metricsSheet.getPhysicalNumberOfRows());
+
+		int offset = serializePatient2(row, 0, documentMetadata, patientRole);
+		/*
+		 * race
+		 * gender
+		 * patient name
+		 * address
+		 * dob XXX
+		 * phone #
+		 * ethnicity
+		 * document id XXX
+		 * language
+		 * phone #
+		 */
+		serializeSectionAndFileName(row, offset, null, documentMetadata.fileName);
+
+		for (String key : metrics.codedMetrics.keySet()) {
+
+			metrics.codedMetrics.get(key);
+
+			Cell cell = row.createCell(offset++);
+
+			cell.setCellValue(metrics.codedMetrics.get(key));
+
+			// int offset = serializePatient(row, 0, documentMetadata, patientRole);
+			// offset = serializeEncounter(row, offset, encounter);
+			// offset = serializeSectionAndFileName(row, offset, encounter.getSection(), fileName);
+			// offset = appendValidation(row, offset, encounter);
+
+		}
+		// TODO Auto-generated method stub
+
 	}
 
 }

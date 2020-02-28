@@ -12,8 +12,11 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -26,12 +29,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -81,6 +86,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.mdht.cda.xml.ui.Activator;
+import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.Author;
@@ -472,6 +478,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
+										codeMetricsFile = folder.getFile("codemetrics.cfg");
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
 										processFolder(folder, monitor, splitOption, theSections, theSectionCache);
 									}
@@ -533,6 +540,90 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		MessageConsole myConsole = new MessageConsole(name, null);
 		conMan.addConsoles(new org.eclipse.ui.console.IConsole[] { myConsole });
 		return myConsole;
+	}
+
+	public IFile codeMetricsFile;
+
+	private LinkedHashMap<String, String> getCodedMetrics() {
+
+		LinkedHashMap<String, String> codedMetrics = new LinkedHashMap<String, String>();
+		BufferedReader br = null;
+		String line = "";
+		String cvsSplitBy = ",";
+
+		try {
+
+			if (codeMetricsFile != null) {
+				br = new BufferedReader(new FileReader(codeMetricsFile.getLocation().toOSString()));
+				while ((line = br.readLine()) != null) {
+
+					// use comma as separator
+					String[] s = line.split(cvsSplitBy);
+					if (s.length == 2) {
+						codedMetrics.put(s[0], s[1]);
+					}
+
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// e.printStackTrace();
+		} catch (IOException e) {
+			// e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					// e.printStackTrace();
+				}
+			}
+		}
+
+		return codedMetrics;
+	}
+
+	public CDAMetrics applyMetrics(ClinicalDocument cd) {
+		CDAMetrics cdaMetrics = new CDAMetrics();
+
+		// cdaMetrics.file = file;
+		// cdaMetrics.fileName = file.getName();
+		try {
+
+			// URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
+
+			// Handler handler = new Handler();
+			// ClinicalDocument cd = CDAUtil.load(cdaURI, handler);
+
+			// cdaMetrics.totalErrors = handler.errorCount;
+			// cdaMetrics.totalSections = cd.getSections().size();
+			// for (Section section : cd.getAllSections()) {
+			// cdaMetrics.totalEntries += section.getEntries().size();
+			// }
+
+			// cdaMetrics.totalCodedElements = getMetric(cd, "datatypes::CD.allInstances()");
+
+			// cdaMetrics.totalClinicalStatements = getMetric(cd, "cda::ClinicalStatement.allInstances()");
+
+			HashMap<String, String> codedMetrics = getCodedMetrics();
+
+			cdaMetrics.codedMetricsCount = codedMetrics.size();
+			for (String key : codedMetrics.keySet()) {
+				String ocl = codedMetrics.get(key);
+				Object o = CDAUtil.query(cd, ocl);
+				if (o instanceof Collection && !((Collection) o).isEmpty()) {
+					cdaMetrics.totalCodedMetrics++;
+					cdaMetrics.codedMetrics.put(key, Boolean.TRUE);
+				} else {
+					cdaMetrics.codedMetrics.put(key, Boolean.FALSE);
+				}
+			}
+
+			// cd.eResource().unload();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return cdaMetrics;
 	}
 
 	void format(String fileLocation, IProgressMonitor monitor) throws IOException {
@@ -833,6 +924,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			SXSSFSheet demographicsSheet = wb.createSheet("Demographics");
 			demographicsSheet.setRandomAccessWindowSize(10);
 
+			SXSSFSheet metricsSheet = wb.createSheet("Metrics");
+			metricsSheet.setRandomAccessWindowSize(10);
+
 			// sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
 
 			SXSSFRow row1 = null;
@@ -1096,6 +1190,19 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					SXSSFSheet documentsSheet = wb.getSheet("Documents");
 					SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
 					SXSSFSheet encountersSheet = wb.getSheet("Encounters");
+					SXSSFSheet metricsSheet = wb.getSheet("Metrics");
+
+					Row row1 = null;
+					Row row2 = metricsSheet.createRow(0);
+
+					offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+					offset = SheetHeaderUtil.createDemographicsHeader(row1, row2, offset);
+
+					HashMap<String, String> codedMetrics = getCodedMetrics();
+
+					for (String key : codedMetrics.keySet()) {
+						row2.createCell(offset++).setCellValue(key);
+					}
 
 					List<Encounter> encounters = new ArrayList<Encounter>();
 
@@ -1120,6 +1227,12 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 					if (clinicalDocument instanceof GeneralHeaderConstraints) {
 						console.println("Start Processing ");
+
+						CDAMetrics metrics = applyMetrics(clinicalDocument);
+
+						SpreadsheetSerializer.appendToMetricsSheet(
+							query, metricsSheet, documentMetadata, patientRole, metrics, file.getName());
+
 						EncountersSectionEntriesOptional es = query.getEObject(EncountersSectionEntriesOptional.class);
 
 						if (es != null) {
