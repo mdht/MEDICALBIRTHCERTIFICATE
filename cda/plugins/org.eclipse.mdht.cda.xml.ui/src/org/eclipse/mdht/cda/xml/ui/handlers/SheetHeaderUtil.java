@@ -244,30 +244,30 @@ public class SheetHeaderUtil {
 
 	static int addCodeHeader(Row row1, int offset, String prefix) {
 		row1.createCell(offset++).setCellValue(prefix + " Text");
-		row1.createCell(offset++).setCellValue("Display Name");
-		row1.createCell(offset++).setCellValue("Code");
+		row1.createCell(offset++).setCellValue(prefix + " Display Name");
+		row1.createCell(offset++).setCellValue(prefix + " Code");
 		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Code System");
+		row1.createCell(offset++).setCellValue(prefix + " Code System");
 		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Code System Name");
+		row1.createCell(offset++).setCellValue(prefix + " Code System Name");
 		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Location");
+		row1.createCell(offset++).setCellValue(prefix + " Location");
 		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
 		return offset;
 	}
 
-	static int addCodeHeader2(Row row1, int offset, String prefix) {
-		row1.createCell(offset++).setCellValue(prefix + " Text");
-		row1.createCell(offset++).setCellValue("Code");
-		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Code System");
-		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Code System Name");
-		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		row1.createCell(offset++).setCellValue("Location");
-		row1.getSheet().setColumnHidden(offset - 1, hideColumns);
-		return offset;
-	}
+	// static int addCodeHeader2(Row row1, int offset, String prefix) {
+	// row1.createCell(offset++).setCellValue(prefix + " Text");
+	// row1.createCell(offset++).setCellValue("Code");
+	// row1.getSheet().setColumnHidden(offset - 1, hideColumns);
+	// row1.createCell(offset++).setCellValue("Code System");
+	// row1.getSheet().setColumnHidden(offset - 1, hideColumns);
+	// row1.createCell(offset++).setCellValue("Code System Name");
+	// row1.getSheet().setColumnHidden(offset - 1, hideColumns);
+	// row1.createCell(offset++).setCellValue("Location");
+	// row1.getSheet().setColumnHidden(offset - 1, hideColumns);
+	// return offset;
+	// }
 
 	static int addSectionHeader(Row row1, int offset) {
 		row1.createCell(offset++).setCellValue("Section Title");

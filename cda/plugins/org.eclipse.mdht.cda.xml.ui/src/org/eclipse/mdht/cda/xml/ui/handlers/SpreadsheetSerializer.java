@@ -19,7 +19,6 @@ import java.util.Queue;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.RichTextString;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -30,7 +29,6 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
-import org.eclipse.mdht.cda.xml.ui.handlers.html.HTMLToExcel;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.Author;
@@ -144,9 +142,9 @@ public class SpreadsheetSerializer {
 
 		if (text != null && !StringUtils.isEmpty(text.getText())) {
 			String narrative = text.getText();
-			HTMLToExcel hte = new HTMLToExcel();
-			RichTextString s = hte.fromHtmlToCellValue(narrative, row.getSheet().getWorkbook());
-			row.createCell(offset++).setCellValue(s);
+			// HTMLToExcel hte = new HTMLToExcel();
+			// RichTextString s = hte.fromHtmlToCellValue(narrative, row.getSheet().getWorkbook());
+			row.createCell(offset++).setCellValue(narrative);
 		} else {
 			row.createCell(offset++).setCellValue("No Narrative");
 		}

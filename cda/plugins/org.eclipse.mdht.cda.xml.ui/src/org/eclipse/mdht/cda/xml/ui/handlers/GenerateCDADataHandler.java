@@ -20,6 +20,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Reader;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
@@ -33,16 +34,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 import javax.swing.text.html.HTMLEditorKit;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.poi.openxml4j.util.ZipSecureFile;
@@ -60,20 +66,33 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFileState;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IPathVariableManager;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceProxy;
+import org.eclipse.core.resources.IResourceProxyVisitor;
+import org.eclipse.core.resources.IResourceVisitor;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.content.IContentDescription;
+import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -84,6 +103,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.cda.xml.ui.handlers.AnalyzeCDAHandler.CDAAnalaysisInput.CDAMetrics;
@@ -346,6 +366,66 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	HashMap<Integer, SXSSFWorkbook> workbooks = new HashMap<Integer, SXSSFWorkbook>();
 
+	class ProcessSelection implements IRunnableWithProgress {
+
+		Object object;
+
+		String splitOption;
+
+		String filterOption;
+
+		HashSet<EClass> theSections;
+
+		HashMap<EClass, HashSet<EClass>> theSectionCache;
+
+		/**
+		 * @param iss
+		 * @param splitOption
+		 * @param filterOption
+		 * @param theSections
+		 * @param theSectionCache
+		 */
+		public ProcessSelection(Object object, String splitOption, String filterOption, HashSet<EClass> theSections,
+				HashMap<EClass, HashSet<EClass>> theSectionCache) {
+			super();
+			this.object = object;
+			this.splitOption = splitOption;
+			this.filterOption = filterOption;
+			this.theSections = theSections;
+			this.theSectionCache = theSectionCache;
+		}
+
+		public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
+			try {
+				// @SuppressWarnings("unchecked")
+				// Iterator<Object> iter = iss.iterator();
+				// while (iter.hasNext() && !monitor.isCanceled()) {
+				// Object o = iter.next();
+				if (object instanceof IFolder) {
+					IFolder folder = (IFolder) object;
+					codeMetricsFile = folder.getFile("codemetrics.cfg");
+					monitor.beginTask("Generate Spreadsheet", folder.members().length);
+					processSelection(folder, null, monitor, splitOption, theSections, theSectionCache);
+				}
+
+				if (object instanceof IFile) {
+					IFile zipFile = (IFile) object;
+
+					processSelection(null, zipFile, monitor, splitOption, theSections, theSectionCache);
+
+				}
+				// }
+			} catch (IOException e) {
+				ILog log = Activator.getDefault().getLog();
+				log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
+				throw new InvocationTargetException(e);
+			} catch (Exception e) {
+				ILog log = Activator.getDefault().getLog();
+				log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
+			}
+		}
+	}
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
@@ -462,6 +542,21 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 
 			ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
+
+			if (selection instanceof ITreeSelection) {
+
+				ITreeSelection treeSelection = (ITreeSelection) selection;
+
+				for (Object element : treeSelection.toList()) {
+					// IStructuredSelection aslection = (IStructuredSelection) element;
+
+					pd.run(
+						true, true,
+						new ProcessSelection(element, splitOption, filterOption, theSections, theSectionCache));
+
+				}
+
+			}
 			if (selection instanceof IStructuredSelection) {
 
 				final IStructuredSelection iss = (IStructuredSelection) selection;
@@ -480,7 +575,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 										IFolder folder = (IFolder) o;
 										codeMetricsFile = folder.getFile("codemetrics.cfg");
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
-										processFolder(folder, monitor, splitOption, theSections, theSectionCache);
+										processSelection(
+											folder, null, monitor, splitOption, theSections, theSectionCache);
+									}
+
+									if (o instanceof IFile) {
+										IFile zipFile = (IFile) o;
+
+										processSelection(
+											null, zipFile, monitor, splitOption, theSections, theSectionCache);
+
 									}
 								}
 							} catch (IOException e) {
@@ -567,9 +671,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			}
 
 		} catch (FileNotFoundException e) {
-			// e.printStackTrace();
+
 		} catch (IOException e) {
-			// e.printStackTrace();
+
 		} finally {
 			if (br != null) {
 				try {
@@ -586,25 +690,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 	public CDAMetrics applyMetrics(ClinicalDocument cd) {
 		CDAMetrics cdaMetrics = new CDAMetrics();
 
-		// cdaMetrics.file = file;
-		// cdaMetrics.fileName = file.getName();
 		try {
-
-			// URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
-
-			// Handler handler = new Handler();
-			// ClinicalDocument cd = CDAUtil.load(cdaURI, handler);
-
-			// cdaMetrics.totalErrors = handler.errorCount;
-			// cdaMetrics.totalSections = cd.getSections().size();
-			// for (Section section : cd.getAllSections()) {
-			// cdaMetrics.totalEntries += section.getEntries().size();
-			// }
-
-			// cdaMetrics.totalCodedElements = getMetric(cd, "datatypes::CD.allInstances()");
-
-			// cdaMetrics.totalClinicalStatements = getMetric(cd, "cda::ClinicalStatement.allInstances()");
-
 			HashMap<String, String> codedMetrics = getCodedMetrics();
 
 			cdaMetrics.codedMetricsCount = codedMetrics.size();
@@ -618,8 +704,6 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					cdaMetrics.codedMetrics.put(key, Boolean.FALSE);
 				}
 			}
-
-			// cd.eResource().unload();
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -946,6 +1030,18 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
 			offset = SheetHeaderUtil.createDemographicsHeader(row1, row2, offset);
 
+			row1 = null;
+			row2 = metricsSheet.createRow(0);
+
+			offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createDemographicsHeader(row1, row2, offset);
+
+			HashMap<String, String> codedMetrics = getCodedMetrics();
+
+			for (String key : codedMetrics.keySet()) {
+				row2.createCell(offset++).setCellValue(key);
+			}
+
 			workbooks.put(documentIndex, wb);
 			documents.put(documentIndex, document);
 		}
@@ -1021,8 +1117,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return path;
 	}
 
-	void processFolder(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
-			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
+	void processSelection(IFolder selectedFolder, IFile selectedFile, IProgressMonitor monitor, String splitOption,
+			HashSet<EClass> sectionFilter, HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
 
 		MessageConsole mdhtConsole = findConsole(MDHTCONSOLE);
 		mdhtConsole.setWaterMarks(1000, 8000);
@@ -1066,34 +1162,72 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		long currentProcessingTime = 1;
 		Stopwatch stopwatch = Stopwatch.createUnstarted();
 
-		Comparator<? super IFile> c = new Comparator<IFile>() {
+		Comparator<? super Object> c = new Comparator<Object>() {
 			@Override
-			public int compare(IFile file1, IFile file2) {
+			public int compare(Object object1, Object object2) {
 				try {
-					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file1.getLocationURI());
-					IFileStore fs2 = org.eclipse.core.filesystem.EFS.getStore(file2.getLocationURI());
-					if (fs1.fetchInfo().getLength() < fs2.fetchInfo().getLength()) {
-						return 1;
-					} else {
-						return -1;
+
+					if (object1 instanceof IFile) {
+						IFile file1 = (IFile) object1;
+						IFile file2 = (IFile) object2;
+						IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file1.getLocationURI());
+						IFileStore fs2 = org.eclipse.core.filesystem.EFS.getStore(file2.getLocationURI());
+						if (fs1.fetchInfo().getLength() < fs2.fetchInfo().getLength()) {
+							return 1;
+						} else {
+							return -1;
+						}
 					}
+
 				} catch (CoreException e) {
 				}
 				return 0;
 			}
 		};
 
-		ArrayList<IFile> documents = new ArrayList<IFile>(folder.members().length + 50);
+		/*
+		 * zipFile
+		 *
+		 * for (Enumeration e = zp.entries(); e.hasMoreElements();) {
+		 * ZipEntry zipEntry = (ZipEntry) e.nextElement();
+		 * ClinicalDocument cd = CDAUtil.load(zp.getInputStream(zipEntry));
+		 * CDAUtil.save(cd, System.out);
+		 *
+		 *
+		 * }
+		 */
 
-		for (IResource resource : folder.members()) {
-			if (resource instanceof IFile) {
-				documents.add((IFile) resource);
+		// zipFile.entries().
+		// folder.members().length + 50
+		ArrayList<IFile> documents = new ArrayList<IFile>();
+
+		IFolder folder = null;
+		if (selectedFolder != null) {
+			folder = selectedFolder;
+			for (IResource resource : folder.members()) {
+				if (resource instanceof IFile) {
+					documents.add((IFile) resource);
+				}
+			}
+			Collections.sort(documents, c);
+		}
+
+		if (selectedFile != null) {
+
+			folder = (IFolder) selectedFile.getParent();
+			ZipFile zipFile = new ZipFile(selectedFile.getLocation().toOSString());
+
+			WrapperForZipEnty.zipFile = zipFile;
+
+			for (Enumeration<?> e = zipFile.entries(); e.hasMoreElements();) {
+				ZipEntry zipEntry = (ZipEntry) e.nextElement();
+
+				WrapperForZipEnty wrapper = new WrapperForZipEnty(zipEntry);
+				documents.add(wrapper);
 			}
 		}
 
 		fileCount = documents.size() + 50;
-
-		Collections.sort(documents, c);
 
 		String fileLocation2 = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
 				CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "performance.log";
@@ -1118,8 +1252,11 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				break;
 			}
 
-			IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
-			long fileSize = fs1.fetchInfo().getLength();
+			long fileSize = 100;
+			if (file.getLocationURI() != null) {
+				IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+				fileSize = fs1.fetchInfo().getLength();
+			}
 
 			if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 				files.add(file);
@@ -1148,12 +1285,14 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					console.println(getMemoryUssage());
 					console.println("file : " + file.getName() + "  size : " + fileSize);
 
-					URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
+					// URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-					console.println("Start Load " + cdaURI.toFileString());
+					// console.println("Start Load " + cdaURI.toFileString());
 
 					ClinicalDocument clinicalDocument = null;
-					try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
+					//
+
+					try (InputStream is = file.getContents()) {
 
 						ValidationResult vr = null;
 						if (!omitValidation) {
@@ -1191,18 +1330,6 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
 					SXSSFSheet encountersSheet = wb.getSheet("Encounters");
 					SXSSFSheet metricsSheet = wb.getSheet("Metrics");
-
-					Row row1 = null;
-					Row row2 = metricsSheet.createRow(0);
-
-					offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
-					offset = SheetHeaderUtil.createDemographicsHeader(row1, row2, offset);
-
-					HashMap<String, String> codedMetrics = getCodedMetrics();
-
-					for (String key : codedMetrics.keySet()) {
-						row2.createCell(offset++).setCellValue(key);
-					}
 
 					List<Encounter> encounters = new ArrayList<Encounter>();
 
@@ -1458,9 +1585,18 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			// cell.setCellFormula(strFormula);
 			// }
 
-			String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-					CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
-					getFileName(eClass, splitOption) + "_SA.xlsx";
+			String fileLocation = "";
+			if (selectedFile != null) {
+				fileLocation = selectedFile.getParent().getLocation().toOSString() +
+						System.getProperty("file.separator") + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" +
+						selectedFile.getName().toUpperCase().replace(".ZIP", "") + getFileName(eClass, splitOption) +
+						"_SA.xlsx";
+			} else {
+				fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
+						CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+						getFileName(eClass, splitOption) + "_SA.xlsx";
+			}
+
 			File theFile = new File(fileLocation);
 
 			// If the file exists, check to see if we can open it
@@ -1539,5 +1675,1056 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 *
+	 * WrapperForZipEnty implements just enough of IFILE as to not have to rewrite zip file processing
+	 *
+	 *
+	 * @author seanmuir
+	 *
+	 */
+	private static class WrapperForZipEnty implements IFile {
+
+		static ZipFile zipFile;
+
+		ZipEntry zipEntry;
+
+		/**
+		 * @param zipEntry
+		 */
+		public WrapperForZipEnty(ZipEntry zipEntry) {
+			this.zipEntry = zipEntry;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.internal.resources.Resource#getType()
+		 */
+		@Override
+		public int getType() {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#appendContents(java.io.InputStream, boolean, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void appendContents(InputStream source, boolean force, boolean keepHistory, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#appendContents(java.io.InputStream, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void appendContents(InputStream source, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#create(java.io.InputStream, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void create(InputStream source, boolean force, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#create(java.io.InputStream, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void create(InputStream source, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getCharset()
+		 */
+		@Override
+		public String getCharset() throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getCharset(boolean)
+		 */
+		@Override
+		public String getCharset(boolean checkImplicit) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getCharsetFor(java.io.Reader)
+		 */
+		@Override
+		public String getCharsetFor(Reader reader) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getContentDescription()
+		 */
+		@Override
+		public IContentDescription getContentDescription() throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getContents()
+		 */
+		@Override
+		public InputStream getContents() throws CoreException {
+			try {
+				return zipFile.getInputStream(this.zipEntry);
+			} catch (IOException e) {
+				throw new CoreException(null);
+			}
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getContents(boolean)
+		 */
+		@Override
+		public InputStream getContents(boolean force) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getEncoding()
+		 */
+		@Override
+		public int getEncoding() throws CoreException {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getHistory(org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public IFileState[] getHistory(IProgressMonitor monitor) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setCharset(java.lang.String)
+		 */
+		@Override
+		public void setCharset(String newCharset) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setCharset(java.lang.String, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setCharset(String newCharset, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setContents(java.io.InputStream, boolean, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setContents(InputStream source, boolean force, boolean keepHistory, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setContents(org.eclipse.core.resources.IFileState, boolean, boolean,
+		 * org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setContents(IFileState source, boolean force, boolean keepHistory, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setContents(java.io.InputStream, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setContents(InputStream source, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#setContents(org.eclipse.core.resources.IFileState, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setContents(IFileState source, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#accept(org.eclipse.core.resources.IResourceProxyVisitor, int)
+		 */
+		@Override
+		public void accept(IResourceProxyVisitor visitor, int memberFlags) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#accept(org.eclipse.core.resources.IResourceProxyVisitor, int, int)
+		 */
+		@Override
+		public void accept(IResourceProxyVisitor visitor, int depth, int memberFlags) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#accept(org.eclipse.core.resources.IResourceVisitor)
+		 */
+		@Override
+		public void accept(IResourceVisitor visitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#accept(org.eclipse.core.resources.IResourceVisitor, int, boolean)
+		 */
+		@Override
+		public void accept(IResourceVisitor visitor, int depth, boolean includePhantoms) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#accept(org.eclipse.core.resources.IResourceVisitor, int, int)
+		 */
+		@Override
+		public void accept(IResourceVisitor visitor, int depth, int memberFlags) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#clearHistory(org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void clearHistory(IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#copy(org.eclipse.core.runtime.IPath, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void copy(IPath destination, boolean force, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#copy(org.eclipse.core.runtime.IPath, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void copy(IPath destination, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#copy(org.eclipse.core.resources.IProjectDescription, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void copy(IProjectDescription description, boolean force, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#copy(org.eclipse.core.resources.IProjectDescription, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void copy(IProjectDescription description, int updateFlags, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#createMarker(java.lang.String)
+		 */
+		@Override
+		public IMarker createMarker(String type) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#createProxy()
+		 */
+		@Override
+		public IResourceProxy createProxy() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#delete(boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void delete(boolean force, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#delete(int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void delete(int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#deleteMarkers(java.lang.String, boolean, int)
+		 */
+		@Override
+		public void deleteMarkers(String type, boolean includeSubtypes, int depth) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#exists()
+		 */
+		@Override
+		public boolean exists() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#findMarker(long)
+		 */
+		@Override
+		public IMarker findMarker(long id) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#findMarkers(java.lang.String, boolean, int)
+		 */
+		@Override
+		public IMarker[] findMarkers(String type, boolean includeSubtypes, int depth) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#findMaxProblemSeverity(java.lang.String, boolean, int)
+		 */
+		@Override
+		public int findMaxProblemSeverity(String type, boolean includeSubtypes, int depth) throws CoreException {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getFileExtension()
+		 */
+		@Override
+		public String getFileExtension() {
+			// String fn = ;
+
+			return FilenameUtils.getExtension(this.zipEntry.getName());
+
+			// return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getLocalTimeStamp()
+		 */
+		@Override
+		public long getLocalTimeStamp() {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getLocation()
+		 */
+		@Override
+		public IPath getLocation() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getLocationURI()
+		 */
+		@Override
+		public java.net.URI getLocationURI() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getMarker(long)
+		 */
+		@Override
+		public IMarker getMarker(long id) {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getModificationStamp()
+		 */
+		@Override
+		public long getModificationStamp() {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getPathVariableManager()
+		 */
+		@Override
+		public IPathVariableManager getPathVariableManager() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getParent()
+		 */
+		@Override
+		public IContainer getParent() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getPersistentProperties()
+		 */
+		@Override
+		public Map<QualifiedName, String> getPersistentProperties() throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getPersistentProperty(org.eclipse.core.runtime.QualifiedName)
+		 */
+		@Override
+		public String getPersistentProperty(QualifiedName key) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getProject()
+		 */
+		@Override
+		public IProject getProject() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getProjectRelativePath()
+		 */
+		@Override
+		public IPath getProjectRelativePath() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getRawLocation()
+		 */
+		@Override
+		public IPath getRawLocation() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getRawLocationURI()
+		 */
+		@Override
+		public java.net.URI getRawLocationURI() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getResourceAttributes()
+		 */
+		@Override
+		public ResourceAttributes getResourceAttributes() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getSessionProperties()
+		 */
+		@Override
+		public Map<QualifiedName, Object> getSessionProperties() throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getSessionProperty(org.eclipse.core.runtime.QualifiedName)
+		 */
+		@Override
+		public Object getSessionProperty(QualifiedName key) throws CoreException {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#getWorkspace()
+		 */
+		@Override
+		public IWorkspace getWorkspace() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isAccessible()
+		 */
+		@Override
+		public boolean isAccessible() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isDerived()
+		 */
+		@Override
+		public boolean isDerived() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isDerived(int)
+		 */
+		@Override
+		public boolean isDerived(int options) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isHidden()
+		 */
+		@Override
+		public boolean isHidden() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isHidden(int)
+		 */
+		@Override
+		public boolean isHidden(int options) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isLinked()
+		 */
+		@Override
+		public boolean isLinked() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isVirtual()
+		 */
+		@Override
+		public boolean isVirtual() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isLinked(int)
+		 */
+		@Override
+		public boolean isLinked(int options) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isLocal(int)
+		 */
+		@Override
+		public boolean isLocal(int depth) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isPhantom()
+		 */
+		@Override
+		public boolean isPhantom() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isSynchronized(int)
+		 */
+		@Override
+		public boolean isSynchronized(int depth) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isTeamPrivateMember()
+		 */
+		@Override
+		public boolean isTeamPrivateMember() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#isTeamPrivateMember(int)
+		 */
+		@Override
+		public boolean isTeamPrivateMember(int options) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#move(org.eclipse.core.runtime.IPath, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void move(IPath destination, boolean force, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#move(org.eclipse.core.runtime.IPath, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void move(IPath destination, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#move(org.eclipse.core.resources.IProjectDescription, boolean, boolean,
+		 * org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void move(IProjectDescription description, boolean force, boolean keepHistory, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#move(org.eclipse.core.resources.IProjectDescription, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void move(IProjectDescription description, int updateFlags, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#refreshLocal(int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void refreshLocal(int depth, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#revertModificationStamp(long)
+		 */
+		@Override
+		public void revertModificationStamp(long value) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setDerived(boolean)
+		 */
+		@Override
+		public void setDerived(boolean isDerived) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setDerived(boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setDerived(boolean isDerived, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setHidden(boolean)
+		 */
+		@Override
+		public void setHidden(boolean isHidden) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setLocal(boolean, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void setLocal(boolean flag, int depth, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setLocalTimeStamp(long)
+		 */
+		@Override
+		public long setLocalTimeStamp(long value) throws CoreException {
+
+			return 0;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setPersistentProperty(org.eclipse.core.runtime.QualifiedName, java.lang.String)
+		 */
+		@Override
+		public void setPersistentProperty(QualifiedName key, String value) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setReadOnly(boolean)
+		 */
+		@Override
+		public void setReadOnly(boolean readOnly) {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setResourceAttributes(org.eclipse.core.resources.ResourceAttributes)
+		 */
+		@Override
+		public void setResourceAttributes(ResourceAttributes attributes) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setSessionProperty(org.eclipse.core.runtime.QualifiedName, java.lang.Object)
+		 */
+		@Override
+		public void setSessionProperty(QualifiedName key, Object value) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#setTeamPrivateMember(boolean)
+		 */
+		@Override
+		public void setTeamPrivateMember(boolean isTeamPrivate) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IResource#touch(org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void touch(IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
+		 */
+		@Override
+		public <T> T getAdapter(Class<T> adapter) {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.runtime.jobs.ISchedulingRule#contains(org.eclipse.core.runtime.jobs.ISchedulingRule)
+		 */
+		@Override
+		public boolean contains(ISchedulingRule rule) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.runtime.jobs.ISchedulingRule#isConflicting(org.eclipse.core.runtime.jobs.ISchedulingRule)
+		 */
+		@Override
+		public boolean isConflicting(ISchedulingRule rule) {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#createLink(org.eclipse.core.runtime.IPath, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void createLink(IPath localLocation, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#createLink(java.net.URI, int, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void createLink(java.net.URI location, int updateFlags, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#delete(boolean, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void delete(boolean force, boolean keepHistory, IProgressMonitor monitor) throws CoreException {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getFullPath()
+		 */
+		@Override
+		public IPath getFullPath() {
+
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#getName()
+		 */
+		@Override
+		public String getName() {
+			return zipEntry.getName();
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#isReadOnly()
+		 */
+		@Override
+		public boolean isReadOnly() {
+
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.eclipse.core.resources.IFile#move(org.eclipse.core.runtime.IPath, boolean, boolean, org.eclipse.core.runtime.IProgressMonitor)
+		 */
+		@Override
+		public void move(IPath destination, boolean force, boolean keepHistory, IProgressMonitor monitor)
+				throws CoreException {
+
+		}
+
 	}
 }

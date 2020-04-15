@@ -1441,7 +1441,7 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 
 		offset = SpreadsheetSerializer.serializeNoEnounterID(row, offset);
 
-		offset = SpreadsheetSerializer.serializeStrucDocText(row, offset, text);
+		// offset = SpreadsheetSerializer.serializeStrucDocText(row, offset, text);
 
 		SpreadsheetSerializer.serializeSectionAndFileName(row, offset, (Section) text.eContainer(), fileName);
 
