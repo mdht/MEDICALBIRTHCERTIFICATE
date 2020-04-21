@@ -38,7 +38,7 @@
 		<module>dita</module>
 		<module>cda</module>
 		<module>fhir</module>
-	 
+<module>releng/p2-site</module>	 
 	</modules>
 
 	<repositories>
