@@ -60,7 +60,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -94,7 +94,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,29 +108,27 @@ public class ENOperations extends ANYOperations {
 	 */
 	public static boolean validateDelimiter(EN en, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EN);
-				try {
-					VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EN);
+			try {
+				VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_DELIMITER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(en)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.EN__DELIMITER,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateDelimiter",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
-						new Object[] { en }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EN__DELIMITER,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateDelimiter", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
+						 new Object [] { en }));
 			}
 			return false;
 		}
@@ -155,7 +153,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,29 +167,27 @@ public class ENOperations extends ANYOperations {
 	 */
 	public static boolean validateFamily(EN en, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EN);
-				try {
-					VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EN);
+			try {
+				VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_FAMILY__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(en)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.EN__FAMILY,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateFamily",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
-						new Object[] { en }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EN__FAMILY,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateFamily", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
+						 new Object [] { en }));
 			}
 			return false;
 		}
@@ -216,7 +212,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,29 +226,27 @@ public class ENOperations extends ANYOperations {
 	 */
 	public static boolean validateGiven(EN en, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EN);
-				try {
-					VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EN);
+			try {
+				VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_GIVEN__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(en)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.EN__GIVEN,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateGiven",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
-						new Object[] { en }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EN__GIVEN,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateGiven", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
+						 new Object [] { en }));
 			}
 			return false;
 		}
@@ -277,7 +271,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,29 +285,27 @@ public class ENOperations extends ANYOperations {
 	 */
 	public static boolean validatePrefix(EN en, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EN);
-				try {
-					VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EN);
+			try {
+				VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_PREFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(en)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.EN__PREFIX,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validatePrefix",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
-						new Object[] { en }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EN__PREFIX,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validatePrefix", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
+						 new Object [] { en }));
 			}
 			return false;
 		}
@@ -338,7 +330,7 @@ public class ENOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -352,29 +344,27 @@ public class ENOperations extends ANYOperations {
 	 */
 	public static boolean validateSuffix(EN en, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EN);
-				try {
-					VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EN);
+			try {
+				VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_SUFFIX__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(en)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE, DatatypesValidator.EN__SUFFIX,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateSuffix",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
-						new Object[] { en }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EN__SUFFIX,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateSuffix", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(en, context) }),
+						 new Object [] { en }));
 			}
 			return false;
 		}

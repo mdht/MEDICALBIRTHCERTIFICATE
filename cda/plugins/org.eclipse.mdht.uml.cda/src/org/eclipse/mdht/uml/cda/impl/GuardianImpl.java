@@ -260,13 +260,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.GUARDIAN__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -279,21 +274,15 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -339,13 +328,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.GUARDIAN__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -358,21 +342,15 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__CODE, newCode, newCode));
 	}
 
 	/**
@@ -417,13 +395,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		Person oldGuardianPerson = guardianPerson;
 		guardianPerson = newGuardianPerson;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_PERSON, oldGuardianPerson, newGuardianPerson);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_PERSON, oldGuardianPerson, newGuardianPerson);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -436,22 +409,15 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	public void setGuardianPerson(Person newGuardianPerson) {
 		if (newGuardianPerson != guardianPerson) {
 			NotificationChain msgs = null;
-			if (guardianPerson != null) {
-				msgs = ((InternalEObject) guardianPerson).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_PERSON, null, msgs);
-			}
-			if (newGuardianPerson != null) {
-				msgs = ((InternalEObject) newGuardianPerson).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_PERSON, null, msgs);
-			}
+			if (guardianPerson != null)
+				msgs = ((InternalEObject)guardianPerson).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_PERSON, null, msgs);
+			if (newGuardianPerson != null)
+				msgs = ((InternalEObject)newGuardianPerson).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_PERSON, null, msgs);
 			msgs = basicSetGuardianPerson(newGuardianPerson, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_PERSON,
-				newGuardianPerson, newGuardianPerson));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_PERSON, newGuardianPerson, newGuardianPerson));
 	}
 
 	/**
@@ -473,14 +439,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		Organization oldGuardianOrganization = guardianOrganization;
 		guardianOrganization = newGuardianOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, oldGuardianOrganization,
-				newGuardianOrganization);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, oldGuardianOrganization, newGuardianOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -493,22 +453,15 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	public void setGuardianOrganization(Organization newGuardianOrganization) {
 		if (newGuardianOrganization != guardianOrganization) {
 			NotificationChain msgs = null;
-			if (guardianOrganization != null) {
-				msgs = ((InternalEObject) guardianOrganization).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, null, msgs);
-			}
-			if (newGuardianOrganization != null) {
-				msgs = ((InternalEObject) newGuardianOrganization).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, null, msgs);
-			}
+			if (guardianOrganization != null)
+				msgs = ((InternalEObject)guardianOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, null, msgs);
+			if (newGuardianOrganization != null)
+				msgs = ((InternalEObject)newGuardianOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, null, msgs);
 			msgs = basicSetGuardianOrganization(newGuardianOrganization, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION,
-				newGuardianOrganization, newGuardianOrganization));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION, newGuardianOrganization, newGuardianOrganization));
 	}
 
 	/**
@@ -528,15 +481,11 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -549,10 +498,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.GUARDIAN__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.GUARDIAN__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -581,15 +528,11 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	 */
 	public void setClassCode(RoleClass newClassCode) {
 		RoleClass oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.GUARDIAN__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -602,10 +545,8 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.GUARDIAN__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.GUARDIAN__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -644,19 +585,19 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.GUARDIAN__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.GUARDIAN__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.GUARDIAN__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.GUARDIAN__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.GUARDIAN__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.GUARDIAN__ADDR:
-				return ((InternalEList<?>) getAddrs()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getAddrs()).basicRemove(otherEnd, msgs);
 			case CDAPackage.GUARDIAN__TELECOM:
-				return ((InternalEList<?>) getTelecoms()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTelecoms()).basicRemove(otherEnd, msgs);
 			case CDAPackage.GUARDIAN__GUARDIAN_PERSON:
 				return basicSetGuardianPerson(null, msgs);
 			case CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION:
@@ -710,41 +651,41 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 		switch (featureID) {
 			case CDAPackage.GUARDIAN__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.GUARDIAN__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.GUARDIAN__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.GUARDIAN__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.GUARDIAN__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.GUARDIAN__ADDR:
 				getAddrs().clear();
-				getAddrs().addAll((Collection<? extends AD>) newValue);
+				getAddrs().addAll((Collection<? extends AD>)newValue);
 				return;
 			case CDAPackage.GUARDIAN__TELECOM:
 				getTelecoms().clear();
-				getTelecoms().addAll((Collection<? extends TEL>) newValue);
+				getTelecoms().addAll((Collection<? extends TEL>)newValue);
 				return;
 			case CDAPackage.GUARDIAN__GUARDIAN_PERSON:
-				setGuardianPerson((Person) newValue);
+				setGuardianPerson((Person)newValue);
 				return;
 			case CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION:
-				setGuardianOrganization((Organization) newValue);
+				setGuardianOrganization((Organization)newValue);
 				return;
 			case CDAPackage.GUARDIAN__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.GUARDIAN__CLASS_CODE:
-				setClassCode((RoleClass) newValue);
+				setClassCode((RoleClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -762,7 +703,7 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.GUARDIAN__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.GUARDIAN__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -771,7 +712,7 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 				getIds().clear();
 				return;
 			case CDAPackage.GUARDIAN__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.GUARDIAN__ADDR:
 				getAddrs().clear();
@@ -780,10 +721,10 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 				getTelecoms().clear();
 				return;
 			case CDAPackage.GUARDIAN__GUARDIAN_PERSON:
-				setGuardianPerson((Person) null);
+				setGuardianPerson((Person)null);
 				return;
 			case CDAPackage.GUARDIAN__GUARDIAN_ORGANIZATION:
-				setGuardianOrganization((Organization) null);
+				setGuardianOrganization((Organization)null);
 				return;
 			case CDAPackage.GUARDIAN__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -836,23 +777,13 @@ public class GuardianImpl extends RoleImpl implements Guardian {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

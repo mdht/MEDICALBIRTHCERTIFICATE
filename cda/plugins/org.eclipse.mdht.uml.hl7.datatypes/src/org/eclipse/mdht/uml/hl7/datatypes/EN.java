@@ -237,7 +237,7 @@ public interface EN extends ANY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter->forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::DEL)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter-&gt;forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::DEL)'"
 	 * @generated
 	 */
 	boolean validateDelimiter(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -249,7 +249,7 @@ public interface EN extends ANY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.family->forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::FAM)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.family-&gt;forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::FAM)'"
 	 * @generated
 	 */
 	boolean validateFamily(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -261,7 +261,7 @@ public interface EN extends ANY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.given->forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::GIV)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.given-&gt;forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::GIV)'"
 	 * @generated
 	 */
 	boolean validateGiven(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -273,7 +273,7 @@ public interface EN extends ANY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.prefix->forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::PFX)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.prefix-&gt;forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::PFX)'"
 	 * @generated
 	 */
 	boolean validatePrefix(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -285,7 +285,7 @@ public interface EN extends ANY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.suffix->forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::SFX)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.suffix-&gt;forAll(enxp : datatypes::ENXP | enxp.partType = vocab::EntityNamePartType::SFX)'"
 	 * @generated
 	 */
 	boolean validateSuffix(DiagnosticChain diagnostics, Map<Object, Object> context);

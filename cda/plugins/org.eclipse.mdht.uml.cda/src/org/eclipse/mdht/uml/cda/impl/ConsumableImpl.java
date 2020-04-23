@@ -201,13 +201,8 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -220,22 +215,15 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -270,14 +258,8 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 		ManufacturedProduct oldManufacturedProduct = manufacturedProduct;
 		manufacturedProduct = newManufacturedProduct;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, oldManufacturedProduct,
-				newManufacturedProduct);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, oldManufacturedProduct, newManufacturedProduct);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -290,22 +272,15 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	public void setManufacturedProduct(ManufacturedProduct newManufacturedProduct) {
 		if (newManufacturedProduct != manufacturedProduct) {
 			NotificationChain msgs = null;
-			if (manufacturedProduct != null) {
-				msgs = ((InternalEObject) manufacturedProduct).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, null, msgs);
-			}
-			if (newManufacturedProduct != null) {
-				msgs = ((InternalEObject) newManufacturedProduct).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, null, msgs);
-			}
+			if (manufacturedProduct != null)
+				msgs = ((InternalEObject)manufacturedProduct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, null, msgs);
+			if (newManufacturedProduct != null)
+				msgs = ((InternalEObject)newManufacturedProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, null, msgs);
 			msgs = basicSetManufacturedProduct(newManufacturedProduct, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT,
-				newManufacturedProduct, newManufacturedProduct));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT, newManufacturedProduct, newManufacturedProduct));
 	}
 
 	/**
@@ -325,15 +300,11 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -346,10 +317,8 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSUMABLE__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSUMABLE__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -378,15 +347,11 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	 */
 	public void setTypeCode(ParticipationType newTypeCode) {
 		ParticipationType oldTypeCode = typeCode;
-		typeCode = newTypeCode == null
-				? TYPE_CODE_EDEFAULT
-				: newTypeCode;
+		typeCode = newTypeCode == null ? TYPE_CODE_EDEFAULT : newTypeCode;
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_CODE, oldTypeCode,
-				typeCode, !oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSUMABLE__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 	}
 
 	/**
@@ -399,10 +364,8 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSUMABLE__TYPE_CODE, oldTypeCode,
-				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSUMABLE__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 	}
 
 	/**
@@ -432,11 +395,11 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.CONSUMABLE__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.CONSUMABLE__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.CONSUMABLE__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT:
 				return basicSetManufacturedProduct(null, msgs);
 		}
@@ -478,23 +441,23 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 		switch (featureID) {
 			case CDAPackage.CONSUMABLE__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.CONSUMABLE__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.CONSUMABLE__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT:
-				setManufacturedProduct((ManufacturedProduct) newValue);
+				setManufacturedProduct((ManufacturedProduct)newValue);
 				return;
 			case CDAPackage.CONSUMABLE__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.CONSUMABLE__TYPE_CODE:
-				setTypeCode((ParticipationType) newValue);
+				setTypeCode((ParticipationType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -512,13 +475,13 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.CONSUMABLE__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.CONSUMABLE__TEMPLATE_ID:
 				getTemplateIds().clear();
 				return;
 			case CDAPackage.CONSUMABLE__MANUFACTURED_PRODUCT:
-				setManufacturedProduct((ManufacturedProduct) null);
+				setManufacturedProduct((ManufacturedProduct)null);
 				return;
 			case CDAPackage.CONSUMABLE__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -561,23 +524,13 @@ public class ConsumableImpl extends ParticipationImpl implements Consumable {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", typeCode: ");
-		if (typeCodeESet) {
-			result.append(typeCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (typeCodeESet) result.append(typeCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

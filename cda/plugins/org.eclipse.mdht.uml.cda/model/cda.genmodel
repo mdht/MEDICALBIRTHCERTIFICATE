@@ -795,6 +795,22 @@
           createChild="true" ecoreFeature="ecore:EReference cda.ecore#//AssociatedEntity/sDTCPatient"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//AssociatedEntity/nullFlavor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//AssociatedEntity/classCode"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//AssociatedEntity/IdentityDoc"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cda.ecore#//IdentityDoc">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/Series"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/Number"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/IssueOrgName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/IssueOrgCode"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/IssueDate"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//IdentityDoc/IdentityCardTypeId"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cda.ecore#//InFulfillmentOf">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -1370,6 +1386,8 @@
           createChild="true" ecoreFeature="ecore:EReference cda.ecore#//RelatedSubject/subject"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//RelatedSubject/nullFlavor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//RelatedSubject/classCode"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference cda.ecore#//RelatedSubject/IdentityDoc"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cda.ecore#//SubjectPerson">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"

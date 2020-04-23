@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.Entity;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -44,7 +45,7 @@ public class EntityOperations extends org.eclipse.mdht.uml.hl7.rim.operations.En
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -78,7 +79,7 @@ public class EntityOperations extends org.eclipse.mdht.uml.hl7.rim.operations.En
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,30 +93,42 @@ public class EntityOperations extends org.eclipse.mdht.uml.hl7.rim.operations.En
 	 */
 	public static boolean validateDeterminerCode(Entity entity, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"EntityDeterminerCode","null");
+    
+      
 		if (VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.ENTITY);
-				try {
-					VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.ENTITY);
+			try {
+				VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_DETERMINER_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(entity)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.ENTITY__DETERMINER_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateDeterminerCode",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(entity, context) }),
-						new Object[] { entity }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.ENTITY__DETERMINER_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateDeterminerCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(entity, context) }),
+						 new Object [] { entity }));
 			}
 			return false;
 		}

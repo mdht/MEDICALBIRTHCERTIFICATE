@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics;
 
 // class to collect diagnostics produced during XML schema validation and/or EMF validation
 public class ValidationResult implements ValidationHandler {
@@ -59,9 +60,9 @@ public class ValidationResult implements ValidationHandler {
 	public List<Diagnostic> getEMFValidationDiagnostics() {
 		return getDiagnostics(new Filter<Diagnostic>() {
 			public boolean accept(Diagnostic item) {
-				return !SCHEMA_VALIDATION_DIAGNOSTIC_SOURCE.equals(item.getSource()) &&
-						!EMF_COMMON_DIAGNOSTIC_SOURCE.equals(item.getSource()) &&
-						!EMF_RESOURCE_DIAGNOSTIC_SOURCE.equals(item.getSource());
+				return !SCHEMA_VALIDATION_DIAGNOSTIC_SOURCE.equals(item.getSource())
+						&& !EMF_COMMON_DIAGNOSTIC_SOURCE.equals(item.getSource())
+						&& !EMF_RESOURCE_DIAGNOSTIC_SOURCE.equals(item.getSource());
 			}
 		});
 	}
@@ -70,8 +71,8 @@ public class ValidationResult implements ValidationHandler {
 	public List<Diagnostic> getEMFResourceDiagnostics() {
 		return getDiagnostics(new Filter<Diagnostic>() {
 			public boolean accept(Diagnostic item) {
-				return EMF_COMMON_DIAGNOSTIC_SOURCE.equals(item.getSource()) ||
-						EMF_RESOURCE_DIAGNOSTIC_SOURCE.equals(item.getSource());
+				return EMF_COMMON_DIAGNOSTIC_SOURCE.equals(item.getSource())
+						|| EMF_RESOURCE_DIAGNOSTIC_SOURCE.equals(item.getSource());
 			}
 		});
 	}
@@ -114,5 +115,38 @@ public class ValidationResult implements ValidationHandler {
 
 	public boolean hasErrors() {
 		return !errorDiagnostics.isEmpty();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#isCaptureValidationStatistics()
+	 */
+	@Override
+	public boolean isCaptureValidationStatistics() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#getValidationStatistics()
+	 */
+	@Override
+	public ValidationStatistics getValidationStatistics() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#setValidationStatistics(org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics)
+	 */
+	@Override
+	public void setValidationStatistics(ValidationStatistics validationStatistics) {
+		// TODO Auto-generated method stub
+
 	}
 }

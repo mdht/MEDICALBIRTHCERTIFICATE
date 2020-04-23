@@ -32,6 +32,7 @@ import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.StructuredBody;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.mdht.uml.hl7.rim.operations.ActOperations;
 import org.eclipse.ocl.EvaluationEnvironment;
 import org.eclipse.ocl.ParserException;
@@ -73,7 +74,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -107,7 +108,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,31 +122,42 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 */
 	public static boolean validateClassCode(ClinicalDocument clinicalDocument, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ClinicalDocumentClassCode","null");
+    
+      
 		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.CLINICAL_DOCUMENT);
-				try {
-					VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.CLINICAL_DOCUMENT);
+			try {
+				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			clinicalDocument)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(clinicalDocument)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.CLINICAL_DOCUMENT__CLASS_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										clinicalDocument, context) }),
-						new Object[] { clinicalDocument }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.CLINICAL_DOCUMENT__CLASS_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(clinicalDocument, context) }),
+						 new Object [] { clinicalDocument }));
 			}
 			return false;
 		}
@@ -170,7 +182,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,31 +196,42 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 */
 	public static boolean validateMoodCode(ClinicalDocument clinicalDocument, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ClinicalDocumentMoodCode","null");
+    
+      
 		if (VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.CLINICAL_DOCUMENT);
-				try {
-					VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.CLINICAL_DOCUMENT);
+			try {
+				VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			clinicalDocument)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(clinicalDocument)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.CLINICAL_DOCUMENT__MOOD_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateMoodCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										clinicalDocument, context) }),
-						new Object[] { clinicalDocument }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.CLINICAL_DOCUMENT__MOOD_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateMoodCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(clinicalDocument, context) }),
+						 new Object [] { clinicalDocument }));
 			}
 			return false;
 		}
@@ -268,7 +291,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_PATIENTS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_PATIENTS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,17 +299,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Patient> getPatients(ClinicalDocument clinicalDocument) {
+	
+		
+	
+	
+	
+	
 		if (GET_PATIENTS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(21));
-				try {
-					GET_PATIENTS__EOCL_QRY.set(helper.createQuery(GET_PATIENTS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(21));
+			try {
+				GET_PATIENTS__EOCL_QRY.set(helper.createQuery(GET_PATIENTS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_PATIENTS__EOCL_QRY.get());
@@ -313,7 +341,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_PATIENT_ROLES__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_PATIENT_ROLES__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -321,17 +349,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<PatientRole> getPatientRoles(ClinicalDocument clinicalDocument) {
+	
+		
+	
+	
+	
+	
 		if (GET_PATIENT_ROLES__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(22));
-				try {
-					GET_PATIENT_ROLES__EOCL_QRY.set(helper.createQuery(GET_PATIENT_ROLES__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(22));
+			try {
+				GET_PATIENT_ROLES__EOCL_QRY.set(helper.createQuery(GET_PATIENT_ROLES__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_PATIENT_ROLES__EOCL_QRY.get());
@@ -358,7 +391,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_SECTIONS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_SECTIONS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,17 +399,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Section> getSections(ClinicalDocument clinicalDocument) {
+	
+		
+	
+	
+	
+	
 		if (GET_SECTIONS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(23));
-				try {
-					GET_SECTIONS__EOCL_QRY.set(helper.createQuery(GET_SECTIONS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(23));
+			try {
+				GET_SECTIONS__EOCL_QRY.set(helper.createQuery(GET_SECTIONS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_SECTIONS__EOCL_QRY.get());
@@ -413,7 +451,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_CODE__STRING_STRING_STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_CODE__STRING_STRING_STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,18 +460,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 */
 	public static boolean hasCode(ClinicalDocument clinicalDocument, String code, String codeSystem,
 			String codeSystemName) {
+	
+		
+	
+	
+	
+	
 		if (HAS_CODE__STRING_STRING_STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(25));
-				try {
-					HAS_CODE__STRING_STRING_STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(25));
+			try {
+				HAS_CODE__STRING_STRING_STRING__EOCL_QRY.set(helper.createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_QRY.get());
@@ -462,7 +504,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_SECTION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_SECTION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -470,18 +512,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasSectionTemplate(ClinicalDocument clinicalDocument, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(26));
-				try {
-					HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(26));
+			try {
+				HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.get());
@@ -508,7 +554,7 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_TEMPLATE_ID__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_TEMPLATE_ID__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -516,17 +562,22 @@ public class ClinicalDocumentOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasTemplateId(ClinicalDocument clinicalDocument, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_TEMPLATE_ID__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.CLINICAL_DOCUMENT,
-					CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(27));
-				try {
-					HAS_TEMPLATE_ID__STRING__EOCL_QRY.set(helper.createQuery(HAS_TEMPLATE_ID__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.CLINICAL_DOCUMENT, CDAPackage.Literals.CLINICAL_DOCUMENT.getEAllOperations().get(27));
+			try {
+				HAS_TEMPLATE_ID__STRING__EOCL_QRY.set(helper.createQuery(HAS_TEMPLATE_ID__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_TEMPLATE_ID__STRING__EOCL_QRY.get());

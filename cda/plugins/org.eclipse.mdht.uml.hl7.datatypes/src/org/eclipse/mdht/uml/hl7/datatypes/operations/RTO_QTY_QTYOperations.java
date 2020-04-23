@@ -44,7 +44,7 @@ public class RTO_QTY_QTYOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -78,7 +78,7 @@ public class RTO_QTY_QTYOperations extends ANYOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,31 +93,27 @@ public class RTO_QTY_QTYOperations extends ANYOperations {
 	public static boolean validateDenominator(RTO_QTY_QTY rtO_QTY_QTY, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.RTO_QTY_QTY);
-				try {
-					VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.RTO_QTY_QTY);
+			try {
+				VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			rtO_QTY_QTY)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_DENOMINATOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(rtO_QTY_QTY)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-						DatatypesValidator.RTO_QTY_QTY__DENOMINATOR,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateDenominator",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(rtO_QTY_QTY, context) }),
-						new Object[] { rtO_QTY_QTY }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.RTO_QTY_QTY__DENOMINATOR,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateDenominator", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(rtO_QTY_QTY, context) }),
+						 new Object [] { rtO_QTY_QTY }));
 			}
 			return false;
 		}

@@ -111,7 +111,7 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	 * @generated
 	 */
 	public FeatureMap getAny() {
-		return (FeatureMap) getMixed().<FeatureMap.Entry> list(CDAPackage.Literals.STRUC_DOC_TEXT__ANY);
+		return (FeatureMap)getMixed().<FeatureMap.Entry>list(CDAPackage.Literals.STRUC_DOC_TEXT__ANY);
 	}
 
 	/**
@@ -131,9 +131,8 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public void setID(String newID) {
 		String oldID = iD;
 		iD = newID;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.STRUC_DOC_TEXT__ID, oldID, iD));
-		}
 	}
 
 	/**
@@ -214,7 +213,7 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.STRUC_DOC_TEXT__MIXED:
-				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -228,15 +227,11 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CDAPackage.STRUC_DOC_TEXT__MIXED:
-				if (coreType) {
-					return getMixed();
-				}
-				return ((FeatureMap.Internal) getMixed()).getWrapper();
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case CDAPackage.STRUC_DOC_TEXT__ANY:
-				if (coreType) {
-					return getAny();
-				}
-				return ((FeatureMap.Internal) getAny()).getWrapper();
+				if (coreType) return getAny();
+				return ((FeatureMap.Internal)getAny()).getWrapper();
 			case CDAPackage.STRUC_DOC_TEXT__ID:
 				return getID();
 		}
@@ -252,13 +247,13 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CDAPackage.STRUC_DOC_TEXT__MIXED:
-				((FeatureMap.Internal) getMixed()).set(newValue);
+				((FeatureMap.Internal)getMixed()).set(newValue);
 				return;
 			case CDAPackage.STRUC_DOC_TEXT__ANY:
-				((FeatureMap.Internal) getAny()).set(newValue);
+				((FeatureMap.Internal)getAny()).set(newValue);
 				return;
 			case CDAPackage.STRUC_DOC_TEXT__ID:
-				setID((String) newValue);
+				setID((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -298,9 +293,7 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 			case CDAPackage.STRUC_DOC_TEXT__ANY:
 				return !getAny().isEmpty();
 			case CDAPackage.STRUC_DOC_TEXT__ID:
-				return ID_EDEFAULT == null
-						? iD != null
-						: !ID_EDEFAULT.equals(iD);
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -312,9 +305,7 @@ public class StrucDocTextImpl extends EObjectImpl implements StrucDocText {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");

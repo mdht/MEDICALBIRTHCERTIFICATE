@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.ParticipantRole;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.mdht.uml.hl7.rim.operations.RoleOperations;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -45,7 +46,7 @@ public class ParticipantRoleOperations extends RoleOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -79,7 +80,7 @@ public class ParticipantRoleOperations extends RoleOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,33 +94,42 @@ public class ParticipantRoleOperations extends RoleOperations {
 	 */
 	public static boolean validatePlayingEntityChoice(ParticipantRole participantRole, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ParticipantRolePlayingEntityChoice","null");
+    
+      
 		if (VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.PARTICIPANT_ROLE);
-				try {
-					VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.PARTICIPANT_ROLE);
+			try {
+				VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			participantRole)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_PLAYING_ENTITY_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(participantRole)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE,
-						CDAValidator.PARTICIPANT_ROLE__PLAYING_ENTITY_CHOICE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validatePlayingEntityChoice",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										participantRole, context) }),
-						new Object[] { participantRole }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.PARTICIPANT_ROLE__PLAYING_ENTITY_CHOICE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validatePlayingEntityChoice", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(participantRole, context) }),
+						 new Object [] { participantRole }));
 			}
 			return false;
 		}

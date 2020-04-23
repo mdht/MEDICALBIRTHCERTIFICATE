@@ -1,0 +1,101 @@
+The local extensions we are using are:
+
+1) An extension for an address to uniquely identify a location using the Federal Information Address System of Russia (FIAS, https://fias.nalog.ru/Search)
+, it is a GUID (Globally Unique Identifier).
+Example:
+<addr>
+    <!-- [1..1] Глобальный уникальный идентификатор ФИАС -->
+    <fias:GUID xsi:type="ST">bdf215c2-b8e7-4fcc-99cc-337f5bf19f8a</fias:GUID>                        
+    <!-- R [1..1] Регион РФ (республика, край, область) -->
+    <state>77</state>
+    <!-- R [1..1] Район -->
+    <precinct>Марьино</precinct>
+    <!-- R [1..1] Город \ Село -->
+    <city>Москва</city>
+</addr>
+
+2) An extension for various people participants to encode a Russian passport data. This one is a complex type because all the parts of passport data need to be encoded separately.
+Example:
+<associatedEntity classCode="PRS">
+    <!-- [1..1] СНИЛС получателя -->
+    <id root="1.2.643.100.3" extension="445-784-445 10"/>    
+    <!-- [1..1] ЛОКАЛЬНЫЙ ЭЛЕМЕНТ: Документ, удостоверяющий личность получателя, серия, номер, кем выдан. -->        
+    <f103:IdentityDoc>
+        <!-- R [1..1] Тип документа -->
+        <f103:IdentityCardTypeId xsi:type="CD" code="1" codeSystem="1.2.643.5.1.13.13.99.2.48" codeSystemVersion="2.1" codeSystemName="Документы, удостоверяющие личность" displayName="Паспорт гражданина Российской Федерации"/>
+        <!--   [1..1] Серия документа -->
+        <f103:Series xsi:type="ST">4507</f103:Series>
+        <!-- R [1..1] Номер документа -->
+        <f103:Number xsi:type="ST">691154</f103:Number>
+        <!--   [1..1] Кем выдан документ -->
+        <f103:IssueOrgName xsi:type="ST">ОВД "Гольяново" гор. Москвы.</f103:IssueOrgName>
+        <!--   [1..1] Кем выдан документ, код подразделения -->
+        <f103:IssueOrgCode xsi:type="ST">772-050</f103:IssueOrgCode>
+        <!-- R [1..1] Дата выдачи документа -->
+        <f103:IssueDate xsi:type="TS" value="19980404"/>
+    </f103:IdentityDoc>            
+    <!-- R [1..1] Тип родственной или иной связи -->
+    <code code="1" codeSystem="1.2.643.5.1.13.13.99.2.14" codeSystemVersion="1.1" codeSystemName="Родственные и иные связи" displayName="Мать"/>
+    <!-- R [1..1] Получатель документа (родственник или представитель новорожденного) -->
+    <associatedPerson>
+        <!-- R [1..1] Фамилия, Имя, Отчество получателя-->
+        <name>
+            <!-- R [1..1] Фамилия получателя-->
+            <family>Богатырева</family>
+            <!-- R [1..1] Имя получателя-->
+            <given>Маргарита</given>
+            <!-- [0..1] Отчество получателя-->
+            <given>Васильевна</given>
+        </name>
+    </associatedPerson>
+</associatedEntity>
+
+3) An extension to identify a subject of a section (a subject also contains extensions for a location GUID and for a passport).
+Example:
+<subject>
+    <relatedSubject classCode="PRS">
+        <!-- [1..1] СНИЛС матери -->
+        <f103:id root="1.2.643.100.3" extension="445-784-445 10"/>    
+        <!-- [1..1] ЛОКАЛЬНЫЙ ЭЛЕМЕНТ: Документ, удостоверяющий личность матери, серия, номер, кем выдан. -->        
+        <f103:IdentityDoc>
+            <f103:IdentityCardTypeId xsi:type="CD" code="1" codeSystem="1.2.643.5.1.13.13.99.2.48" codeSystemVersion="2.1" codeSystemName="Документы, удостоверяющие личность" displayName="Паспорт гражданина Российской Федерации"/>
+            <f103:Series xsi:type="ST">4507</f103:Series>
+            <f103:Number xsi:type="ST">691154</f103:Number>
+            <f103:IssueOrgName xsi:type="ST">ОВД "Гольяново" гор. Москвы.</f103:IssueOrgName>
+            <f103:IssueOrgCode xsi:type="ST">772-050</f103:IssueOrgCode>
+            <f103:IssueDate xsi:type="TS" value="19980404"/>
+        </f103:IdentityDoc>                        
+        <!-- R [1..1] Тип родственной связи -->
+        <code code="1" codeSystem="1.2.643.5.1.13.13.99.2.14" codeSystemVersion="1.1" codeSystemName="Родственные и иные связи" displayName="Мать"/>
+        <!-- [1..1] Адрес постоянного жительства (регистрации) матери новорождённого -->
+        <addr use="HP">
+            <!-- [1..1] Глобальный уникальный идентификатор ФИАС -->
+            <fias:GUID xsi:type="ST">bdf215c2-b8e7-4fcc-99cc-337f5bf19f8a</fias:GUID>
+            <!-- R [1..1] Регион РФ (республика, край, область) -->
+            <state>77</state>
+            <!-- R [1..1] Район -->
+            <precinct>Марьино</precinct>
+            <!-- R [1..1] Город \ Село -->
+            <city>Москва</city>    
+            <!-- R [1..1] Улица -->                                                        
+            <streetName>ул. Исаковского</streetName>                                    
+            <!-- R [1..1] Дом -->                                                        
+            <houseNumber>28к2</houseNumber>
+            <!-- R [1..1] Квартира -->                                                        
+            <unitID>58</unitID>
+        </addr>
+        <subject>
+            <!-- [1..1] Фамилия, Имя, Отчество матери -->
+            <name>
+                <!-- R [1..1] Фамилия матери -->
+                <family>Богатырева</family>
+                <!-- R [1..1] Имя матери-->
+                <given>Маргарита</given>
+                <!-- [0..1] Отчество матери -->
+                <given>Васильевна</given>
+            </name>
+            <!-- [1..1] Дата рождения матери -->
+            <birthTime value="19800211"/>
+        </subject>
+    </relatedSubject>
+</subject>

@@ -1415,13 +1415,22 @@ public interface DatatypesPackage extends EPackage {
 	int AD__MIXED = ANY_FEATURE_COUNT + 31;
 
 	/**
+	 * The feature id for the '<em><b>GUID</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AD__GUID = ANY_FEATURE_COUNT + 32;
+
+	/**
 	 * The number of structural features of the '<em>AD</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AD_FEATURE_COUNT = ANY_FEATURE_COUNT + 32;
+	int AD_FEATURE_COUNT = ANY_FEATURE_COUNT + 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADXPImpl <em>ADXP</em>}' class.
@@ -4675,6 +4684,17 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getAD_Mixed();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.hl7.datatypes.AD#getGUIDs <em>GUID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>GUID</em>'.
+	 * @see org.eclipse.mdht.uml.hl7.datatypes.AD#getGUIDs()
+	 * @see #getAD()
+	 * @generated
+	 */
+	EReference getAD_GUID();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.hl7.datatypes.ADXP <em>ADXP</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6303,6 +6323,14 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AD__MIXED = eINSTANCE.getAD_Mixed();
+
+		/**
+		 * The meta object literal for the '<em><b>GUID</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AD__GUID = eINSTANCE.getAD_GUID();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADXPImpl <em>ADXP</em>}' class.

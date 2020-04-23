@@ -206,7 +206,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getActs()->exists(act : cda::Act | act.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getActs()-&gt;exists(act : cda::Act | act.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasActTemplate(String templateId);
@@ -223,7 +223,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getEncounters()->exists(enc : cda::Encounter | enc.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getEncounters()-&gt;exists(enc : cda::Encounter | enc.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasEncounterTemplate(String templateId);
@@ -232,7 +232,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getObservationMedia()->exists(media : cda::ObservationMedia | media.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getObservationMedia()-&gt;exists(media : cda::ObservationMedia | media.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasObservationMediaTemplate(String templateId);
@@ -241,7 +241,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getObservations()->exists(obs : cda::Observation | obs.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getObservations()-&gt;exists(obs : cda::Observation | obs.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasObservationTemplate(String templateId);
@@ -250,7 +250,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getOrganizers()->exists(org : cda::Organizer | org.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getOrganizers()-&gt;exists(org : cda::Organizer | org.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasOrganizerTemplate(String templateId);
@@ -259,7 +259,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getProcedures()->exists(proc : cda::Procedure | proc.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getProcedures()-&gt;exists(proc : cda::Procedure | proc.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasProcedureTemplate(String templateId);
@@ -268,7 +268,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getRegionsOfInterest()->exists(reg : cda::RegionOfInterest | reg.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getRegionsOfInterest()-&gt;exists(reg : cda::RegionOfInterest | reg.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasRegionOfInterestTemplate(String templateId);
@@ -277,7 +277,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSubstanceAdministrations()->exists(sub : cda::SubstanceAdministration | sub.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSubstanceAdministrations()-&gt;exists(sub : cda::SubstanceAdministration | sub.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasSubstanceAdministrationTemplate(String templateId);
@@ -286,7 +286,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSupplies()->exists(sup : cda::Supply | sup.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSupplies()-&gt;exists(sup : cda::Supply | sup.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasSupplyTemplate(String templateId);
@@ -303,7 +303,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.participant.participantRole->excluding(null)'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.participant.participantRole-&gt;excluding(null)'"
 	 * @generated
 	 */
 	EList<ParticipantRole> getParticipantRoles();
@@ -312,7 +312,7 @@ public interface ClinicalStatement extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.performer.assignedEntity->excluding(null)'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.performer.assignedEntity-&gt;excluding(null)'"
 	 * @generated
 	 */
 	EList<AssignedEntity> getAssignedEntities();

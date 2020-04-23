@@ -347,13 +347,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -366,22 +361,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -439,13 +427,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		ED oldSDTCDesc = sDTCDesc;
 		sDTCDesc = newSDTCDesc;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, oldSDTCDesc, newSDTCDesc);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, oldSDTCDesc, newSDTCDesc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -458,22 +441,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setSDTCDesc(ED newSDTCDesc) {
 		if (newSDTCDesc != sDTCDesc) {
 			NotificationChain msgs = null;
-			if (sDTCDesc != null) {
-				msgs = ((InternalEObject) sDTCDesc).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
-			}
-			if (newSDTCDesc != null) {
-				msgs = ((InternalEObject) newSDTCDesc).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
-			}
+			if (sDTCDesc != null)
+				msgs = ((InternalEObject)sDTCDesc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
+			if (newSDTCDesc != null)
+				msgs = ((InternalEObject)newSDTCDesc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
 			msgs = basicSetSDTCDesc(newSDTCDesc, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, newSDTCDesc,
-				newSDTCDesc));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, newSDTCDesc, newSDTCDesc));
 	}
 
 	/**
@@ -494,14 +470,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		CE oldAdministrativeGenderCode = administrativeGenderCode;
 		administrativeGenderCode = newAdministrativeGenderCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE,
-				oldAdministrativeGenderCode, newAdministrativeGenderCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, oldAdministrativeGenderCode, newAdministrativeGenderCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -514,22 +484,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setAdministrativeGenderCode(CE newAdministrativeGenderCode) {
 		if (newAdministrativeGenderCode != administrativeGenderCode) {
 			NotificationChain msgs = null;
-			if (administrativeGenderCode != null) {
-				msgs = ((InternalEObject) administrativeGenderCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, null, msgs);
-			}
-			if (newAdministrativeGenderCode != null) {
-				msgs = ((InternalEObject) newAdministrativeGenderCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, null, msgs);
-			}
+			if (administrativeGenderCode != null)
+				msgs = ((InternalEObject)administrativeGenderCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, null, msgs);
+			if (newAdministrativeGenderCode != null)
+				msgs = ((InternalEObject)newAdministrativeGenderCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, null, msgs);
 			msgs = basicSetAdministrativeGenderCode(newAdministrativeGenderCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE,
-				newAdministrativeGenderCode, newAdministrativeGenderCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE, newAdministrativeGenderCode, newAdministrativeGenderCode));
 	}
 
 	/**
@@ -550,13 +513,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		TS oldBirthTime = birthTime;
 		birthTime = newBirthTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, oldBirthTime, newBirthTime);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, oldBirthTime, newBirthTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -569,22 +527,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setBirthTime(TS newBirthTime) {
 		if (newBirthTime != birthTime) {
 			NotificationChain msgs = null;
-			if (birthTime != null) {
-				msgs = ((InternalEObject) birthTime).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__BIRTH_TIME, null, msgs);
-			}
-			if (newBirthTime != null) {
-				msgs = ((InternalEObject) newBirthTime).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__BIRTH_TIME, null, msgs);
-			}
+			if (birthTime != null)
+				msgs = ((InternalEObject)birthTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__BIRTH_TIME, null, msgs);
+			if (newBirthTime != null)
+				msgs = ((InternalEObject)newBirthTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__BIRTH_TIME, null, msgs);
 			msgs = basicSetBirthTime(newBirthTime, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, newBirthTime,
-				newBirthTime));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, newBirthTime, newBirthTime));
 	}
 
 	/**
@@ -605,14 +556,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		BL oldSDTCDeceasedInd = sDTCDeceasedInd;
 		sDTCDeceasedInd = newSDTCDeceasedInd;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, oldSDTCDeceasedInd,
-				newSDTCDeceasedInd);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, oldSDTCDeceasedInd, newSDTCDeceasedInd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -625,22 +570,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setSDTCDeceasedInd(BL newSDTCDeceasedInd) {
 		if (newSDTCDeceasedInd != sDTCDeceasedInd) {
 			NotificationChain msgs = null;
-			if (sDTCDeceasedInd != null) {
-				msgs = ((InternalEObject) sDTCDeceasedInd).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, null, msgs);
-			}
-			if (newSDTCDeceasedInd != null) {
-				msgs = ((InternalEObject) newSDTCDeceasedInd).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, null, msgs);
-			}
+			if (sDTCDeceasedInd != null)
+				msgs = ((InternalEObject)sDTCDeceasedInd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, null, msgs);
+			if (newSDTCDeceasedInd != null)
+				msgs = ((InternalEObject)newSDTCDeceasedInd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, null, msgs);
 			msgs = basicSetSDTCDeceasedInd(newSDTCDeceasedInd, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND,
-				newSDTCDeceasedInd, newSDTCDeceasedInd));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, newSDTCDeceasedInd, newSDTCDeceasedInd));
 	}
 
 	/**
@@ -661,14 +599,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		TS oldSDTCDeceasedTime = sDTCDeceasedTime;
 		sDTCDeceasedTime = newSDTCDeceasedTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, oldSDTCDeceasedTime,
-				newSDTCDeceasedTime);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, oldSDTCDeceasedTime, newSDTCDeceasedTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -681,22 +613,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setSDTCDeceasedTime(TS newSDTCDeceasedTime) {
 		if (newSDTCDeceasedTime != sDTCDeceasedTime) {
 			NotificationChain msgs = null;
-			if (sDTCDeceasedTime != null) {
-				msgs = ((InternalEObject) sDTCDeceasedTime).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, null, msgs);
-			}
-			if (newSDTCDeceasedTime != null) {
-				msgs = ((InternalEObject) newSDTCDeceasedTime).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, null, msgs);
-			}
+			if (sDTCDeceasedTime != null)
+				msgs = ((InternalEObject)sDTCDeceasedTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, null, msgs);
+			if (newSDTCDeceasedTime != null)
+				msgs = ((InternalEObject)newSDTCDeceasedTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, null, msgs);
 			msgs = basicSetSDTCDeceasedTime(newSDTCDeceasedTime, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME,
-				newSDTCDeceasedTime, newSDTCDeceasedTime));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, newSDTCDeceasedTime, newSDTCDeceasedTime));
 	}
 
 	/**
@@ -717,14 +642,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		BL oldSDTCMultipleBirthInd = sDTCMultipleBirthInd;
 		sDTCMultipleBirthInd = newSDTCMultipleBirthInd;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, oldSDTCMultipleBirthInd,
-				newSDTCMultipleBirthInd);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, oldSDTCMultipleBirthInd, newSDTCMultipleBirthInd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -737,22 +656,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setSDTCMultipleBirthInd(BL newSDTCMultipleBirthInd) {
 		if (newSDTCMultipleBirthInd != sDTCMultipleBirthInd) {
 			NotificationChain msgs = null;
-			if (sDTCMultipleBirthInd != null) {
-				msgs = ((InternalEObject) sDTCMultipleBirthInd).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
-			}
-			if (newSDTCMultipleBirthInd != null) {
-				msgs = ((InternalEObject) newSDTCMultipleBirthInd).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
-			}
+			if (sDTCMultipleBirthInd != null)
+				msgs = ((InternalEObject)sDTCMultipleBirthInd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
+			if (newSDTCMultipleBirthInd != null)
+				msgs = ((InternalEObject)newSDTCMultipleBirthInd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
 			msgs = basicSetSDTCMultipleBirthInd(newSDTCMultipleBirthInd, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND,
-				newSDTCMultipleBirthInd, newSDTCMultipleBirthInd));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, newSDTCMultipleBirthInd, newSDTCMultipleBirthInd));
 	}
 
 	/**
@@ -774,14 +686,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		INT oldSDTCMultipleBirthOrderNumber = sDTCMultipleBirthOrderNumber;
 		sDTCMultipleBirthOrderNumber = newSDTCMultipleBirthOrderNumber;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER,
-				oldSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, oldSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -794,25 +700,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public void setSDTCMultipleBirthOrderNumber(INT newSDTCMultipleBirthOrderNumber) {
 		if (newSDTCMultipleBirthOrderNumber != sDTCMultipleBirthOrderNumber) {
 			NotificationChain msgs = null;
-			if (sDTCMultipleBirthOrderNumber != null) {
-				msgs = ((InternalEObject) sDTCMultipleBirthOrderNumber).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null,
-					msgs);
-			}
-			if (newSDTCMultipleBirthOrderNumber != null) {
-				msgs = ((InternalEObject) newSDTCMultipleBirthOrderNumber).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null,
-					msgs);
-			}
+			if (sDTCMultipleBirthOrderNumber != null)
+				msgs = ((InternalEObject)sDTCMultipleBirthOrderNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null, msgs);
+			if (newSDTCMultipleBirthOrderNumber != null)
+				msgs = ((InternalEObject)newSDTCMultipleBirthOrderNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null, msgs);
 			msgs = basicSetSDTCMultipleBirthOrderNumber(newSDTCMultipleBirthOrderNumber, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, newSDTCMultipleBirthOrderNumber,
-				newSDTCMultipleBirthOrderNumber));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, newSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber));
 	}
 
 	/**
@@ -844,15 +740,11 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -865,10 +757,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR,
-				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -897,15 +787,11 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 */
 	public void setClassCode(EntityClass newClassCode) {
 		EntityClass oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -918,10 +804,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -950,15 +834,11 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 */
 	public void setDeterminerCode(EntityDeterminer newDeterminerCode) {
 		EntityDeterminer oldDeterminerCode = determinerCode;
-		determinerCode = newDeterminerCode == null
-				? DETERMINER_CODE_EDEFAULT
-				: newDeterminerCode;
+		determinerCode = newDeterminerCode == null ? DETERMINER_CODE_EDEFAULT : newDeterminerCode;
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE,
-				oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE, oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
 	}
 
 	/**
@@ -971,10 +851,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCode = DETERMINER_CODE_EDEFAULT;
 		determinerCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE,
-				oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE, oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
 	}
 
 	/**
@@ -993,8 +871,7 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 */
 	public EList<CE> getSDTCEthnicGroupCodes() {
 		if (sDTCEthnicGroupCodes == null) {
-			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(
-				CE.class, this, CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE);
+			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(CE.class, this, CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE);
 		}
 		return sDTCEthnicGroupCodes;
 	}
@@ -1026,15 +903,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.SUBJECT_PERSON__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__SDTC_ID:
-				return ((InternalEList<?>) getSDTCIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSDTCIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__NAME:
-				return ((InternalEList<?>) getNames()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getNames()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
 				return basicSetSDTCDesc(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
@@ -1050,9 +927,9 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
 				return basicSetSDTCMultipleBirthOrderNumber(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
-				return ((InternalEList<?>) getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
-				return ((InternalEList<?>) getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1114,60 +991,60 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		switch (featureID) {
 			case CDAPackage.SUBJECT_PERSON__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_ID:
 				getSDTCIds().clear();
-				getSDTCIds().addAll((Collection<? extends II>) newValue);
+				getSDTCIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__NAME:
 				getNames().clear();
-				getNames().addAll((Collection<? extends PN>) newValue);
+				getNames().addAll((Collection<? extends PN>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
-				setSDTCDesc((ED) newValue);
+				setSDTCDesc((ED)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
-				setAdministrativeGenderCode((CE) newValue);
+				setAdministrativeGenderCode((CE)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__BIRTH_TIME:
-				setBirthTime((TS) newValue);
+				setBirthTime((TS)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND:
-				setSDTCDeceasedInd((BL) newValue);
+				setSDTCDeceasedInd((BL)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
-				setSDTCDeceasedTime((TS) newValue);
+				setSDTCDeceasedTime((TS)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
-				setSDTCMultipleBirthInd((BL) newValue);
+				setSDTCMultipleBirthInd((BL)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
-				setSDTCMultipleBirthOrderNumber((INT) newValue);
+				setSDTCMultipleBirthOrderNumber((INT)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
 				getSDTCRaceCodes().clear();
-				getSDTCRaceCodes().addAll((Collection<? extends CE>) newValue);
+				getSDTCRaceCodes().addAll((Collection<? extends CE>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
 				getSDTCEthnicGroupCodes().clear();
-				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>) newValue);
+				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__CLASS_CODE:
-				setClassCode((EntityClass) newValue);
+				setClassCode((EntityClass)newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__DETERMINER_CODE:
-				setDeterminerCode((EntityDeterminer) newValue);
+				setDeterminerCode((EntityDeterminer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1185,7 +1062,7 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.SUBJECT_PERSON__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -1197,25 +1074,25 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				getNames().clear();
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
-				setSDTCDesc((ED) null);
+				setSDTCDesc((ED)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
-				setAdministrativeGenderCode((CE) null);
+				setAdministrativeGenderCode((CE)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__BIRTH_TIME:
-				setBirthTime((TS) null);
+				setBirthTime((TS)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND:
-				setSDTCDeceasedInd((BL) null);
+				setSDTCDeceasedInd((BL)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
-				setSDTCDeceasedTime((TS) null);
+				setSDTCDeceasedTime((TS)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
-				setSDTCMultipleBirthInd((BL) null);
+				setSDTCMultipleBirthInd((BL)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
-				setSDTCMultipleBirthOrderNumber((INT) null);
+				setSDTCMultipleBirthOrderNumber((INT)null);
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
 				getSDTCRaceCodes().clear();
@@ -1289,29 +1166,15 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(", determinerCode: ");
-		if (determinerCodeESet) {
-			result.append(determinerCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (determinerCodeESet) result.append(determinerCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

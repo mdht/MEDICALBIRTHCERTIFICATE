@@ -300,6 +300,15 @@ public interface CDAFactory extends EFactory {
 	AssociatedEntity createAssociatedEntity();
 
 	/**
+	 * Returns a new object of class '<em>Identity Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Identity Doc</em>'.
+	 * @generated
+	 */
+	IdentityDoc createIdentityDoc();
+
+	/**
 	 * Returns a new object of class '<em>In Fulfillment Of</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

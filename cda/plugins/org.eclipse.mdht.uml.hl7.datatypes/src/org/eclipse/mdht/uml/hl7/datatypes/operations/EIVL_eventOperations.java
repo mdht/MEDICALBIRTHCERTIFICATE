@@ -50,7 +50,7 @@ public class EIVL_eventOperations extends CEOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -84,7 +84,7 @@ public class EIVL_eventOperations extends CEOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,31 +99,27 @@ public class EIVL_eventOperations extends CEOperations {
 	public static boolean validateOriginalText(EIVL_event eivL_event, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
-				try {
-					VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
+			try {
+				VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			eivL_event)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_ORIGINAL_TEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(eivL_event)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-						DatatypesValidator.EIVL_EVENT__ORIGINAL_TEXT,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateOriginalText",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
-						new Object[] { eivL_event }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EIVL_EVENT__ORIGINAL_TEXT,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateOriginalText", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
+						 new Object [] { eivL_event }));
 			}
 			return false;
 		}
@@ -148,7 +144,7 @@ public class EIVL_eventOperations extends CEOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,30 +159,27 @@ public class EIVL_eventOperations extends CEOperations {
 	public static boolean validateTranslation(EIVL_event eivL_event, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
-				try {
-					VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
+			try {
+				VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_TRANSLATION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(eivL_event)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-						DatatypesValidator.EIVL_EVENT__TRANSLATION,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateTranslation",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
-						new Object[] { eivL_event }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EIVL_EVENT__TRANSLATION,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateTranslation", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
+						 new Object [] { eivL_event }));
 			}
 			return false;
 		}
@@ -211,7 +204,7 @@ public class EIVL_eventOperations extends CEOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,30 +219,27 @@ public class EIVL_eventOperations extends CEOperations {
 	public static boolean validateCodeSystem(EIVL_event eivL_event, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
-				try {
-					VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
+			try {
+				VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_CODE_SYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(eivL_event)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-						DatatypesValidator.EIVL_EVENT__CODE_SYSTEM,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateCodeSystem",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
-						new Object[] { eivL_event }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EIVL_EVENT__CODE_SYSTEM,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateCodeSystem", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
+						 new Object [] { eivL_event }));
 			}
 			return false;
 		}
@@ -274,7 +264,7 @@ public class EIVL_eventOperations extends CEOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,31 +279,27 @@ public class EIVL_eventOperations extends CEOperations {
 	public static boolean validateCodeSystemName(EIVL_event eivL_event, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		if (VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
-				try {
-					VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(DatatypesPackage.Literals.EIVL_EVENT);
+			try {
+				VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			eivL_event)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CODE_SYSTEM_NAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(eivL_event)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, DatatypesValidator.DIAGNOSTIC_SOURCE,
-						DatatypesValidator.EIVL_EVENT__CODE_SYSTEM_NAME,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateCodeSystemName",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
-						new Object[] { eivL_event }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 DatatypesValidator.DIAGNOSTIC_SOURCE,
+						 DatatypesValidator.EIVL_EVENT__CODE_SYSTEM_NAME,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateCodeSystemName", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(eivL_event, context) }),
+						 new Object [] { eivL_event }));
 			}
 			return false;
 		}

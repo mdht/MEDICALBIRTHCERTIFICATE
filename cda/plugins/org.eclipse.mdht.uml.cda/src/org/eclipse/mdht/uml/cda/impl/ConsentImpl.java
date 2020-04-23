@@ -254,13 +254,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CONSENT__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -273,21 +268,15 @@ public class ConsentImpl extends ActImpl implements Consent {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -333,13 +322,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CONSENT__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -352,21 +336,15 @@ public class ConsentImpl extends ActImpl implements Consent {
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CODE, newCode, newCode));
 	}
 
 	/**
@@ -387,13 +365,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		CS oldStatusCode = statusCode;
 		statusCode = newStatusCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, oldStatusCode, newStatusCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, oldStatusCode, newStatusCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -406,22 +379,15 @@ public class ConsentImpl extends ActImpl implements Consent {
 	public void setStatusCode(CS newStatusCode) {
 		if (newStatusCode != statusCode) {
 			NotificationChain msgs = null;
-			if (statusCode != null) {
-				msgs = ((InternalEObject) statusCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__STATUS_CODE, null, msgs);
-			}
-			if (newStatusCode != null) {
-				msgs = ((InternalEObject) newStatusCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__STATUS_CODE, null, msgs);
-			}
+			if (statusCode != null)
+				msgs = ((InternalEObject)statusCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__STATUS_CODE, null, msgs);
+			if (newStatusCode != null)
+				msgs = ((InternalEObject)newStatusCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.CONSENT__STATUS_CODE, null, msgs);
 			msgs = basicSetStatusCode(newStatusCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, newStatusCode,
-				newStatusCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, newStatusCode, newStatusCode));
 	}
 
 	/**
@@ -441,15 +407,11 @@ public class ConsentImpl extends ActImpl implements Consent {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -462,10 +424,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -494,15 +454,11 @@ public class ConsentImpl extends ActImpl implements Consent {
 	 */
 	public void setClassCode(ActClass newClassCode) {
 		ActClass oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -515,10 +471,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -547,15 +501,11 @@ public class ConsentImpl extends ActImpl implements Consent {
 	 */
 	public void setMoodCode(ActMood newMoodCode) {
 		ActMood oldMoodCode = moodCode;
-		moodCode = newMoodCode == null
-				? MOOD_CODE_EDEFAULT
-				: newMoodCode;
+		moodCode = newMoodCode == null ? MOOD_CODE_EDEFAULT : newMoodCode;
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, moodCode,
-				!oldMoodCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
 	}
 
 	/**
@@ -568,10 +518,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode,
-				MOOD_CODE_EDEFAULT, oldMoodCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 	}
 
 	/**
@@ -610,13 +558,13 @@ public class ConsentImpl extends ActImpl implements Consent {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.CONSENT__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.CONSENT__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.CONSENT__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.CONSENT__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.CONSENT__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.CONSENT__STATUS_CODE:
@@ -666,33 +614,33 @@ public class ConsentImpl extends ActImpl implements Consent {
 		switch (featureID) {
 			case CDAPackage.CONSENT__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.CONSENT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.CONSENT__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.CONSENT__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.CONSENT__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.CONSENT__STATUS_CODE:
-				setStatusCode((CS) newValue);
+				setStatusCode((CS)newValue);
 				return;
 			case CDAPackage.CONSENT__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.CONSENT__CLASS_CODE:
-				setClassCode((ActClass) newValue);
+				setClassCode((ActClass)newValue);
 				return;
 			case CDAPackage.CONSENT__MOOD_CODE:
-				setMoodCode((ActMood) newValue);
+				setMoodCode((ActMood)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -710,7 +658,7 @@ public class ConsentImpl extends ActImpl implements Consent {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.CONSENT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.CONSENT__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -719,10 +667,10 @@ public class ConsentImpl extends ActImpl implements Consent {
 				getIds().clear();
 				return;
 			case CDAPackage.CONSENT__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.CONSENT__STATUS_CODE:
-				setStatusCode((CS) null);
+				setStatusCode((CS)null);
 				return;
 			case CDAPackage.CONSENT__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -774,29 +722,15 @@ public class ConsentImpl extends ActImpl implements Consent {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(", moodCode: ");
-		if (moodCodeESet) {
-			result.append(moodCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (moodCodeESet) result.append(moodCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

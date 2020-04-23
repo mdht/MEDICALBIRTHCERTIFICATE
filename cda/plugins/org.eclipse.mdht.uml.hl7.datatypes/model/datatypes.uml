@@ -621,6 +621,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W_PoQEVdEd6QuJiOJFSRPQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W_PoQUVdEd6QuJiOJFSRPQ" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_lD8FQITVEeqkuu_-7ACwPQ" name="GUID" type="_EaTNsDxaEd6JwqSGecoePg" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lD9TYITVEeqkuu_-7ACwPQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lD96cITVEeqkuu_-7ACwPQ" value="*"/>
+      </ownedAttribute>
       <ownedOperation xmi:id="_BZOhUD_nEd6wZe6nFLrjsw" name="addDelimiter">
         <ownedParameter xmi:id="_C3_lYD_nEd6wZe6nFLrjsw" name="delimiter">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -1684,4 +1688,5 @@
   <Ecore:EAttribute xmi:id="_dewR4AT5EeOFTql9pPvb9Q" xmlName="valueSetVersion" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Attribute" base_Property="_T4IV4AT5EeOFTql9pPvb9Q"/>
   <Ecore:EAttribute xmi:id="_CpgGkAGdEeqg4I9dpN7mPg" xmlName="mixed" xmlNamespace="" xmlFeatureKind="ElementWildcard" base_Property="_nOeI4AFcEeqg4I9dpN7mPg"/>
   <Ecore:EClass xmi:id="_0urgUAIyEeq4qM3HrOJ9Gw" xmlName="" base_Class="_22o_kD52Ed6cla2oXsPtlA" xmlContentKind="Mixed"/>
+  <Ecore:EReference xmi:id="_q3KBEITVEeqkuu_-7ACwPQ" isTransient="true" isVolatile="true" xmlNamespace="urn:fias" xmlFeatureKind="Element" base_Property="_lD8FQITVEeqkuu_-7ACwPQ" isResolveProxies="false"/>
 </xmi:XMI>

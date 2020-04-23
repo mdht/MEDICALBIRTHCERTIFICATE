@@ -2986,6 +2986,10 @@
       <ownedAttribute xmi:id="_AkaAcEofEd6c3qsAxlFHaQ" name="classCode" visibility="private">
         <type xmi:type="uml:Enumeration" href="pathmap://VOCAB_MODEL/vocab.uml#__zE3C0DcEd6xYZuu1VKCVw"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_6Ywf8IWUEeqNjvNfUoZC7g" name="IdentityDoc" type="_6DK-YIV8EeqDYsgfOJ34Bw" aggregation="composite" association="_6YyVIYWUEeqNjvNfUoZC7g">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6YxuEIWUEeqNjvNfUoZC7g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6YyVIIWUEeqNjvNfUoZC7g" value="*"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_BkHyQEcEEd6besF9iFIJkQ" name="Authenticator">
       <ownedRule xmi:id="_5sb88CWKEeCrtN9McWFciw" name="typeCode" constrainedElement="_BkHyQEcEEd6besF9iFIJkQ">
@@ -6380,6 +6384,10 @@
           <instance xmi:type="uml:EnumerationLiteral" href="pathmap://VOCAB_MODEL/vocab.uml#__zOpwUDcEd6xYZuu1VKCVw"/>
         </defaultValue>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_zoFLcIWWEeqNjvNfUoZC7g" name="IdentityDoc" type="_6DK-YIV8EeqDYsgfOJ34Bw" aggregation="composite" association="_zoFygYWWEeqNjvNfUoZC7g">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zoFLcYWWEeqNjvNfUoZC7g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zoFygIWWEeqNjvNfUoZC7g" value="*"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_hfdrgEcaEd6besF9iFIJkQ" name="ResponsibleParty">
       <ownedRule xmi:id="_I4gbQCi8EeCrtN9McWFciw" name="typeCode" constrainedElement="_GUBDUEcZEd6besF9iFIJkQ">
@@ -8243,6 +8251,44 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_fiJbYkbnEeeP-NuHrYHtJg" memberEnd="_fiINQEbnEeeP-NuHrYHtJg _fiKCcEbnEeeP-NuHrYHtJg">
       <ownedEnd xmi:id="_fiKCcEbnEeeP-NuHrYHtJg" type="_Q1DqAEYlEeeA1OolxYiVew" association="_fiJbYkbnEeeP-NuHrYHtJg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6DK-YIV8EeqDYsgfOJ34Bw" name="IdentityDoc">
+      <ownedAttribute xmi:id="_92VuAIV8EeqDYsgfOJ34Bw" name="Series" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_EaTNsDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_92VuAYV8EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_92VuAoV8EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_-TQTgIV8EeqDYsgfOJ34Bw" name="Number" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_EaTNsDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-TQ6kIV8EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-TQ6kYV8EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="__bqtEIV8EeqDYsgfOJ34Bw" name="IssueOrgName" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_EaTNsDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__bqtEYV8EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__bqtEoV8EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="__2ckkIV8EeqDYsgfOJ34Bw" name="IssueOrgCode" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_EaTNsDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2ckkYV8EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__2ckkoV8EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_AWunIIV9EeqDYsgfOJ34Bw" name="IssueDate" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_4ysYYD59Ed6cla2oXsPtlA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AWunIYV9EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AWunIoV9EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_WvpfAIV_EeqDYsgfOJ34Bw" name="IdentityCardTypeId" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_VKl7EDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WvpfAYV_EeqDYsgfOJ34Bw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WvpfAoV_EeqDYsgfOJ34Bw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_6YyVIYWUEeqNjvNfUoZC7g" memberEnd="_6Ywf8IWUEeqNjvNfUoZC7g _6YyVIoWUEeqNjvNfUoZC7g">
+      <ownedEnd xmi:id="_6YyVIoWUEeqNjvNfUoZC7g" type="_8OcHAEcDEd6besF9iFIJkQ" association="_6YyVIYWUEeqNjvNfUoZC7g"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_zoFygYWWEeqNjvNfUoZC7g" memberEnd="_zoFLcIWWEeqNjvNfUoZC7g _zoFygoWWEeqNjvNfUoZC7g">
+      <ownedEnd xmi:id="_zoFygoWWEeqNjvNfUoZC7g" type="_grTqsEcaEd6besF9iFIJkQ" association="_zoFygYWWEeqNjvNfUoZC7g"/>
+    </packagedElement>
     <profileApplication xmi:id="_lP9OYDxVEd6JwqSGecoePg">
       <eAnnotations xmi:id="_lP9OYTxVEd6JwqSGecoePg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
@@ -9237,4 +9283,12 @@
   <Ecore:EReference xmi:id="_ttyPQIdUEeeAsbPrNOnubg" xmlName="multipleBirthInd" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_kczBgIdTEeeAsbPrNOnubg"/>
   <Ecore:EReference xmi:id="_9lKtIGNaEeia4fKTb08hoA" xmlName="functionCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_h6Q8kF-aEeia4fKTb08hoA"/>
   <Ecore:EReference xmi:id="_REIKwGNcEeia4fKTb08hoA" xmlName="functionCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_7XAXAGNbEeia4fKTb08hoA"/>
+  <Ecore:EReference xmi:id="_p-pVYIV9EeqDYsgfOJ34Bw" xmlName="Series" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_92VuAIV8EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_rankIIV9EeqDYsgfOJ34Bw" xmlName="Number" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_-TQTgIV8EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_sowyQIV9EeqDYsgfOJ34Bw" xmlName="IssueOrgName" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="__bqtEIV8EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_tweBMIV9EeqDYsgfOJ34Bw" xmlName="IssueOrgCode" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="__2ckkIV8EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_u4tboIV9EeqDYsgfOJ34Bw" xmlName="IssueDate" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_AWunIIV9EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_c51JUIV_EeqDYsgfOJ34Bw" xmlName="IdentityCardTypeId" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_WvpfAIV_EeqDYsgfOJ34Bw"/>
+  <Ecore:EReference xmi:id="_qyJiAIWVEeqNjvNfUoZC7g" xmlName="IdentityDoc" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_6Ywf8IWUEeqNjvNfUoZC7g"/>
+  <Ecore:EReference xmi:id="_4TyFkIWWEeqNjvNfUoZC7g" xmlName="IdentityDoc" xmlNamespace="urn:f103" xmlFeatureKind="Element" base_Property="_zoFLcIWWEeqNjvNfUoZC7g"/>
 </xmi:XMI>

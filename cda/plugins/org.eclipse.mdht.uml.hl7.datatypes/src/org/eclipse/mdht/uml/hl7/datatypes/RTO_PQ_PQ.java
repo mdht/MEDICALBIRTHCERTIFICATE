@@ -93,7 +93,7 @@ public interface RTO_PQ_PQ extends QTY {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.denominator.value<>0'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.denominator.value&lt;&gt;0'"
 	 * @generated
 	 */
 	boolean validateDenominator(DiagnosticChain diagnostics, Map<Object, Object> context);

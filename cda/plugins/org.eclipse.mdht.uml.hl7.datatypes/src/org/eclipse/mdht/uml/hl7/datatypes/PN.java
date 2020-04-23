@@ -32,7 +32,7 @@ public interface PN extends EN {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter->forAll(enxp : datatypes::ENXP | not enxp.qualifier->includes(vocab::EntityNamePartQualifier::LS)) and self.family->forAll(enxp : datatypes::ENXP | not enxp.qualifier->includes(vocab::EntityNamePartQualifier::LS)) and self.given->forAll(enxp : datatypes::ENXP | not enxp.qualifier->includes(vocab::EntityNamePartQualifier::LS)) and self.prefix->forAll(enxp : datatypes::ENXP | not enxp.qualifier->includes(vocab::EntityNamePartQualifier::LS)) and self.suffix->forAll(enxp : datatypes::ENXP | not enxp.qualifier->includes(vocab::EntityNamePartQualifier::LS))'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter-&gt;forAll(enxp : datatypes::ENXP | not enxp.qualifier-&gt;includes(vocab::EntityNamePartQualifier::LS)) and self.family-&gt;forAll(enxp : datatypes::ENXP | not enxp.qualifier-&gt;includes(vocab::EntityNamePartQualifier::LS)) and self.given-&gt;forAll(enxp : datatypes::ENXP | not enxp.qualifier-&gt;includes(vocab::EntityNamePartQualifier::LS)) and self.prefix-&gt;forAll(enxp : datatypes::ENXP | not enxp.qualifier-&gt;includes(vocab::EntityNamePartQualifier::LS)) and self.suffix-&gt;forAll(enxp : datatypes::ENXP | not enxp.qualifier-&gt;includes(vocab::EntityNamePartQualifier::LS))'"
 	 * @generated
 	 */
 	boolean validateInvariant(DiagnosticChain diagnostics, Map<Object, Object> context);

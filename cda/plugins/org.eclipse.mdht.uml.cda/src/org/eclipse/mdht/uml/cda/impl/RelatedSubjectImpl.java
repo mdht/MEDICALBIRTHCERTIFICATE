@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.cda.CDAPackage;
+import org.eclipse.mdht.uml.cda.IdentityDoc;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.RelatedSubject;
 import org.eclipse.mdht.uml.cda.SubjectPerson;
@@ -51,6 +53,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getClassCode <em>Class Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.RelatedSubjectImpl#getIdentityDocs <em>Identity Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -195,6 +198,16 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	protected boolean classCodeESet;
 
 	/**
+	 * The cached value of the '{@link #getIdentityDocs() <em>Identity Doc</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentityDocs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IdentityDoc> identityDocs;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -245,13 +258,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RELATED_SUBJECT__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -264,22 +272,15 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -313,13 +314,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		II oldId = id;
 		id = newId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, oldId, newId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, oldId, newId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -332,21 +328,15 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	public void setId(II newId) {
 		if (newId != id) {
 			NotificationChain msgs = null;
-			if (id != null) {
-				msgs = ((InternalEObject) id).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
-			}
-			if (newId != null) {
-				msgs = ((InternalEObject) newId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
-			}
+			if (id != null)
+				msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
+			if (newId != null)
+				msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__ID, null, msgs);
 			msgs = basicSetId(newId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, newId, newId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__ID, newId, newId));
 	}
 
 	/**
@@ -367,13 +357,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RELATED_SUBJECT__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -386,21 +371,15 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__CODE, newCode, newCode));
 	}
 
 	/**
@@ -445,13 +424,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		SubjectPerson oldSubject = subject;
 		subject = newSubject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.RELATED_SUBJECT__SUBJECT, oldSubject, newSubject);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -464,22 +438,15 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	public void setSubject(SubjectPerson newSubject) {
 		if (newSubject != subject) {
 			NotificationChain msgs = null;
-			if (subject != null) {
-				msgs = ((InternalEObject) subject).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__SUBJECT, null, msgs);
-			}
-			if (newSubject != null) {
-				msgs = ((InternalEObject) newSubject).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__SUBJECT, null, msgs);
-			}
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.RELATED_SUBJECT__SUBJECT, null, msgs);
 			msgs = basicSetSubject(newSubject, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__SUBJECT, newSubject,
-				newSubject));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -499,15 +466,11 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__NULL_FLAVOR,
-				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -520,10 +483,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RELATED_SUBJECT__NULL_FLAVOR,
-				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RELATED_SUBJECT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -552,15 +513,11 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	 */
 	public void setClassCode(x_DocumentSubject newClassCode) {
 		x_DocumentSubject oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RELATED_SUBJECT__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -573,10 +530,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RELATED_SUBJECT__CLASS_CODE,
-				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RELATED_SUBJECT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -593,25 +548,39 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<IdentityDoc> getIdentityDocs() {
+		if (identityDocs == null) {
+			identityDocs = new EObjectContainmentEList<IdentityDoc>(IdentityDoc.class, this, CDAPackage.RELATED_SUBJECT__IDENTITY_DOC);
+		}
+		return identityDocs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.RELATED_SUBJECT__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.RELATED_SUBJECT__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.RELATED_SUBJECT__ID:
 				return basicSetId(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.RELATED_SUBJECT__ADDR:
-				return ((InternalEList<?>) getAddrs()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getAddrs()).basicRemove(otherEnd, msgs);
 			case CDAPackage.RELATED_SUBJECT__TELECOM:
-				return ((InternalEList<?>) getTelecoms()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTelecoms()).basicRemove(otherEnd, msgs);
 			case CDAPackage.RELATED_SUBJECT__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case CDAPackage.RELATED_SUBJECT__IDENTITY_DOC:
+				return ((InternalEList<?>)getIdentityDocs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -644,6 +613,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				return getNullFlavor();
 			case CDAPackage.RELATED_SUBJECT__CLASS_CODE:
 				return getClassCode();
+			case CDAPackage.RELATED_SUBJECT__IDENTITY_DOC:
+				return getIdentityDocs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -659,37 +630,41 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 		switch (featureID) {
 			case CDAPackage.RELATED_SUBJECT__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__ID:
-				setId((II) newValue);
+				setId((II)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__ADDR:
 				getAddrs().clear();
-				getAddrs().addAll((Collection<? extends AD>) newValue);
+				getAddrs().addAll((Collection<? extends AD>)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__TELECOM:
 				getTelecoms().clear();
-				getTelecoms().addAll((Collection<? extends TEL>) newValue);
+				getTelecoms().addAll((Collection<? extends TEL>)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__SUBJECT:
-				setSubject((SubjectPerson) newValue);
+				setSubject((SubjectPerson)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.RELATED_SUBJECT__CLASS_CODE:
-				setClassCode((x_DocumentSubject) newValue);
+				setClassCode((x_DocumentSubject)newValue);
+				return;
+			case CDAPackage.RELATED_SUBJECT__IDENTITY_DOC:
+				getIdentityDocs().clear();
+				getIdentityDocs().addAll((Collection<? extends IdentityDoc>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -707,16 +682,16 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.RELATED_SUBJECT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.RELATED_SUBJECT__TEMPLATE_ID:
 				getTemplateIds().clear();
 				return;
 			case CDAPackage.RELATED_SUBJECT__ID:
-				setId((II) null);
+				setId((II)null);
 				return;
 			case CDAPackage.RELATED_SUBJECT__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.RELATED_SUBJECT__ADDR:
 				getAddrs().clear();
@@ -725,13 +700,16 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				getTelecoms().clear();
 				return;
 			case CDAPackage.RELATED_SUBJECT__SUBJECT:
-				setSubject((SubjectPerson) null);
+				setSubject((SubjectPerson)null);
 				return;
 			case CDAPackage.RELATED_SUBJECT__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
 			case CDAPackage.RELATED_SUBJECT__CLASS_CODE:
 				unsetClassCode();
+				return;
+			case CDAPackage.RELATED_SUBJECT__IDENTITY_DOC:
+				getIdentityDocs().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -765,6 +743,8 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 				return isSetNullFlavor();
 			case CDAPackage.RELATED_SUBJECT__CLASS_CODE:
 				return isSetClassCode();
+			case CDAPackage.RELATED_SUBJECT__IDENTITY_DOC:
+				return identityDocs != null && !identityDocs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -776,23 +756,13 @@ public class RelatedSubjectImpl extends RoleImpl implements RelatedSubject {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

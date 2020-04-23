@@ -32,7 +32,7 @@ public interface TN extends EN {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter->isEmpty() and self.family->isEmpty() and self.given->isEmpty() and self.prefix->isEmpty() and self.suffix->isEmpty() and mixed->size() = 1'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.delimiter-&gt;isEmpty() and self.family-&gt;isEmpty() and self.given-&gt;isEmpty() and self.prefix-&gt;isEmpty() and self.suffix-&gt;isEmpty() and mixed-&gt;size() = 1'"
 	 * @generated
 	 */
 	boolean validateInvariant(DiagnosticChain diagnostics, Map<Object, Object> context);

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.cda.AssociatedEntity;
 import org.eclipse.mdht.uml.cda.CDAPackage;
+import org.eclipse.mdht.uml.cda.IdentityDoc;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Organization;
 import org.eclipse.mdht.uml.cda.Person;
@@ -55,6 +56,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassAssociative;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AssociatedEntityImpl#getSDTCPatient <em>SDTC Patient</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AssociatedEntityImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.AssociatedEntityImpl#getClassCode <em>Class Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.AssociatedEntityImpl#getIdentityDocs <em>Identity Doc</em>}</li>
  * </ul>
  *
  * @generated
@@ -219,6 +221,16 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	protected boolean classCodeESet;
 
 	/**
+	 * The cached value of the '{@link #getIdentityDocs() <em>Identity Doc</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentityDocs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IdentityDoc> identityDocs;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -269,13 +281,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -288,22 +295,15 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -349,13 +349,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -368,22 +363,15 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CODE, newCode, newCode));
 	}
 
 	/**
@@ -428,13 +416,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		SDTCPatient oldSDTCPatient = sDTCPatient;
 		sDTCPatient = newSDTCPatient;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, oldSDTCPatient, newSDTCPatient);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, oldSDTCPatient, newSDTCPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -447,22 +430,15 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	public void setSDTCPatient(SDTCPatient newSDTCPatient) {
 		if (newSDTCPatient != sDTCPatient) {
 			NotificationChain msgs = null;
-			if (sDTCPatient != null) {
-				msgs = ((InternalEObject) sDTCPatient).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, null, msgs);
-			}
-			if (newSDTCPatient != null) {
-				msgs = ((InternalEObject) newSDTCPatient).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, null, msgs);
-			}
+			if (sDTCPatient != null)
+				msgs = ((InternalEObject)sDTCPatient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, null, msgs);
+			if (newSDTCPatient != null)
+				msgs = ((InternalEObject)newSDTCPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, null, msgs);
 			msgs = basicSetSDTCPatient(newSDTCPatient, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT,
-				newSDTCPatient, newSDTCPatient));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, newSDTCPatient, newSDTCPatient));
 	}
 
 	/**
@@ -483,14 +459,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		Person oldAssociatedPerson = associatedPerson;
 		associatedPerson = newAssociatedPerson;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, oldAssociatedPerson,
-				newAssociatedPerson);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, oldAssociatedPerson, newAssociatedPerson);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -503,22 +473,15 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	public void setAssociatedPerson(Person newAssociatedPerson) {
 		if (newAssociatedPerson != associatedPerson) {
 			NotificationChain msgs = null;
-			if (associatedPerson != null) {
-				msgs = ((InternalEObject) associatedPerson).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, null, msgs);
-			}
-			if (newAssociatedPerson != null) {
-				msgs = ((InternalEObject) newAssociatedPerson).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, null, msgs);
-			}
+			if (associatedPerson != null)
+				msgs = ((InternalEObject)associatedPerson).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, null, msgs);
+			if (newAssociatedPerson != null)
+				msgs = ((InternalEObject)newAssociatedPerson).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, null, msgs);
 			msgs = basicSetAssociatedPerson(newAssociatedPerson, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON,
-				newAssociatedPerson, newAssociatedPerson));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, newAssociatedPerson, newAssociatedPerson));
 	}
 
 	/**
@@ -539,14 +502,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		Organization oldScopingOrganization = scopingOrganization;
 		scopingOrganization = newScopingOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, oldScopingOrganization,
-				newScopingOrganization);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, oldScopingOrganization, newScopingOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -559,22 +516,15 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	public void setScopingOrganization(Organization newScopingOrganization) {
 		if (newScopingOrganization != scopingOrganization) {
 			NotificationChain msgs = null;
-			if (scopingOrganization != null) {
-				msgs = ((InternalEObject) scopingOrganization).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, null, msgs);
-			}
-			if (newScopingOrganization != null) {
-				msgs = ((InternalEObject) newScopingOrganization).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, null, msgs);
-			}
+			if (scopingOrganization != null)
+				msgs = ((InternalEObject)scopingOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, null, msgs);
+			if (newScopingOrganization != null)
+				msgs = ((InternalEObject)newScopingOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, null, msgs);
 			msgs = basicSetScopingOrganization(newScopingOrganization, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION,
-				newScopingOrganization, newScopingOrganization));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, newScopingOrganization, newScopingOrganization));
 	}
 
 	/**
@@ -594,15 +544,11 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR,
-				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -615,10 +561,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR,
-				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -647,15 +591,11 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	 */
 	public void setClassCode(RoleClassAssociative newClassCode) {
 		RoleClassAssociative oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE,
-				oldClassCode, classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -668,10 +608,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE,
-				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -688,29 +626,43 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<IdentityDoc> getIdentityDocs() {
+		if (identityDocs == null) {
+			identityDocs = new EObjectContainmentEList<IdentityDoc>(IdentityDoc.class, this, CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC);
+		}
+		return identityDocs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.ASSOCIATED_ENTITY__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__ADDR:
-				return ((InternalEList<?>) getAddrs()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getAddrs()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__TELECOM:
-				return ((InternalEList<?>) getTelecoms()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTelecoms()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON:
 				return basicSetAssociatedPerson(null, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION:
 				return basicSetScopingOrganization(null, msgs);
 			case CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT:
 				return basicSetSDTCPatient(null, msgs);
+			case CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC:
+				return ((InternalEList<?>)getIdentityDocs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -747,6 +699,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				return getNullFlavor();
 			case CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE:
 				return getClassCode();
+			case CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC:
+				return getIdentityDocs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -762,44 +716,48 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		switch (featureID) {
 			case CDAPackage.ASSOCIATED_ENTITY__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__ADDR:
 				getAddrs().clear();
-				getAddrs().addAll((Collection<? extends AD>) newValue);
+				getAddrs().addAll((Collection<? extends AD>)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__TELECOM:
 				getTelecoms().clear();
-				getTelecoms().addAll((Collection<? extends TEL>) newValue);
+				getTelecoms().addAll((Collection<? extends TEL>)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON:
-				setAssociatedPerson((Person) newValue);
+				setAssociatedPerson((Person)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION:
-				setScopingOrganization((Organization) newValue);
+				setScopingOrganization((Organization)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT:
-				setSDTCPatient((SDTCPatient) newValue);
+				setSDTCPatient((SDTCPatient)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE:
-				setClassCode((RoleClassAssociative) newValue);
+				setClassCode((RoleClassAssociative)newValue);
+				return;
+			case CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC:
+				getIdentityDocs().clear();
+				getIdentityDocs().addAll((Collection<? extends IdentityDoc>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -817,7 +775,7 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -826,7 +784,7 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				getIds().clear();
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__ADDR:
 				getAddrs().clear();
@@ -835,19 +793,22 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				getTelecoms().clear();
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON:
-				setAssociatedPerson((Person) null);
+				setAssociatedPerson((Person)null);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION:
-				setScopingOrganization((Organization) null);
+				setScopingOrganization((Organization)null);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT:
-				setSDTCPatient((SDTCPatient) null);
+				setSDTCPatient((SDTCPatient)null);
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
 			case CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE:
 				unsetClassCode();
+				return;
+			case CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC:
+				getIdentityDocs().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -885,6 +846,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				return isSetNullFlavor();
 			case CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE:
 				return isSetClassCode();
+			case CDAPackage.ASSOCIATED_ENTITY__IDENTITY_DOC:
+				return identityDocs != null && !identityDocs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -896,23 +859,13 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

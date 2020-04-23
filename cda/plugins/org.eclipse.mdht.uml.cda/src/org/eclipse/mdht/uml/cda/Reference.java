@@ -362,7 +362,7 @@ public interface Reference extends ActRelationship {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='Bag{self.externalAct.oclIsUndefined(), self.externalDocument.oclIsUndefined(), self.externalObservation.oclIsUndefined(), self.externalProcedure.oclIsUndefined()}->one(x | x = false)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='Bag{self.externalAct.oclIsUndefined(), self.externalDocument.oclIsUndefined(), self.externalObservation.oclIsUndefined(), self.externalProcedure.oclIsUndefined()}-&gt;one(x | x = false)'"
 	 * @generated
 	 */
 	boolean validateExternalActChoice(DiagnosticChain diagnostics, Map<Object, Object> context);

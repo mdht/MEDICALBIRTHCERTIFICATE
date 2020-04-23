@@ -938,7 +938,7 @@ public interface ClinicalDocument extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSections()->exists(sect : cda::Section | sect.hasTemplateId(templateId))'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.getSections()-&gt;exists(sect : cda::Section | sect.hasTemplateId(templateId))'"
 	 * @generated
 	 */
 	boolean hasSectionTemplate(String templateId);
@@ -947,7 +947,7 @@ public interface ClinicalDocument extends Act {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" templateIdDataType="org.eclipse.uml2.types.String" templateIdRequired="true" templateIdOrdered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.templateId->exists(id : datatypes::II | id.root = templateId)'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.templateId-&gt;exists(id : datatypes::II | id.root = templateId)'"
 	 * @generated
 	 */
 	boolean hasTemplateId(String templateId);

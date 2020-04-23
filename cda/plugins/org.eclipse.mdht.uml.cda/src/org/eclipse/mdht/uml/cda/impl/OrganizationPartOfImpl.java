@@ -247,13 +247,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -266,22 +261,15 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -327,13 +315,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -346,22 +329,15 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CODE, newCode, newCode));
 	}
 
 	/**
@@ -382,13 +358,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		CS oldStatusCode = statusCode;
 		statusCode = newStatusCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, oldStatusCode, newStatusCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, oldStatusCode, newStatusCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -401,22 +372,15 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public void setStatusCode(CS newStatusCode) {
 		if (newStatusCode != statusCode) {
 			NotificationChain msgs = null;
-			if (statusCode != null) {
-				msgs = ((InternalEObject) statusCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, null, msgs);
-			}
-			if (newStatusCode != null) {
-				msgs = ((InternalEObject) newStatusCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, null, msgs);
-			}
+			if (statusCode != null)
+				msgs = ((InternalEObject)statusCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, null, msgs);
+			if (newStatusCode != null)
+				msgs = ((InternalEObject)newStatusCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, null, msgs);
 			msgs = basicSetStatusCode(newStatusCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE,
-				newStatusCode, newStatusCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE, newStatusCode, newStatusCode));
 	}
 
 	/**
@@ -437,14 +401,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		IVL_TS oldEffectiveTime = effectiveTime;
 		effectiveTime = newEffectiveTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, oldEffectiveTime,
-				newEffectiveTime);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, oldEffectiveTime, newEffectiveTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -457,22 +415,15 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public void setEffectiveTime(IVL_TS newEffectiveTime) {
 		if (newEffectiveTime != effectiveTime) {
 			NotificationChain msgs = null;
-			if (effectiveTime != null) {
-				msgs = ((InternalEObject) effectiveTime).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, null, msgs);
-			}
-			if (newEffectiveTime != null) {
-				msgs = ((InternalEObject) newEffectiveTime).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, null, msgs);
-			}
+			if (effectiveTime != null)
+				msgs = ((InternalEObject)effectiveTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, null, msgs);
+			if (newEffectiveTime != null)
+				msgs = ((InternalEObject)newEffectiveTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, null, msgs);
 			msgs = basicSetEffectiveTime(newEffectiveTime, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME,
-				newEffectiveTime, newEffectiveTime));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME, newEffectiveTime, newEffectiveTime));
 	}
 
 	/**
@@ -493,14 +444,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		Organization oldWholeOrganization = wholeOrganization;
 		wholeOrganization = newWholeOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, oldWholeOrganization,
-				newWholeOrganization);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, oldWholeOrganization, newWholeOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -513,22 +458,15 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public void setWholeOrganization(Organization newWholeOrganization) {
 		if (newWholeOrganization != wholeOrganization) {
 			NotificationChain msgs = null;
-			if (wholeOrganization != null) {
-				msgs = ((InternalEObject) wholeOrganization).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, null, msgs);
-			}
-			if (newWholeOrganization != null) {
-				msgs = ((InternalEObject) newWholeOrganization).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, null, msgs);
-			}
+			if (wholeOrganization != null)
+				msgs = ((InternalEObject)wholeOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, null, msgs);
+			if (newWholeOrganization != null)
+				msgs = ((InternalEObject)newWholeOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, null, msgs);
 			msgs = basicSetWholeOrganization(newWholeOrganization, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION,
-				newWholeOrganization, newWholeOrganization));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION, newWholeOrganization, newWholeOrganization));
 	}
 
 	/**
@@ -548,15 +486,11 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR,
-				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -569,10 +503,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR,
-				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -601,15 +533,11 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	 */
 	public void setClassCode(RoleClass newClassCode) {
 		RoleClass oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CLASS_CODE,
-				oldClassCode, classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZATION_PART_OF__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -622,10 +550,8 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZATION_PART_OF__CLASS_CODE,
-				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZATION_PART_OF__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -655,13 +581,13 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.ORGANIZATION_PART_OF__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ORGANIZATION_PART_OF__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.ORGANIZATION_PART_OF__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ORGANIZATION_PART_OF__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ORGANIZATION_PART_OF__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE:
@@ -717,36 +643,36 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 		switch (featureID) {
 			case CDAPackage.ORGANIZATION_PART_OF__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE:
-				setStatusCode((CS) newValue);
+				setStatusCode((CS)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME:
-				setEffectiveTime((IVL_TS) newValue);
+				setEffectiveTime((IVL_TS)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION:
-				setWholeOrganization((Organization) newValue);
+				setWholeOrganization((Organization)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__CLASS_CODE:
-				setClassCode((RoleClass) newValue);
+				setClassCode((RoleClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -764,7 +690,7 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -773,16 +699,16 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 				getIds().clear();
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__STATUS_CODE:
-				setStatusCode((CS) null);
+				setStatusCode((CS)null);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__EFFECTIVE_TIME:
-				setEffectiveTime((IVL_TS) null);
+				setEffectiveTime((IVL_TS)null);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__WHOLE_ORGANIZATION:
-				setWholeOrganization((Organization) null);
+				setWholeOrganization((Organization)null);
 				return;
 			case CDAPackage.ORGANIZATION_PART_OF__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -833,23 +759,13 @@ public class OrganizationPartOfImpl extends RoleImpl implements OrganizationPart
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

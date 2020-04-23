@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.tests;
 
+import java.io.FileInputStream;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -23,9 +24,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
-import org.eclipse.mdht.uml.cda.CDAFactory;
-import org.eclipse.mdht.uml.cda.Patient;
-import org.eclipse.mdht.uml.cda.SubjectPerson;
+import org.eclipse.mdht.uml.cda.ClinicalDocument;
+import org.eclipse.mdht.uml.cda.IdentityDoc;
+import org.eclipse.mdht.uml.cda.Participant1;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesFactory;
 import org.eclipse.mdht.uml.hl7.datatypes.ST;
@@ -134,24 +135,80 @@ public class TestSTDC {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		Patient p = CDAFactory.eINSTANCE.createPatient();
+		// Patient p = CDAFactory.eINSTANCE.createPatient();
+		//
+		// p.setEthnicGroupCode(DatatypesFactory.eINSTANCE.createCE("11a", "22"));
+		// p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11b", "22"));
+		// p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11c", "22"));
+		//
+		// p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11d", "22"));
+		//
+		// p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
+		// p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
+		// p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
+		// CDAUtil.saveSnippet(p, System.out);
+		//
+		// SubjectPerson sp = CDAFactory.eINSTANCE.createSubjectPerson();
+		// populate(sp, 4);
+		// CDAUtil.saveSnippet(sp, System.out);
+		// // sp.setAdministrativeGenderCode(DatatypesFactory.eINSTANCE);
+		//
+		// AssociatedEntity ae = CDAFactory.eINSTANCE.createAssociatedEntity();
+		//
+		// IdentityDoc idoc = CDAFactory.eINSTANCE.createIdentityDoc();
+		// idoc.setSeries(DatatypesFactory.eINSTANCE.createST("setSeries"));
+		// idoc.setIssueOrgCode(DatatypesFactory.eINSTANCE.createST("setIssueOrgCode"));
+		//
+		// idoc.setIdentityCardTypeId(DatatypesFactory.eINSTANCE.createCD("aaaa", "bbb"));
+		// idoc.setIssueDate(DatatypesFactory.eINSTANCE.createTS("2020"));
+		//
+		// idoc.setNumber(DatatypesFactory.eINSTANCE.createST("2020"));
+		//
+		// idoc.setIssueOrgName(DatatypesFactory.eINSTANCE.createST("setIssueOrgName"));
+		//
+		// ae.getIdentityDocs().add(idoc);
+		//
+		// CDAUtil.saveSnippet(ae, System.out);
+		// // //
+		// // //
 
-		p.setEthnicGroupCode(DatatypesFactory.eINSTANCE.createCE("11a", "22"));
-		p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11b", "22"));
-		p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11c", "22"));
+		;
+		ClinicalDocument clinicalDocument = CDAUtil.load(
+			new FileInputStream("Temp/SampleCDADocumentRuMedSertOfBirth.xml"));
 
-		p.getSDTCEthnicGroupCodes().add(DatatypesFactory.eINSTANCE.createCE("11d", "22"));
+		;
 
-		p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
-		p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
-		p.getGuardians().add(CDAFactory.eINSTANCE.createGuardian());
-		CDAUtil.saveSnippet(p, System.out);
+		for (Participant1 p1 : clinicalDocument.getParticipants()) {
+			System.out.println(p1.getAssociatedEntity().getIds().get(0).getRoot());
 
-		SubjectPerson sp = CDAFactory.eINSTANCE.createSubjectPerson();
-		populate(sp, 4);
-		CDAUtil.saveSnippet(sp, System.out);
-		// sp.setAdministrativeGenderCode(DatatypesFactory.eINSTANCE);
+			p1.getAssociatedEntity().getIds().get(0).setRoot("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+			for (IdentityDoc doc : p1.getAssociatedEntity().getIdentityDocs()) {
+				System.out.println(doc.getSeries().getText());
 
+				System.out.println(doc.getIssueDate().getValue());
+
+				// System.out.println(doc.getIdentityCardTypeId().getCode());
+
+				// System.out.println(doc.getIssueDate());
+
+				// System.out.println(doc.getIssueOrgCode().getText());
+
+				// System.out.println(doc.getIssueOrgName().getText());
+				// System.out.println("get getSeries");
+				// System.out.println(doc.getSeries().getText());
+				// System.out.println("get getIssueOrgCode");
+				// System.out.println(doc.getIssueOrgCode().getText());
+				// doc.setSeries(DatatypesFactory.eINSTANCE.createST("hererere"));
+				// System.out.println(doc.getSeries().getText());
+
+			}
+
+		}
+
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa");
+		CDAUtil.save(clinicalDocument, System.out);
+
+		System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbb");
 	}
 
 }

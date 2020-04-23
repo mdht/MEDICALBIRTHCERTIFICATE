@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage;
+import org.eclipse.mdht.uml.hl7.datatypes.ST;
 import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.operations.ADOperations;
 import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
@@ -71,6 +72,7 @@ import org.eclipse.mdht.uml.hl7.vocab.PostalAddressUse;
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getUses <em>Use</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getIsNotOrdered <em>Is Not Ordered</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.ADImpl#getGUIDs <em>GUID</em>}</li>
  * </ul>
  *
  * @generated
@@ -151,8 +153,7 @@ public class ADImpl extends ANYImpl implements AD {
 	 */
 	public EList<PostalAddressUse> getUses() {
 		if (uses == null) {
-			uses = new EDataTypeUniqueEList.Unsettable<PostalAddressUse>(
-				PostalAddressUse.class, this, DatatypesPackage.AD__USE);
+			uses = new EDataTypeUniqueEList.Unsettable<PostalAddressUse>(PostalAddressUse.class, this, DatatypesPackage.AD__USE);
 		}
 		return uses;
 	}
@@ -163,9 +164,7 @@ public class ADImpl extends ANYImpl implements AD {
 	 * @generated
 	 */
 	public void unsetUses() {
-		if (uses != null) {
-			((InternalEList.Unsettable<?>) uses).unset();
-		}
+		if (uses != null) ((InternalEList.Unsettable<?>)uses).unset();
 	}
 
 	/**
@@ -174,7 +173,7 @@ public class ADImpl extends ANYImpl implements AD {
 	 * @generated
 	 */
 	public boolean isSetUses() {
-		return uses != null && ((InternalEList.Unsettable<?>) uses).isSet();
+		return uses != null && ((InternalEList.Unsettable<?>)uses).isSet();
 	}
 
 	/**
@@ -194,11 +193,8 @@ public class ADImpl extends ANYImpl implements AD {
 	public void setIsNotOrdered(Boolean newIsNotOrdered) {
 		Boolean oldIsNotOrdered = isNotOrdered;
 		isNotOrdered = newIsNotOrdered;
-		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, DatatypesPackage.AD__IS_NOT_ORDERED, oldIsNotOrdered, isNotOrdered));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.AD__IS_NOT_ORDERED, oldIsNotOrdered, isNotOrdered));
 	}
 
 	/**
@@ -450,7 +446,7 @@ public class ADImpl extends ANYImpl implements AD {
 	 * @generated
 	 */
 	public FeatureMap getParts() {
-		return (FeatureMap) getMixed().<FeatureMap.Entry> list(DatatypesPackage.Literals.AD__PART);
+		return (FeatureMap)getMixed().<FeatureMap.Entry>list(DatatypesPackage.Literals.AD__PART);
 	}
 
 	/**
@@ -463,6 +459,15 @@ public class ADImpl extends ANYImpl implements AD {
 			mixed = new BasicFeatureMap(this, DatatypesPackage.AD__MIXED);
 		}
 		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ST> getGUIDs() {
+		return getMixed().list(DatatypesPackage.Literals.AD__GUID);
 	}
 
 	/**
@@ -978,7 +983,9 @@ public class ADImpl extends ANYImpl implements AD {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DatatypesPackage.AD__MIXED:
-				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+			case DatatypesPackage.AD__GUID:
+				return ((InternalEList<?>)getGUIDs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1046,10 +1053,8 @@ public class ADImpl extends ANYImpl implements AD {
 			case DatatypesPackage.AD__PRECINCT:
 				return getPrecincts();
 			case DatatypesPackage.AD__PART:
-				if (coreType) {
-					return getParts();
-				}
-				return ((FeatureMap.Internal) getParts()).getWrapper();
+				if (coreType) return getParts();
+				return ((FeatureMap.Internal)getParts()).getWrapper();
 			case DatatypesPackage.AD__USEABLE_PERIOD:
 				return getUseablePeriods();
 			case DatatypesPackage.AD__USE:
@@ -1057,10 +1062,10 @@ public class ADImpl extends ANYImpl implements AD {
 			case DatatypesPackage.AD__IS_NOT_ORDERED:
 				return getIsNotOrdered();
 			case DatatypesPackage.AD__MIXED:
-				if (coreType) {
-					return getMixed();
-				}
-				return ((FeatureMap.Internal) getMixed()).getWrapper();
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
+			case DatatypesPackage.AD__GUID:
+				return getGUIDs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1076,128 +1081,132 @@ public class ADImpl extends ANYImpl implements AD {
 		switch (featureID) {
 			case DatatypesPackage.AD__DELIMITER:
 				getDelimiters().clear();
-				getDelimiters().addAll((Collection<? extends ADXP>) newValue);
+				getDelimiters().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__COUNTRY:
 				getCountries().clear();
-				getCountries().addAll((Collection<? extends ADXP>) newValue);
+				getCountries().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__STATE:
 				getStates().clear();
-				getStates().addAll((Collection<? extends ADXP>) newValue);
+				getStates().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__COUNTY:
 				getCounties().clear();
-				getCounties().addAll((Collection<? extends ADXP>) newValue);
+				getCounties().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__CITY:
 				getCities().clear();
-				getCities().addAll((Collection<? extends ADXP>) newValue);
+				getCities().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__POSTAL_CODE:
 				getPostalCodes().clear();
-				getPostalCodes().addAll((Collection<? extends ADXP>) newValue);
+				getPostalCodes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__STREET_ADDRESS_LINE:
 				getStreetAddressLines().clear();
-				getStreetAddressLines().addAll((Collection<? extends ADXP>) newValue);
+				getStreetAddressLines().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__HOUSE_NUMBER:
 				getHouseNumbers().clear();
-				getHouseNumbers().addAll((Collection<? extends ADXP>) newValue);
+				getHouseNumbers().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__HOUSE_NUMBER_NUMERIC:
 				getHouseNumberNumerics().clear();
-				getHouseNumberNumerics().addAll((Collection<? extends ADXP>) newValue);
+				getHouseNumberNumerics().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DIRECTION:
 				getDirections().clear();
-				getDirections().addAll((Collection<? extends ADXP>) newValue);
+				getDirections().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__STREET_NAME:
 				getStreetNames().clear();
-				getStreetNames().addAll((Collection<? extends ADXP>) newValue);
+				getStreetNames().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__STREET_NAME_BASE:
 				getStreetNameBases().clear();
-				getStreetNameBases().addAll((Collection<? extends ADXP>) newValue);
+				getStreetNameBases().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__STREET_NAME_TYPE:
 				getStreetNameTypes().clear();
-				getStreetNameTypes().addAll((Collection<? extends ADXP>) newValue);
+				getStreetNameTypes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__ADDITIONAL_LOCATOR:
 				getAdditionalLocators().clear();
-				getAdditionalLocators().addAll((Collection<? extends ADXP>) newValue);
+				getAdditionalLocators().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__UNIT_ID:
 				getUnitIDs().clear();
-				getUnitIDs().addAll((Collection<? extends ADXP>) newValue);
+				getUnitIDs().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__UNIT_TYPE:
 				getUnitTypes().clear();
-				getUnitTypes().addAll((Collection<? extends ADXP>) newValue);
+				getUnitTypes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__CARE_OF:
 				getCareOfs().clear();
-				getCareOfs().addAll((Collection<? extends ADXP>) newValue);
+				getCareOfs().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__CENSUS_TRACT:
 				getCensusTracts().clear();
-				getCensusTracts().addAll((Collection<? extends ADXP>) newValue);
+				getCensusTracts().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_ADDRESS_LINE:
 				getDeliveryAddressLines().clear();
-				getDeliveryAddressLines().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryAddressLines().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_INSTALLATION_TYPE:
 				getDeliveryInstallationTypes().clear();
-				getDeliveryInstallationTypes().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryInstallationTypes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_INSTALLATION_AREA:
 				getDeliveryInstallationAreas().clear();
-				getDeliveryInstallationAreas().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryInstallationAreas().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_INSTALLATION_QUALIFIER:
 				getDeliveryInstallationQualifiers().clear();
-				getDeliveryInstallationQualifiers().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryInstallationQualifiers().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_MODE:
 				getDeliveryModes().clear();
-				getDeliveryModes().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryModes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__DELIVERY_MODE_IDENTIFIER:
 				getDeliveryModeIdentifiers().clear();
-				getDeliveryModeIdentifiers().addAll((Collection<? extends ADXP>) newValue);
+				getDeliveryModeIdentifiers().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__BUILDING_NUMBER_SUFFIX:
 				getBuildingNumberSuffixes().clear();
-				getBuildingNumberSuffixes().addAll((Collection<? extends ADXP>) newValue);
+				getBuildingNumberSuffixes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__POST_BOX:
 				getPostBoxes().clear();
-				getPostBoxes().addAll((Collection<? extends ADXP>) newValue);
+				getPostBoxes().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__PRECINCT:
 				getPrecincts().clear();
-				getPrecincts().addAll((Collection<? extends ADXP>) newValue);
+				getPrecincts().addAll((Collection<? extends ADXP>)newValue);
 				return;
 			case DatatypesPackage.AD__PART:
-				((FeatureMap.Internal) getParts()).set(newValue);
+				((FeatureMap.Internal)getParts()).set(newValue);
 				return;
 			case DatatypesPackage.AD__USEABLE_PERIOD:
 				getUseablePeriods().clear();
-				getUseablePeriods().addAll((Collection<? extends SXCM_TS>) newValue);
+				getUseablePeriods().addAll((Collection<? extends SXCM_TS>)newValue);
 				return;
 			case DatatypesPackage.AD__USE:
 				getUses().clear();
-				getUses().addAll((Collection<? extends PostalAddressUse>) newValue);
+				getUses().addAll((Collection<? extends PostalAddressUse>)newValue);
 				return;
 			case DatatypesPackage.AD__IS_NOT_ORDERED:
-				setIsNotOrdered((Boolean) newValue);
+				setIsNotOrdered((Boolean)newValue);
 				return;
 			case DatatypesPackage.AD__MIXED:
-				((FeatureMap.Internal) getMixed()).set(newValue);
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
+			case DatatypesPackage.AD__GUID:
+				getGUIDs().clear();
+				getGUIDs().addAll((Collection<? extends ST>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1307,6 +1316,9 @@ public class ADImpl extends ANYImpl implements AD {
 			case DatatypesPackage.AD__MIXED:
 				getMixed().clear();
 				return;
+			case DatatypesPackage.AD__GUID:
+				getGUIDs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1380,11 +1392,11 @@ public class ADImpl extends ANYImpl implements AD {
 			case DatatypesPackage.AD__USE:
 				return isSetUses();
 			case DatatypesPackage.AD__IS_NOT_ORDERED:
-				return IS_NOT_ORDERED_EDEFAULT == null
-						? isNotOrdered != null
-						: !IS_NOT_ORDERED_EDEFAULT.equals(isNotOrdered);
+				return IS_NOT_ORDERED_EDEFAULT == null ? isNotOrdered != null : !IS_NOT_ORDERED_EDEFAULT.equals(isNotOrdered);
 			case DatatypesPackage.AD__MIXED:
 				return mixed != null && !mixed.isEmpty();
+			case DatatypesPackage.AD__GUID:
+				return !getGUIDs().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1396,9 +1408,7 @@ public class ADImpl extends ANYImpl implements AD {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (use: ");

@@ -236,13 +236,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -255,22 +250,15 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -317,14 +305,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		LabeledDrug oldManufacturedLabeledDrug = manufacturedLabeledDrug;
 		manufacturedLabeledDrug = newManufacturedLabeledDrug;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG,
-				oldManufacturedLabeledDrug, newManufacturedLabeledDrug);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, oldManufacturedLabeledDrug, newManufacturedLabeledDrug);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -337,25 +319,15 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	public void setManufacturedLabeledDrug(LabeledDrug newManufacturedLabeledDrug) {
 		if (newManufacturedLabeledDrug != manufacturedLabeledDrug) {
 			NotificationChain msgs = null;
-			if (manufacturedLabeledDrug != null) {
-				msgs = ((InternalEObject) manufacturedLabeledDrug).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, null,
-					msgs);
-			}
-			if (newManufacturedLabeledDrug != null) {
-				msgs = ((InternalEObject) newManufacturedLabeledDrug).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, null,
-					msgs);
-			}
+			if (manufacturedLabeledDrug != null)
+				msgs = ((InternalEObject)manufacturedLabeledDrug).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, null, msgs);
+			if (newManufacturedLabeledDrug != null)
+				msgs = ((InternalEObject)newManufacturedLabeledDrug).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, null, msgs);
 			msgs = basicSetManufacturedLabeledDrug(newManufacturedLabeledDrug, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, newManufacturedLabeledDrug,
-				newManufacturedLabeledDrug));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG, newManufacturedLabeledDrug, newManufacturedLabeledDrug));
 	}
 
 	/**
@@ -376,14 +348,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		Material oldManufacturedMaterial = manufacturedMaterial;
 		manufacturedMaterial = newManufacturedMaterial;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, oldManufacturedMaterial,
-				newManufacturedMaterial);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, oldManufacturedMaterial, newManufacturedMaterial);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -396,23 +362,15 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	public void setManufacturedMaterial(Material newManufacturedMaterial) {
 		if (newManufacturedMaterial != manufacturedMaterial) {
 			NotificationChain msgs = null;
-			if (manufacturedMaterial != null) {
-				msgs = ((InternalEObject) manufacturedMaterial).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, null, msgs);
-			}
-			if (newManufacturedMaterial != null) {
-				msgs = ((InternalEObject) newManufacturedMaterial).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, null, msgs);
-			}
+			if (manufacturedMaterial != null)
+				msgs = ((InternalEObject)manufacturedMaterial).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, null, msgs);
+			if (newManufacturedMaterial != null)
+				msgs = ((InternalEObject)newManufacturedMaterial).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, null, msgs);
 			msgs = basicSetManufacturedMaterial(newManufacturedMaterial, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL,
-					newManufacturedMaterial, newManufacturedMaterial));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL, newManufacturedMaterial, newManufacturedMaterial));
 	}
 
 	/**
@@ -434,14 +392,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		Organization oldManufacturerOrganization = manufacturerOrganization;
 		manufacturerOrganization = newManufacturerOrganization;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION,
-				oldManufacturerOrganization, newManufacturerOrganization);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, oldManufacturerOrganization, newManufacturerOrganization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -454,25 +406,15 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	public void setManufacturerOrganization(Organization newManufacturerOrganization) {
 		if (newManufacturerOrganization != manufacturerOrganization) {
 			NotificationChain msgs = null;
-			if (manufacturerOrganization != null) {
-				msgs = ((InternalEObject) manufacturerOrganization).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, null,
-					msgs);
-			}
-			if (newManufacturerOrganization != null) {
-				msgs = ((InternalEObject) newManufacturerOrganization).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, null,
-					msgs);
-			}
+			if (manufacturerOrganization != null)
+				msgs = ((InternalEObject)manufacturerOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, null, msgs);
+			if (newManufacturerOrganization != null)
+				msgs = ((InternalEObject)newManufacturerOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, null, msgs);
 			msgs = basicSetManufacturerOrganization(newManufacturerOrganization, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, newManufacturerOrganization,
-				newManufacturerOrganization));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION, newManufacturerOrganization, newManufacturerOrganization));
 	}
 
 	/**
@@ -492,15 +434,11 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR,
-				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -513,10 +451,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR,
-				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -545,15 +481,11 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	 */
 	public void setClassCode(RoleClassManufacturedProduct newClassCode) {
 		RoleClassManufacturedProduct oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__CLASS_CODE,
-				oldClassCode, classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.MANUFACTURED_PRODUCT__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -566,10 +498,8 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.MANUFACTURED_PRODUCT__CLASS_CODE,
-				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.MANUFACTURED_PRODUCT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -608,13 +538,13 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.MANUFACTURED_PRODUCT__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.MANUFACTURED_PRODUCT__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.MANUFACTURED_PRODUCT__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG:
 				return basicSetManufacturedLabeledDrug(null, msgs);
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL:
@@ -666,33 +596,33 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 		switch (featureID) {
 			case CDAPackage.MANUFACTURED_PRODUCT__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG:
-				setManufacturedLabeledDrug((LabeledDrug) newValue);
+				setManufacturedLabeledDrug((LabeledDrug)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL:
-				setManufacturedMaterial((Material) newValue);
+				setManufacturedMaterial((Material)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION:
-				setManufacturerOrganization((Organization) newValue);
+				setManufacturerOrganization((Organization)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__CLASS_CODE:
-				setClassCode((RoleClassManufacturedProduct) newValue);
+				setClassCode((RoleClassManufacturedProduct)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -710,7 +640,7 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -719,13 +649,13 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 				getIds().clear();
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_LABELED_DRUG:
-				setManufacturedLabeledDrug((LabeledDrug) null);
+				setManufacturedLabeledDrug((LabeledDrug)null);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURED_MATERIAL:
-				setManufacturedMaterial((Material) null);
+				setManufacturedMaterial((Material)null);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__MANUFACTURER_ORGANIZATION:
-				setManufacturerOrganization((Organization) null);
+				setManufacturerOrganization((Organization)null);
 				return;
 			case CDAPackage.MANUFACTURED_PRODUCT__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -774,23 +704,13 @@ public class ManufacturedProductImpl extends RoleImpl implements ManufacturedPro
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

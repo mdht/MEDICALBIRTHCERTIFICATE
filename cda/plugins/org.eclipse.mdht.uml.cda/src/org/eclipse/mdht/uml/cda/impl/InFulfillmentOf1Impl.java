@@ -189,13 +189,8 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -208,22 +203,15 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, newTypeId,
-				newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -256,13 +244,9 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__NULL_FLAVOR,
-				oldNullFlavor, nullFlavor));
-		}
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__NULL_FLAVOR, oldNullFlavor, nullFlavor));
 	}
 
 	/**
@@ -282,15 +266,11 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	 */
 	public void setTypeCode(ActRelationshipFulfills newTypeCode) {
 		ActRelationshipFulfills oldTypeCode = typeCode;
-		typeCode = newTypeCode == null
-				? TYPE_CODE_EDEFAULT
-				: newTypeCode;
+		typeCode = newTypeCode == null ? TYPE_CODE_EDEFAULT : newTypeCode;
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_CODE, oldTypeCode,
-				typeCode, !oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 	}
 
 	/**
@@ -303,10 +283,8 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_CODE,
-				oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.IN_FULFILLMENT_OF1__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 	}
 
 	/**
@@ -336,13 +314,8 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 		ActReference oldActReference = actReference;
 		actReference = newActReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, oldActReference, newActReference);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, oldActReference, newActReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -355,22 +328,15 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	public void setActReference(ActReference newActReference) {
 		if (newActReference != actReference) {
 			NotificationChain msgs = null;
-			if (actReference != null) {
-				msgs = ((InternalEObject) actReference).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, null, msgs);
-			}
-			if (newActReference != null) {
-				msgs = ((InternalEObject) newActReference).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, null, msgs);
-			}
+			if (actReference != null)
+				msgs = ((InternalEObject)actReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, null, msgs);
+			if (newActReference != null)
+				msgs = ((InternalEObject)newActReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, null, msgs);
 			msgs = basicSetActReference(newActReference, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE,
-				newActReference, newActReference));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE, newActReference, newActReference));
 	}
 
 	/**
@@ -382,11 +348,11 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.IN_FULFILLMENT_OF1__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.IN_FULFILLMENT_OF1__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE:
 				return basicSetActReference(null, msgs);
 		}
@@ -428,23 +394,23 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 		switch (featureID) {
 			case CDAPackage.IN_FULFILLMENT_OF1__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__TYPE_CODE:
-				setTypeCode((ActRelationshipFulfills) newValue);
+				setTypeCode((ActRelationshipFulfills)newValue);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE:
-				setActReference((ActReference) newValue);
+				setActReference((ActReference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -462,7 +428,7 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -474,7 +440,7 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 				unsetTypeCode();
 				return;
 			case CDAPackage.IN_FULFILLMENT_OF1__ACT_REFERENCE:
-				setActReference((ActReference) null);
+				setActReference((ActReference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -511,19 +477,13 @@ public class InFulfillmentOf1Impl extends ActRelationshipImpl implements InFulfi
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
 		result.append(nullFlavor);
 		result.append(", typeCode: ");
-		if (typeCodeESet) {
-			result.append(typeCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (typeCodeESet) result.append(typeCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

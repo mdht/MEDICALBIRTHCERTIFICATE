@@ -2907,6 +2907,70 @@
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IdentityDoc" ordered="false"
+        upperBound="-1" eType="#//IdentityDoc" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IdentityDoc"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentityDoc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Series" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//ST"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Series"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Number" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//ST"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="Number"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IssueOrgName" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//ST"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IssueOrgName"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IssueOrgCode" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//ST"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IssueOrgCode"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IssueDate" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//TS"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IssueDate"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IdentityCardTypeId" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CD"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IdentityCardTypeId"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InFulfillmentOf" eSuperTypes="../../org.eclipse.mdht.uml.hl7.rim/model/rim.ecore#//ActRelationship">
     <eOperations name="typeCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -4841,6 +4905,14 @@
         defaultValueLiteral="PRS" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IdentityDoc" ordered="false"
+        upperBound="-1" eType="#//IdentityDoc" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="IdentityDoc"/>
+        <details key="namespace" value="urn:f103"/>
+        <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -3255,13 +3255,95 @@ public interface CDAPackage extends EPackage {
 	int ASSOCIATED_ENTITY__CLASS_CODE = RIMPackage.ROLE_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Identity Doc</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATED_ENTITY__IDENTITY_DOC = RIMPackage.ROLE_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Associated Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATED_ENTITY_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 12;
+	int ASSOCIATED_ENTITY_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.IdentityDocImpl <em>Identity Doc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.mdht.uml.cda.impl.IdentityDocImpl
+	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getIdentityDoc()
+	 * @generated
+	 */
+	int IDENTITY_DOC = 30;
+
+	/**
+	 * The feature id for the '<em><b>Series</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__SERIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__NUMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Issue Org Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__ISSUE_ORG_NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Issue Org Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__ISSUE_ORG_CODE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Issue Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__ISSUE_DATE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Identity Card Type Id</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC__IDENTITY_CARD_TYPE_ID = 5;
+
+	/**
+	 * The number of structural features of the '<em>Identity Doc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTITY_DOC_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl <em>In Fulfillment Of</em>}' class.
@@ -3271,7 +3353,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getInFulfillmentOf()
 	 * @generated
 	 */
-	int IN_FULFILLMENT_OF = 30;
+	int IN_FULFILLMENT_OF = 31;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3344,7 +3426,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 31;
+	int ORDER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3444,7 +3526,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getDocumentationOf()
 	 * @generated
 	 */
-	int DOCUMENTATION_OF = 32;
+	int DOCUMENTATION_OF = 33;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3517,7 +3599,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getServiceEvent()
 	 * @generated
 	 */
-	int SERVICE_EVENT = 33;
+	int SERVICE_EVENT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3626,7 +3708,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getPerformer1()
 	 * @generated
 	 */
-	int PERFORMER1 = 34;
+	int PERFORMER1 = 35;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3717,7 +3799,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRelatedDocument()
 	 * @generated
 	 */
-	int RELATED_DOCUMENT = 35;
+	int RELATED_DOCUMENT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3790,7 +3872,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getParentDocument()
 	 * @generated
 	 */
-	int PARENT_DOCUMENT = 36;
+	int PARENT_DOCUMENT = 37;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3908,7 +3990,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getAuthorization()
 	 * @generated
 	 */
-	int AUTHORIZATION = 37;
+	int AUTHORIZATION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -3981,7 +4063,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getConsent()
 	 * @generated
 	 */
-	int CONSENT = 38;
+	int CONSENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4081,7 +4163,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent1()
 	 * @generated
 	 */
-	int COMPONENT1 = 39;
+	int COMPONENT1 = 40;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4154,7 +4236,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEncompassingEncounter()
 	 * @generated
 	 */
-	int ENCOMPASSING_ENCOUNTER = 40;
+	int ENCOMPASSING_ENCOUNTER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4290,7 +4372,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getResponsibleParty()
 	 * @generated
 	 */
-	int RESPONSIBLE_PARTY = 41;
+	int RESPONSIBLE_PARTY = 42;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4363,7 +4445,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEncounterParticipant()
 	 * @generated
 	 */
-	int ENCOUNTER_PARTICIPANT = 42;
+	int ENCOUNTER_PARTICIPANT = 43;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4445,7 +4527,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 43;
+	int LOCATION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4518,7 +4600,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getHealthCareFacility()
 	 * @generated
 	 */
-	int HEALTH_CARE_FACILITY = 44;
+	int HEALTH_CARE_FACILITY = 45;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4618,7 +4700,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent2()
 	 * @generated
 	 */
-	int COMPONENT2 = 45;
+	int COMPONENT2 = 46;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4709,7 +4791,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getNonXMLBody()
 	 * @generated
 	 */
-	int NON_XML_BODY = 46;
+	int NON_XML_BODY = 47;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4809,7 +4891,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getStructuredBody()
 	 * @generated
 	 */
-	int STRUCTURED_BODY = 47;
+	int STRUCTURED_BODY = 48;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4909,7 +4991,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent3()
 	 * @generated
 	 */
-	int COMPONENT3 = 48;
+	int COMPONENT3 = 49;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -4991,7 +5073,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSection()
 	 * @generated
 	 */
-	int SECTION = 49;
+	int SECTION = 50;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5172,7 +5254,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getStrucDocText()
 	 * @generated
 	 */
-	int STRUC_DOC_TEXT = 50;
+	int STRUC_DOC_TEXT = 51;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -5218,7 +5300,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSubject()
 	 * @generated
 	 */
-	int SUBJECT = 51;
+	int SUBJECT = 52;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5309,7 +5391,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRelatedSubject()
 	 * @generated
 	 */
-	int RELATED_SUBJECT = 52;
+	int RELATED_SUBJECT = 53;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5402,13 +5484,22 @@ public interface CDAPackage extends EPackage {
 	int RELATED_SUBJECT__CLASS_CODE = RIMPackage.ROLE_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Identity Doc</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATED_SUBJECT__IDENTITY_DOC = RIMPackage.ROLE_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Related Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATED_SUBJECT_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 10;
+	int RELATED_SUBJECT_FEATURE_COUNT = RIMPackage.ROLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl <em>Subject Person</em>}' class.
@@ -5418,7 +5509,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSubjectPerson()
 	 * @generated
 	 */
-	int SUBJECT_PERSON = 53;
+	int SUBJECT_PERSON = 54;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5590,7 +5681,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEntry()
 	 * @generated
 	 */
-	int ENTRY = 54;
+	int ENTRY = 55;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5744,7 +5835,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getClinicalStatement()
 	 * @generated
 	 */
-	int CLINICAL_STATEMENT = 56;
+	int CLINICAL_STATEMENT = 57;
 
 	/**
 	 * The number of structural features of the '<em>Clinical Statement</em>' class.
@@ -5763,7 +5854,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getAct()
 	 * @generated
 	 */
-	int ACT = 55;
+	int ACT = 56;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -5998,7 +6089,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSpecimen()
 	 * @generated
 	 */
-	int SPECIMEN = 58;
+	int SPECIMEN = 59;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.SpecimenRoleImpl <em>Specimen Role</em>}' class.
@@ -6008,7 +6099,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSpecimenRole()
 	 * @generated
 	 */
-	int SPECIMEN_ROLE = 59;
+	int SPECIMEN_ROLE = 60;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.PlayingEntityImpl <em>Playing Entity</em>}' class.
@@ -6018,7 +6109,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getPlayingEntity()
 	 * @generated
 	 */
-	int PLAYING_ENTITY = 60;
+	int PLAYING_ENTITY = 61;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.Performer2Impl <em>Performer2</em>}' class.
@@ -6028,7 +6119,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getPerformer2()
 	 * @generated
 	 */
-	int PERFORMER2 = 61;
+	int PERFORMER2 = 62;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl <em>Participant2</em>}' class.
@@ -6038,7 +6129,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getParticipant2()
 	 * @generated
 	 */
-	int PARTICIPANT2 = 62;
+	int PARTICIPANT2 = 63;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ParticipantRoleImpl <em>Participant Role</em>}' class.
@@ -6048,7 +6139,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getParticipantRole()
 	 * @generated
 	 */
-	int PARTICIPANT_ROLE = 63;
+	int PARTICIPANT_ROLE = 64;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.DeviceImpl <em>Device</em>}' class.
@@ -6058,7 +6149,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getDevice()
 	 * @generated
 	 */
-	int DEVICE = 64;
+	int DEVICE = 65;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.EntityImpl <em>Entity</em>}' class.
@@ -6068,7 +6159,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEntity()
 	 * @generated
 	 */
-	int ENTITY = 65;
+	int ENTITY = 66;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.EntryRelationshipImpl <em>Entry Relationship</em>}' class.
@@ -6078,7 +6169,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEntryRelationship()
 	 * @generated
 	 */
-	int ENTRY_RELATIONSHIP = 66;
+	int ENTRY_RELATIONSHIP = 67;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.EncounterImpl <em>Encounter</em>}' class.
@@ -6088,7 +6179,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getEncounter()
 	 * @generated
 	 */
-	int ENCOUNTER = 57;
+	int ENCOUNTER = 58;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -7223,7 +7314,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getReference()
 	 * @generated
 	 */
-	int REFERENCE = 68;
+	int REFERENCE = 69;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ExternalActImpl <em>External Act</em>}' class.
@@ -7233,7 +7324,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getExternalAct()
 	 * @generated
 	 */
-	int EXTERNAL_ACT = 69;
+	int EXTERNAL_ACT = 70;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ExternalObservationImpl <em>External Observation</em>}' class.
@@ -7243,7 +7334,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getExternalObservation()
 	 * @generated
 	 */
-	int EXTERNAL_OBSERVATION = 70;
+	int EXTERNAL_OBSERVATION = 71;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ExternalProcedureImpl <em>External Procedure</em>}' class.
@@ -7253,7 +7344,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getExternalProcedure()
 	 * @generated
 	 */
-	int EXTERNAL_PROCEDURE = 71;
+	int EXTERNAL_PROCEDURE = 72;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ExternalDocumentImpl <em>External Document</em>}' class.
@@ -7263,7 +7354,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getExternalDocument()
 	 * @generated
 	 */
-	int EXTERNAL_DOCUMENT = 72;
+	int EXTERNAL_DOCUMENT = 73;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.PreconditionImpl <em>Precondition</em>}' class.
@@ -7273,7 +7364,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getPrecondition()
 	 * @generated
 	 */
-	int PRECONDITION = 73;
+	int PRECONDITION = 74;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.CriterionImpl <em>Criterion</em>}' class.
@@ -7283,7 +7374,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getCriterion()
 	 * @generated
 	 */
-	int CRITERION = 74;
+	int CRITERION = 75;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.ObservationImpl <em>Observation</em>}' class.
@@ -7293,7 +7384,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getObservation()
 	 * @generated
 	 */
-	int OBSERVATION = 67;
+	int OBSERVATION = 68;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8221,7 +8312,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getReferenceRange()
 	 * @generated
 	 */
-	int REFERENCE_RANGE = 75;
+	int REFERENCE_RANGE = 76;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8294,7 +8385,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getObservationRange()
 	 * @generated
 	 */
-	int OBSERVATION_RANGE = 76;
+	int OBSERVATION_RANGE = 77;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8403,7 +8494,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getInFulfillmentOf1()
 	 * @generated
 	 */
-	int IN_FULFILLMENT_OF1 = 77;
+	int IN_FULFILLMENT_OF1 = 78;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8476,7 +8567,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getActReference()
 	 * @generated
 	 */
-	int ACT_REFERENCE = 78;
+	int ACT_REFERENCE = 79;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8558,7 +8649,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getObservationMedia()
 	 * @generated
 	 */
-	int OBSERVATION_MEDIA = 79;
+	int OBSERVATION_MEDIA = 80;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8748,7 +8839,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getOrganizer()
 	 * @generated
 	 */
-	int ORGANIZER = 80;
+	int ORGANIZER = 81;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -8938,7 +9029,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent4()
 	 * @generated
 	 */
-	int COMPONENT4 = 81;
+	int COMPONENT4 = 82;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9119,7 +9210,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getProcedure()
 	 * @generated
 	 */
-	int PROCEDURE = 82;
+	int PROCEDURE = 83;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9381,7 +9472,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegionOfInterest()
 	 * @generated
 	 */
-	int REGION_OF_INTEREST = 83;
+	int REGION_OF_INTEREST = 84;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9571,7 +9662,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegionOfInterestValue()
 	 * @generated
 	 */
-	int REGION_OF_INTEREST_VALUE = 84;
+	int REGION_OF_INTEREST_VALUE = 85;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -9617,7 +9708,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSubstanceAdministration()
 	 * @generated
 	 */
-	int SUBSTANCE_ADMINISTRATION = 85;
+	int SUBSTANCE_ADMINISTRATION = 86;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9915,7 +10006,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getConsumable()
 	 * @generated
 	 */
-	int CONSUMABLE = 86;
+	int CONSUMABLE = 87;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -9988,7 +10079,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getManufacturedProduct()
 	 * @generated
 	 */
-	int MANUFACTURED_PRODUCT = 87;
+	int MANUFACTURED_PRODUCT = 88;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10088,7 +10179,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getLabeledDrug()
 	 * @generated
 	 */
-	int LABELED_DRUG = 88;
+	int LABELED_DRUG = 89;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10179,7 +10270,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getMaterial()
 	 * @generated
 	 */
-	int MATERIAL = 89;
+	int MATERIAL = 90;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10279,7 +10370,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getSupply()
 	 * @generated
 	 */
-	int SUPPLY = 90;
+	int SUPPLY = 91;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10541,7 +10632,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 91;
+	int PRODUCT = 92;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10614,7 +10705,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getComponent5()
 	 * @generated
 	 */
-	int COMPONENT5 = 92;
+	int COMPONENT5 = 93;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -10696,7 +10787,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getDocumentRoot()
 	 * @generated
 	 */
-	int DOCUMENT_ROOT = 93;
+	int DOCUMENT_ROOT = 94;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -10751,7 +10842,7 @@ public interface CDAPackage extends EPackage {
 	 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getRegistryDelegate()
 	 * @generated
 	 */
-	int REGISTRY_DELEGATE = 94;
+	int REGISTRY_DELEGATE = 95;
 
 	/**
 	 * The number of structural features of the '<em>Registry Delegate</em>' class.
@@ -14220,6 +14311,93 @@ public interface CDAPackage extends EPackage {
 	EAttribute getAssociatedEntity_ClassCode();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.AssociatedEntity#getIdentityDocs <em>Identity Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Identity Doc</em>'.
+	 * @see org.eclipse.mdht.uml.cda.AssociatedEntity#getIdentityDocs()
+	 * @see #getAssociatedEntity()
+	 * @generated
+	 */
+	EReference getAssociatedEntity_IdentityDoc();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.IdentityDoc <em>Identity Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Identity Doc</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc
+	 * @generated
+	 */
+	EClass getIdentityDoc();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getSeries <em>Series</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Series</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getSeries()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_Series();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Number</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getNumber()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_Number();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getIssueOrgName <em>Issue Org Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Issue Org Name</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getIssueOrgName()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_IssueOrgName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getIssueOrgCode <em>Issue Org Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Issue Org Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getIssueOrgCode()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_IssueOrgCode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getIssueDate <em>Issue Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Issue Date</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getIssueDate()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_IssueDate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.IdentityDoc#getIdentityCardTypeId <em>Identity Card Type Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Identity Card Type Id</em>'.
+	 * @see org.eclipse.mdht.uml.cda.IdentityDoc#getIdentityCardTypeId()
+	 * @see #getIdentityDoc()
+	 * @generated
+	 */
+	EReference getIdentityDoc_IdentityCardTypeId();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf <em>In Fulfillment Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16538,6 +16716,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRelatedSubject_ClassCode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.RelatedSubject#getIdentityDocs <em>Identity Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Identity Doc</em>'.
+	 * @see org.eclipse.mdht.uml.cda.RelatedSubject#getIdentityDocs()
+	 * @see #getRelatedSubject()
+	 * @generated
+	 */
+	EReference getRelatedSubject_IdentityDoc();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.SubjectPerson <em>Subject Person</em>}'.
@@ -25122,6 +25311,72 @@ public interface CDAPackage extends EPackage {
 		EAttribute ASSOCIATED_ENTITY__CLASS_CODE = eINSTANCE.getAssociatedEntity_ClassCode();
 
 		/**
+		 * The meta object literal for the '<em><b>Identity Doc</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSOCIATED_ENTITY__IDENTITY_DOC = eINSTANCE.getAssociatedEntity_IdentityDoc();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.IdentityDocImpl <em>Identity Doc</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.mdht.uml.cda.impl.IdentityDocImpl
+		 * @see org.eclipse.mdht.uml.cda.impl.CDAPackageImpl#getIdentityDoc()
+		 * @generated
+		 */
+		EClass IDENTITY_DOC = eINSTANCE.getIdentityDoc();
+
+		/**
+		 * The meta object literal for the '<em><b>Series</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__SERIES = eINSTANCE.getIdentityDoc_Series();
+
+		/**
+		 * The meta object literal for the '<em><b>Number</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__NUMBER = eINSTANCE.getIdentityDoc_Number();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Org Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__ISSUE_ORG_NAME = eINSTANCE.getIdentityDoc_IssueOrgName();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Org Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__ISSUE_ORG_CODE = eINSTANCE.getIdentityDoc_IssueOrgCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Date</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__ISSUE_DATE = eINSTANCE.getIdentityDoc_IssueDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Identity Card Type Id</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IDENTITY_DOC__IDENTITY_CARD_TYPE_ID = eINSTANCE.getIdentityDoc_IdentityCardTypeId();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.InFulfillmentOfImpl <em>In Fulfillment Of</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26870,6 +27125,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELATED_SUBJECT__CLASS_CODE = eINSTANCE.getRelatedSubject_ClassCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Identity Doc</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATED_SUBJECT__IDENTITY_DOC = eINSTANCE.getRelatedSubject_IdentityDoc();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl <em>Subject Person</em>}' class.

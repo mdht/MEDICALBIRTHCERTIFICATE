@@ -198,13 +198,8 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ACT_REFERENCE__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -217,22 +212,15 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ACT_REFERENCE__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ACT_REFERENCE__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ACT_REFERENCE__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ACT_REFERENCE__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -275,13 +263,9 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	 */
 	public void setClassCode(x_ActClassDocumentEntryAct newClassCode) {
 		x_ActClassDocumentEntryAct oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__CLASS_CODE, oldClassCode,
-				classCode));
-		}
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__CLASS_CODE, oldClassCode, classCode));
 	}
 
 	/**
@@ -300,13 +284,9 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	 */
 	public void setMoodCode(x_DocumentActMood newMoodCode) {
 		x_DocumentActMood oldMoodCode = moodCode;
-		moodCode = newMoodCode == null
-				? MOOD_CODE_EDEFAULT
-				: newMoodCode;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__MOOD_CODE, oldMoodCode,
-				moodCode));
-		}
+		moodCode = newMoodCode == null ? MOOD_CODE_EDEFAULT : newMoodCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__MOOD_CODE, oldMoodCode, moodCode));
 	}
 
 	/**
@@ -325,13 +305,9 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	 */
 	public void setDeterminerCode(EntityDeterminer newDeterminerCode) {
 		EntityDeterminer oldDeterminerCode = determinerCode;
-		determinerCode = newDeterminerCode == null
-				? DETERMINER_CODE_EDEFAULT
-				: newDeterminerCode;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__DETERMINER_CODE,
-				oldDeterminerCode, determinerCode));
-		}
+		determinerCode = newDeterminerCode == null ? DETERMINER_CODE_EDEFAULT : newDeterminerCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ACT_REFERENCE__DETERMINER_CODE, oldDeterminerCode, determinerCode));
 	}
 
 	/**
@@ -343,13 +319,13 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.ACT_REFERENCE__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ACT_REFERENCE__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.ACT_REFERENCE__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ACT_REFERENCE__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -391,27 +367,27 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 		switch (featureID) {
 			case CDAPackage.ACT_REFERENCE__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__CLASS_CODE:
-				setClassCode((x_ActClassDocumentEntryAct) newValue);
+				setClassCode((x_ActClassDocumentEntryAct)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__MOOD_CODE:
-				setMoodCode((x_DocumentActMood) newValue);
+				setMoodCode((x_DocumentActMood)newValue);
 				return;
 			case CDAPackage.ACT_REFERENCE__DETERMINER_CODE:
-				setDeterminerCode((EntityDeterminer) newValue);
+				setDeterminerCode((EntityDeterminer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -429,7 +405,7 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.ACT_REFERENCE__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.ACT_REFERENCE__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -483,9 +459,7 @@ public class ActReferenceImpl extends EObjectImpl implements ActReference {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (classCode: ");

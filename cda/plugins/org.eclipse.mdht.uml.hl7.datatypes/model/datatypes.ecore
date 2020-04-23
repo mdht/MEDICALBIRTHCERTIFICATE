@@ -1407,6 +1407,13 @@
         <details key="kind" value="elementWildcard"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GUID" ordered="false" upperBound="-1"
+        eType="#//ST" volatile="true" transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="namespace" value="urn:fias"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ADXP" eSuperTypes="#//ST">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

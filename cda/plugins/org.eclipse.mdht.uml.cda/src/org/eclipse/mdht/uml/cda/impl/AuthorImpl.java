@@ -257,13 +257,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHOR__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -276,21 +271,15 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -324,13 +313,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		CE oldFunctionCode = functionCode;
 		functionCode = newFunctionCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHOR__FUNCTION_CODE, oldFunctionCode, newFunctionCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__FUNCTION_CODE, oldFunctionCode, newFunctionCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -343,22 +327,15 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	public void setFunctionCode(CE newFunctionCode) {
 		if (newFunctionCode != functionCode) {
 			NotificationChain msgs = null;
-			if (functionCode != null) {
-				msgs = ((InternalEObject) functionCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__FUNCTION_CODE, null, msgs);
-			}
-			if (newFunctionCode != null) {
-				msgs = ((InternalEObject) newFunctionCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__FUNCTION_CODE, null, msgs);
-			}
+			if (functionCode != null)
+				msgs = ((InternalEObject)functionCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__FUNCTION_CODE, null, msgs);
+			if (newFunctionCode != null)
+				msgs = ((InternalEObject)newFunctionCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__FUNCTION_CODE, null, msgs);
 			msgs = basicSetFunctionCode(newFunctionCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__FUNCTION_CODE, newFunctionCode,
-				newFunctionCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__FUNCTION_CODE, newFunctionCode, newFunctionCode));
 	}
 
 	/**
@@ -379,13 +356,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		TS oldTime = time;
 		time = newTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHOR__TIME, oldTime, newTime);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TIME, oldTime, newTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -398,21 +370,15 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	public void setTime(TS newTime) {
 		if (newTime != time) {
 			NotificationChain msgs = null;
-			if (time != null) {
-				msgs = ((InternalEObject) time).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TIME, null, msgs);
-			}
-			if (newTime != null) {
-				msgs = ((InternalEObject) newTime).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TIME, null, msgs);
-			}
+			if (time != null)
+				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TIME, null, msgs);
+			if (newTime != null)
+				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__TIME, null, msgs);
 			msgs = basicSetTime(newTime, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TIME, newTime, newTime));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TIME, newTime, newTime));
 	}
 
 	/**
@@ -433,13 +399,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		AssignedAuthor oldAssignedAuthor = assignedAuthor;
 		assignedAuthor = newAssignedAuthor;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.AUTHOR__ASSIGNED_AUTHOR, oldAssignedAuthor, newAssignedAuthor);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__ASSIGNED_AUTHOR, oldAssignedAuthor, newAssignedAuthor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -452,22 +413,15 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	public void setAssignedAuthor(AssignedAuthor newAssignedAuthor) {
 		if (newAssignedAuthor != assignedAuthor) {
 			NotificationChain msgs = null;
-			if (assignedAuthor != null) {
-				msgs = ((InternalEObject) assignedAuthor).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__ASSIGNED_AUTHOR, null, msgs);
-			}
-			if (newAssignedAuthor != null) {
-				msgs = ((InternalEObject) newAssignedAuthor).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__ASSIGNED_AUTHOR, null, msgs);
-			}
+			if (assignedAuthor != null)
+				msgs = ((InternalEObject)assignedAuthor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__ASSIGNED_AUTHOR, null, msgs);
+			if (newAssignedAuthor != null)
+				msgs = ((InternalEObject)newAssignedAuthor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.AUTHOR__ASSIGNED_AUTHOR, null, msgs);
 			msgs = basicSetAssignedAuthor(newAssignedAuthor, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__ASSIGNED_AUTHOR, newAssignedAuthor,
-				newAssignedAuthor));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__ASSIGNED_AUTHOR, newAssignedAuthor, newAssignedAuthor));
 	}
 
 	/**
@@ -487,15 +441,11 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -508,10 +458,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -540,15 +488,11 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	 */
 	public void setTypeCode(ParticipationType newTypeCode) {
 		ParticipationType oldTypeCode = typeCode;
-		typeCode = newTypeCode == null
-				? TYPE_CODE_EDEFAULT
-				: newTypeCode;
+		typeCode = newTypeCode == null ? TYPE_CODE_EDEFAULT : newTypeCode;
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TYPE_CODE, oldTypeCode, typeCode,
-				!oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
 	}
 
 	/**
@@ -561,10 +505,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__TYPE_CODE, oldTypeCode,
-				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 	}
 
 	/**
@@ -592,15 +534,11 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	 */
 	public void setContextControlCode(ContextControl newContextControlCode) {
 		ContextControl oldContextControlCode = contextControlCode;
-		contextControlCode = newContextControlCode == null
-				? CONTEXT_CONTROL_CODE_EDEFAULT
-				: newContextControlCode;
+		contextControlCode = newContextControlCode == null ? CONTEXT_CONTROL_CODE_EDEFAULT : newContextControlCode;
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__CONTEXT_CONTROL_CODE,
-				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHOR__CONTEXT_CONTROL_CODE, oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 	}
 
 	/**
@@ -613,10 +551,8 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__CONTEXT_CONTROL_CODE,
-				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHOR__CONTEXT_CONTROL_CODE, oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 	}
 
 	/**
@@ -664,11 +600,11 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.AUTHOR__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.AUTHOR__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.AUTHOR__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.AUTHOR__FUNCTION_CODE:
 				return basicSetFunctionCode(null, msgs);
 			case CDAPackage.AUTHOR__TIME:
@@ -720,32 +656,32 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 		switch (featureID) {
 			case CDAPackage.AUTHOR__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.AUTHOR__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.AUTHOR__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.AUTHOR__FUNCTION_CODE:
-				setFunctionCode((CE) newValue);
+				setFunctionCode((CE)newValue);
 				return;
 			case CDAPackage.AUTHOR__TIME:
-				setTime((TS) newValue);
+				setTime((TS)newValue);
 				return;
 			case CDAPackage.AUTHOR__ASSIGNED_AUTHOR:
-				setAssignedAuthor((AssignedAuthor) newValue);
+				setAssignedAuthor((AssignedAuthor)newValue);
 				return;
 			case CDAPackage.AUTHOR__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.AUTHOR__TYPE_CODE:
-				setTypeCode((ParticipationType) newValue);
+				setTypeCode((ParticipationType)newValue);
 				return;
 			case CDAPackage.AUTHOR__CONTEXT_CONTROL_CODE:
-				setContextControlCode((ContextControl) newValue);
+				setContextControlCode((ContextControl)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -763,19 +699,19 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.AUTHOR__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.AUTHOR__TEMPLATE_ID:
 				getTemplateIds().clear();
 				return;
 			case CDAPackage.AUTHOR__FUNCTION_CODE:
-				setFunctionCode((CE) null);
+				setFunctionCode((CE)null);
 				return;
 			case CDAPackage.AUTHOR__TIME:
-				setTime((TS) null);
+				setTime((TS)null);
 				return;
 			case CDAPackage.AUTHOR__ASSIGNED_AUTHOR:
-				setAssignedAuthor((AssignedAuthor) null);
+				setAssignedAuthor((AssignedAuthor)null);
 				return;
 			case CDAPackage.AUTHOR__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -827,29 +763,15 @@ public class AuthorImpl extends ParticipationImpl implements Author {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", typeCode: ");
-		if (typeCodeESet) {
-			result.append(typeCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (typeCodeESet) result.append(typeCode); else result.append("<unset>");
 		result.append(", contextControlCode: ");
-		if (contextControlCodeESet) {
-			result.append(contextControlCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (contextControlCodeESet) result.append(contextControlCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

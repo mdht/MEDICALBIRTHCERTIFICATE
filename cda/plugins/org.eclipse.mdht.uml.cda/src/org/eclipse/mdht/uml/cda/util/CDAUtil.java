@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -636,8 +637,8 @@ public class CDAUtil {
 		String snippetName = cdaSnippet.eClass().getName();
 
 		for (EClass eClass : cdaSnippet.eClass().getEAllSuperTypes()) {
-			if (CDAPackage.eINSTANCE.getNsURI().equals(eClass.getEPackage().getNsURI()) &&
-					!"ClinicalStatement".equals(eClass.getName())) {
+			if (CDAPackage.eINSTANCE.getNsURI().equals(eClass.getEPackage().getNsURI())
+					&& !"ClinicalStatement".equals(eClass.getName())) {
 				snippetName = eClass.getName();
 				break;
 			}
@@ -678,8 +679,8 @@ public class CDAUtil {
 			EObject eObject = queue.remove();
 			EClass eClass = eObject.eClass();
 			for (EAttribute attribute : eClass.getEAllAttributes()) { // visit
-				if (!eObject.eIsSet(attribute) && attribute.getLowerBound() > 0 &&
-						attribute.getDefaultValueLiteral() != null) {
+				if (!eObject.eIsSet(attribute) && attribute.getLowerBound() > 0
+						&& attribute.getDefaultValueLiteral() != null) {
 					if (attribute.isMany()) {
 						List<Object> list = (List<Object>) eObject.eGet(attribute);
 						list.add(attribute.getDefaultValue());
@@ -709,6 +710,27 @@ public class CDAUtil {
 		return validate(clinicalDocument, handler, true);
 	}
 
+	public static class ValidationStatistics {
+
+		public long shallCount = 0;
+
+		public long shouldCount = 0;
+
+		public long mayCount = 0;
+
+		public static class CounterPer {
+			public long count = 0;
+		}
+
+		public HashMap<String, CounterPer> counterPer = new HashMap<String, CounterPer>();
+
+		public HashSet<String> countShallUnique = new HashSet<String>();
+
+		public HashSet<String> countShouldUnique = new HashSet<String>();
+
+		public HashSet<String> countMayUnique = new HashSet<String>();
+	}
+
 	public static boolean validate(ClinicalDocument clinicalDocument, ValidationHandler handler, boolean defaults) {
 		if (defaults) {
 			handleDefaults(clinicalDocument);
@@ -717,10 +739,19 @@ public class CDAUtil {
 			// process diagnostics that were produced during EMF deserialization
 			processDiagnostic(EcoreUtil.computeDiagnostic(clinicalDocument.eResource(), true), handler);
 		}
-		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(clinicalDocument);
+		Map<String, Object> context = new HashMap<String, Object>();
+
+		if (handler != null && handler.isCaptureValidationStatistics()) {
+			ValidationStatistics counter = new ValidationStatistics();
+			handler.setValidationStatistics(counter);
+			context.put(ValidationStatistics.class.getCanonicalName(), handler.getValidationStatistics());
+		}
+
+		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(clinicalDocument, context);
 		if (handler != null) {
 			processDiagnostic(diagnostic, handler);
 		}
+
 		return diagnostic.getSeverity() != Diagnostic.ERROR;
 	}
 
@@ -910,6 +941,12 @@ public class CDAUtil {
 		public void handleWarning(Diagnostic diagnostic);
 
 		public void handleInfo(Diagnostic diagnostic);
+
+		public boolean isCaptureValidationStatistics();
+
+		public ValidationStatistics getValidationStatistics();
+
+		public void setValidationStatistics(ValidationStatistics validationStatistics);
 	}
 
 	// walk up the containment tree until we reach the ClinicalDocument or we run out of containers
@@ -955,8 +992,8 @@ public class CDAUtil {
 					target = element;
 				}
 			}
-			if ((Boolean.FALSE == rel.getInversionInd() || null == rel.getInversionInd()) && typeCodeMatch &&
-					target != null && (targetClass == null || targetClass.isSuperTypeOf(target.eClass()))) {
+			if ((Boolean.FALSE == rel.getInversionInd() || null == rel.getInversionInd()) && typeCodeMatch
+					&& target != null && (targetClass == null || targetClass.isSuperTypeOf(target.eClass()))) {
 				targets.add(target);
 			}
 		}
@@ -967,9 +1004,8 @@ public class CDAUtil {
 			boolean typeCodeMatch = typeCode == null
 					? true
 					: typeCode.equals(rel.getTypeCode());
-			if (Boolean.TRUE == rel.getInversionInd() && typeCodeMatch &&
-					rel.eContainer() instanceof ClinicalStatement &&
-					(targetClass == null || targetClass.isSuperTypeOf(rel.eContainer().eClass()))) {
+			if (Boolean.TRUE == rel.getInversionInd() && typeCodeMatch && rel.eContainer() instanceof ClinicalStatement
+					&& (targetClass == null || targetClass.isSuperTypeOf(rel.eContainer().eClass()))) {
 				targets.add((ClinicalStatement) rel.eContainer());
 			}
 		}
@@ -1004,8 +1040,8 @@ public class CDAUtil {
 					target = element;
 				}
 			}
-			if (typeCodeMatch && target != null &&
-					(targetClass == null || targetClass.isSuperTypeOf(target.eClass()))) {
+			if (typeCodeMatch && target != null
+					&& (targetClass == null || targetClass.isSuperTypeOf(target.eClass()))) {
 				targets.add(target);
 			}
 		}
@@ -2064,7 +2100,6 @@ public class CDAUtil {
 			}
 			eObject = eObject.eContainer();
 		}
-		// System.out.println(path + "(" + featurePath + ")");
 		return featurePath + "(" + path + ")";
 	}
 
@@ -2077,11 +2112,6 @@ public class CDAUtil {
 	}
 
 	public static String getDomainName(ENamedElement eNamedElement) {
-
-		// String result = EcoreUtil.getAnnotation(eNamedElement, ExtendedMetaData.ANNOTATION_URI, "name");
-		// if (result != null) {
-		// return eNamedElement.eContainer().eClass().getName() + "." + result;
-		// }
 		return eNamedElement.eContainer().eClass().getName() + "." + eNamedElement.getName();
 	}
 
@@ -2091,6 +2121,40 @@ public class CDAUtil {
 
 	public static void loadPackages(String location) {
 		CDAPackageLoader.loadPackages(location);
+	}
+
+	/**
+	 * @param context
+	 * @param string
+	 * @param string2
+	 */
+	public static void increment(Map<Object, Object> context, String key, String level) {
+		if (context.containsKey(ValidationStatistics.class.getCanonicalName())) {
+			ValidationStatistics counter = ((ValidationStatistics) context.get(
+				ValidationStatistics.class.getCanonicalName()));
+
+			switch (level) {
+				case "ERROR":
+					counter.shallCount++;
+					counter.countShallUnique.add(key);
+					break;
+				case "WARNING":
+					counter.shouldCount++;
+					counter.countShouldUnique.add(key);
+					break;
+				case "INFO":
+					counter.mayCount++;
+					counter.countMayUnique.add(key);
+					break;
+			}
+
+			if (!counter.counterPer.containsKey(key)) {
+				counter.counterPer.put(key, new ValidationStatistics.CounterPer());
+			}
+			counter.counterPer.get(key).count++;
+
+		}
+
 	}
 
 }

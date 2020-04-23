@@ -41,6 +41,7 @@ import org.eclipse.mdht.uml.hl7.vocab.RoleClassAssociative;
  *   <li>{@link org.eclipse.mdht.uml.cda.AssociatedEntity#getSDTCPatient <em>SDTC Patient</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.AssociatedEntity#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.AssociatedEntity#getClassCode <em>Class Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.AssociatedEntity#getIdentityDocs <em>Identity Doc</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssociatedEntity()
@@ -381,5 +382,22 @@ public interface AssociatedEntity extends Role {
 	 * @generated
 	 */
 	boolean isSetClassCode();
+
+	/**
+	 * Returns the value of the '<em><b>Identity Doc</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.cda.IdentityDoc}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Identity Doc</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Identity Doc</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssociatedEntity_IdentityDoc()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='IdentityDoc' namespace='urn:f103' kind='element'"
+	 * @generated
+	 */
+	EList<IdentityDoc> getIdentityDocs();
 
 } // AssociatedEntity

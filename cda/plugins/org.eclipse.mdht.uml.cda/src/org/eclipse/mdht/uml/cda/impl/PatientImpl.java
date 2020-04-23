@@ -369,13 +369,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -388,21 +383,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -436,13 +425,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		II oldId = id;
 		id = newId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__ID, oldId, newId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ID, oldId, newId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -455,21 +439,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setId(II newId) {
 		if (newId != id) {
 			NotificationChain msgs = null;
-			if (id != null) {
-				msgs = ((InternalEObject) id).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ID, null, msgs);
-			}
-			if (newId != null) {
-				msgs = ((InternalEObject) newId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ID, null, msgs);
-			}
+			if (id != null)
+				msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ID, null, msgs);
+			if (newId != null)
+				msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ID, null, msgs);
 			msgs = basicSetId(newId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ID, newId, newId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ID, newId, newId));
 	}
 
 	/**
@@ -502,14 +480,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		CE oldAdministrativeGenderCode = administrativeGenderCode;
 		administrativeGenderCode = newAdministrativeGenderCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, oldAdministrativeGenderCode,
-				newAdministrativeGenderCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, oldAdministrativeGenderCode, newAdministrativeGenderCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -522,22 +494,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setAdministrativeGenderCode(CE newAdministrativeGenderCode) {
 		if (newAdministrativeGenderCode != administrativeGenderCode) {
 			NotificationChain msgs = null;
-			if (administrativeGenderCode != null) {
-				msgs = ((InternalEObject) administrativeGenderCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, null, msgs);
-			}
-			if (newAdministrativeGenderCode != null) {
-				msgs = ((InternalEObject) newAdministrativeGenderCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, null, msgs);
-			}
+			if (administrativeGenderCode != null)
+				msgs = ((InternalEObject)administrativeGenderCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, null, msgs);
+			if (newAdministrativeGenderCode != null)
+				msgs = ((InternalEObject)newAdministrativeGenderCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, null, msgs);
 			msgs = basicSetAdministrativeGenderCode(newAdministrativeGenderCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE,
-				newAdministrativeGenderCode, newAdministrativeGenderCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE, newAdministrativeGenderCode, newAdministrativeGenderCode));
 	}
 
 	/**
@@ -558,13 +523,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		TS oldBirthTime = birthTime;
 		birthTime = newBirthTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__BIRTH_TIME, oldBirthTime, newBirthTime);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTH_TIME, oldBirthTime, newBirthTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -577,22 +537,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setBirthTime(TS newBirthTime) {
 		if (newBirthTime != birthTime) {
 			NotificationChain msgs = null;
-			if (birthTime != null) {
-				msgs = ((InternalEObject) birthTime).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTH_TIME, null, msgs);
-			}
-			if (newBirthTime != null) {
-				msgs = ((InternalEObject) newBirthTime).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTH_TIME, null, msgs);
-			}
+			if (birthTime != null)
+				msgs = ((InternalEObject)birthTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTH_TIME, null, msgs);
+			if (newBirthTime != null)
+				msgs = ((InternalEObject)newBirthTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTH_TIME, null, msgs);
 			msgs = basicSetBirthTime(newBirthTime, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTH_TIME, newBirthTime,
-				newBirthTime));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTH_TIME, newBirthTime, newBirthTime));
 	}
 
 	/**
@@ -613,14 +566,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		CE oldMaritalStatusCode = maritalStatusCode;
 		maritalStatusCode = newMaritalStatusCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__MARITAL_STATUS_CODE, oldMaritalStatusCode,
-				newMaritalStatusCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__MARITAL_STATUS_CODE, oldMaritalStatusCode, newMaritalStatusCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -633,22 +580,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setMaritalStatusCode(CE newMaritalStatusCode) {
 		if (newMaritalStatusCode != maritalStatusCode) {
 			NotificationChain msgs = null;
-			if (maritalStatusCode != null) {
-				msgs = ((InternalEObject) maritalStatusCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__MARITAL_STATUS_CODE, null, msgs);
-			}
-			if (newMaritalStatusCode != null) {
-				msgs = ((InternalEObject) newMaritalStatusCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__MARITAL_STATUS_CODE, null, msgs);
-			}
+			if (maritalStatusCode != null)
+				msgs = ((InternalEObject)maritalStatusCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__MARITAL_STATUS_CODE, null, msgs);
+			if (newMaritalStatusCode != null)
+				msgs = ((InternalEObject)newMaritalStatusCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__MARITAL_STATUS_CODE, null, msgs);
 			msgs = basicSetMaritalStatusCode(newMaritalStatusCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__MARITAL_STATUS_CODE,
-				newMaritalStatusCode, newMaritalStatusCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__MARITAL_STATUS_CODE, newMaritalStatusCode, newMaritalStatusCode));
 	}
 
 	/**
@@ -669,14 +609,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		CE oldReligiousAffiliationCode = religiousAffiliationCode;
 		religiousAffiliationCode = newReligiousAffiliationCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, oldReligiousAffiliationCode,
-				newReligiousAffiliationCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, oldReligiousAffiliationCode, newReligiousAffiliationCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -689,22 +623,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setReligiousAffiliationCode(CE newReligiousAffiliationCode) {
 		if (newReligiousAffiliationCode != religiousAffiliationCode) {
 			NotificationChain msgs = null;
-			if (religiousAffiliationCode != null) {
-				msgs = ((InternalEObject) religiousAffiliationCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, null, msgs);
-			}
-			if (newReligiousAffiliationCode != null) {
-				msgs = ((InternalEObject) newReligiousAffiliationCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, null, msgs);
-			}
+			if (religiousAffiliationCode != null)
+				msgs = ((InternalEObject)religiousAffiliationCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, null, msgs);
+			if (newReligiousAffiliationCode != null)
+				msgs = ((InternalEObject)newReligiousAffiliationCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, null, msgs);
 			msgs = basicSetReligiousAffiliationCode(newReligiousAffiliationCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE,
-				newReligiousAffiliationCode, newReligiousAffiliationCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE, newReligiousAffiliationCode, newReligiousAffiliationCode));
 	}
 
 	/**
@@ -725,13 +652,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		CE oldRaceCode = raceCode;
 		raceCode = newRaceCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__RACE_CODE, oldRaceCode, newRaceCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RACE_CODE, oldRaceCode, newRaceCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -744,22 +666,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setRaceCode(CE newRaceCode) {
 		if (newRaceCode != raceCode) {
 			NotificationChain msgs = null;
-			if (raceCode != null) {
-				msgs = ((InternalEObject) raceCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RACE_CODE, null, msgs);
-			}
-			if (newRaceCode != null) {
-				msgs = ((InternalEObject) newRaceCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RACE_CODE, null, msgs);
-			}
+			if (raceCode != null)
+				msgs = ((InternalEObject)raceCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RACE_CODE, null, msgs);
+			if (newRaceCode != null)
+				msgs = ((InternalEObject)newRaceCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__RACE_CODE, null, msgs);
 			msgs = basicSetRaceCode(newRaceCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RACE_CODE, newRaceCode, newRaceCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__RACE_CODE, newRaceCode, newRaceCode));
 	}
 
 	/**
@@ -792,13 +707,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		CE oldEthnicGroupCode = ethnicGroupCode;
 		ethnicGroupCode = newEthnicGroupCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__ETHNIC_GROUP_CODE, oldEthnicGroupCode, newEthnicGroupCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ETHNIC_GROUP_CODE, oldEthnicGroupCode, newEthnicGroupCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -811,22 +721,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setEthnicGroupCode(CE newEthnicGroupCode) {
 		if (newEthnicGroupCode != ethnicGroupCode) {
 			NotificationChain msgs = null;
-			if (ethnicGroupCode != null) {
-				msgs = ((InternalEObject) ethnicGroupCode).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ETHNIC_GROUP_CODE, null, msgs);
-			}
-			if (newEthnicGroupCode != null) {
-				msgs = ((InternalEObject) newEthnicGroupCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ETHNIC_GROUP_CODE, null, msgs);
-			}
+			if (ethnicGroupCode != null)
+				msgs = ((InternalEObject)ethnicGroupCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ETHNIC_GROUP_CODE, null, msgs);
+			if (newEthnicGroupCode != null)
+				msgs = ((InternalEObject)newEthnicGroupCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__ETHNIC_GROUP_CODE, null, msgs);
 			msgs = basicSetEthnicGroupCode(newEthnicGroupCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ETHNIC_GROUP_CODE,
-				newEthnicGroupCode, newEthnicGroupCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__ETHNIC_GROUP_CODE, newEthnicGroupCode, newEthnicGroupCode));
 	}
 
 	/**
@@ -859,13 +762,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		Birthplace oldBirthplace = birthplace;
 		birthplace = newBirthplace;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.PATIENT__BIRTHPLACE, oldBirthplace, newBirthplace);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTHPLACE, oldBirthplace, newBirthplace);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -878,22 +776,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public void setBirthplace(Birthplace newBirthplace) {
 		if (newBirthplace != birthplace) {
 			NotificationChain msgs = null;
-			if (birthplace != null) {
-				msgs = ((InternalEObject) birthplace).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTHPLACE, null, msgs);
-			}
-			if (newBirthplace != null) {
-				msgs = ((InternalEObject) newBirthplace).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTHPLACE, null, msgs);
-			}
+			if (birthplace != null)
+				msgs = ((InternalEObject)birthplace).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTHPLACE, null, msgs);
+			if (newBirthplace != null)
+				msgs = ((InternalEObject)newBirthplace).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.PATIENT__BIRTHPLACE, null, msgs);
 			msgs = basicSetBirthplace(newBirthplace, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTHPLACE, newBirthplace,
-				newBirthplace));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__BIRTHPLACE, newBirthplace, newBirthplace));
 	}
 
 	/**
@@ -903,8 +794,7 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	public EList<LanguageCommunication> getLanguageCommunications() {
 		if (languageCommunications == null) {
-			languageCommunications = new EObjectContainmentEList<LanguageCommunication>(
-				LanguageCommunication.class, this, CDAPackage.PATIENT__LANGUAGE_COMMUNICATION);
+			languageCommunications = new EObjectContainmentEList<LanguageCommunication>(LanguageCommunication.class, this, CDAPackage.PATIENT__LANGUAGE_COMMUNICATION);
 		}
 		return languageCommunications;
 	}
@@ -916,8 +806,7 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	public EList<CE> getSDTCEthnicGroupCodes() {
 		if (sDTCEthnicGroupCodes == null) {
-			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(
-				CE.class, this, CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE);
+			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(CE.class, this, CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE);
 		}
 		return sDTCEthnicGroupCodes;
 	}
@@ -939,15 +828,11 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -960,10 +845,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -992,15 +875,11 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	public void setClassCode(EntityClass newClassCode) {
 		EntityClass oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -1013,10 +892,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -1045,15 +922,11 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	public void setDeterminerCode(EntityDeterminer newDeterminerCode) {
 		EntityDeterminer oldDeterminerCode = determinerCode;
-		determinerCode = newDeterminerCode == null
-				? DETERMINER_CODE_EDEFAULT
-				: newDeterminerCode;
+		determinerCode = newDeterminerCode == null ? DETERMINER_CODE_EDEFAULT : newDeterminerCode;
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__DETERMINER_CODE,
-				oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PATIENT__DETERMINER_CODE, oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
 	}
 
 	/**
@@ -1066,10 +939,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCode = DETERMINER_CODE_EDEFAULT;
 		determinerCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__DETERMINER_CODE,
-				oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PATIENT__DETERMINER_CODE, oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
 	}
 
 	/**
@@ -1117,15 +988,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.PATIENT__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.PATIENT__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__ID:
 				return basicSetId(null, msgs);
 			case CDAPackage.PATIENT__NAME:
-				return ((InternalEList<?>) getNames()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getNames()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE:
 				return basicSetAdministrativeGenderCode(null, msgs);
 			case CDAPackage.PATIENT__BIRTH_TIME:
@@ -1137,17 +1008,17 @@ public class PatientImpl extends EntityImpl implements Patient {
 			case CDAPackage.PATIENT__RACE_CODE:
 				return basicSetRaceCode(null, msgs);
 			case CDAPackage.PATIENT__SDTC_RACE_CODE:
-				return ((InternalEList<?>) getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				return basicSetEthnicGroupCode(null, msgs);
 			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
-				return ((InternalEList<?>) getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__GUARDIAN:
-				return ((InternalEList<?>) getGuardians()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getGuardians()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__BIRTHPLACE:
 				return basicSetBirthplace(null, msgs);
 			case CDAPackage.PATIENT__LANGUAGE_COMMUNICATION:
-				return ((InternalEList<?>) getLanguageCommunications()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getLanguageCommunications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1213,67 +1084,67 @@ public class PatientImpl extends EntityImpl implements Patient {
 		switch (featureID) {
 			case CDAPackage.PATIENT__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.PATIENT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.PATIENT__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.PATIENT__ID:
-				setId((II) newValue);
+				setId((II)newValue);
 				return;
 			case CDAPackage.PATIENT__NAME:
 				getNames().clear();
-				getNames().addAll((Collection<? extends PN>) newValue);
+				getNames().addAll((Collection<? extends PN>)newValue);
 				return;
 			case CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE:
-				setAdministrativeGenderCode((CE) newValue);
+				setAdministrativeGenderCode((CE)newValue);
 				return;
 			case CDAPackage.PATIENT__BIRTH_TIME:
-				setBirthTime((TS) newValue);
+				setBirthTime((TS)newValue);
 				return;
 			case CDAPackage.PATIENT__MARITAL_STATUS_CODE:
-				setMaritalStatusCode((CE) newValue);
+				setMaritalStatusCode((CE)newValue);
 				return;
 			case CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE:
-				setReligiousAffiliationCode((CE) newValue);
+				setReligiousAffiliationCode((CE)newValue);
 				return;
 			case CDAPackage.PATIENT__RACE_CODE:
-				setRaceCode((CE) newValue);
+				setRaceCode((CE)newValue);
 				return;
 			case CDAPackage.PATIENT__SDTC_RACE_CODE:
 				getSDTCRaceCodes().clear();
-				getSDTCRaceCodes().addAll((Collection<? extends CE>) newValue);
+				getSDTCRaceCodes().addAll((Collection<? extends CE>)newValue);
 				return;
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
-				setEthnicGroupCode((CE) newValue);
+				setEthnicGroupCode((CE)newValue);
 				return;
 			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
 				getSDTCEthnicGroupCodes().clear();
-				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>) newValue);
+				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>)newValue);
 				return;
 			case CDAPackage.PATIENT__GUARDIAN:
 				getGuardians().clear();
-				getGuardians().addAll((Collection<? extends Guardian>) newValue);
+				getGuardians().addAll((Collection<? extends Guardian>)newValue);
 				return;
 			case CDAPackage.PATIENT__BIRTHPLACE:
-				setBirthplace((Birthplace) newValue);
+				setBirthplace((Birthplace)newValue);
 				return;
 			case CDAPackage.PATIENT__LANGUAGE_COMMUNICATION:
 				getLanguageCommunications().clear();
-				getLanguageCommunications().addAll((Collection<? extends LanguageCommunication>) newValue);
+				getLanguageCommunications().addAll((Collection<? extends LanguageCommunication>)newValue);
 				return;
 			case CDAPackage.PATIENT__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.PATIENT__CLASS_CODE:
-				setClassCode((EntityClass) newValue);
+				setClassCode((EntityClass)newValue);
 				return;
 			case CDAPackage.PATIENT__DETERMINER_CODE:
-				setDeterminerCode((EntityDeterminer) newValue);
+				setDeterminerCode((EntityDeterminer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1291,37 +1162,37 @@ public class PatientImpl extends EntityImpl implements Patient {
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.PATIENT__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.PATIENT__TEMPLATE_ID:
 				getTemplateIds().clear();
 				return;
 			case CDAPackage.PATIENT__ID:
-				setId((II) null);
+				setId((II)null);
 				return;
 			case CDAPackage.PATIENT__NAME:
 				getNames().clear();
 				return;
 			case CDAPackage.PATIENT__ADMINISTRATIVE_GENDER_CODE:
-				setAdministrativeGenderCode((CE) null);
+				setAdministrativeGenderCode((CE)null);
 				return;
 			case CDAPackage.PATIENT__BIRTH_TIME:
-				setBirthTime((TS) null);
+				setBirthTime((TS)null);
 				return;
 			case CDAPackage.PATIENT__MARITAL_STATUS_CODE:
-				setMaritalStatusCode((CE) null);
+				setMaritalStatusCode((CE)null);
 				return;
 			case CDAPackage.PATIENT__RELIGIOUS_AFFILIATION_CODE:
-				setReligiousAffiliationCode((CE) null);
+				setReligiousAffiliationCode((CE)null);
 				return;
 			case CDAPackage.PATIENT__RACE_CODE:
-				setRaceCode((CE) null);
+				setRaceCode((CE)null);
 				return;
 			case CDAPackage.PATIENT__SDTC_RACE_CODE:
 				getSDTCRaceCodes().clear();
 				return;
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
-				setEthnicGroupCode((CE) null);
+				setEthnicGroupCode((CE)null);
 				return;
 			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
 				getSDTCEthnicGroupCodes().clear();
@@ -1330,7 +1201,7 @@ public class PatientImpl extends EntityImpl implements Patient {
 				getGuardians().clear();
 				return;
 			case CDAPackage.PATIENT__BIRTHPLACE:
-				setBirthplace((Birthplace) null);
+				setBirthplace((Birthplace)null);
 				return;
 			case CDAPackage.PATIENT__LANGUAGE_COMMUNICATION:
 				getLanguageCommunications().clear();
@@ -1405,29 +1276,15 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(", determinerCode: ");
-		if (determinerCodeESet) {
-			result.append(determinerCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (determinerCodeESet) result.append(determinerCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

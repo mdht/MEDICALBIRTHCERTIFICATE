@@ -47,6 +47,7 @@ import org.eclipse.mdht.uml.cda.SubstanceAdministration;
 import org.eclipse.mdht.uml.cda.Supply;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.mdht.uml.hl7.rim.operations.ActOperations;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
 import org.eclipse.ocl.EvaluationEnvironment;
@@ -115,7 +116,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -149,7 +150,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,30 +163,42 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean validateClassCode(Section section, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"SectionClassCode","null");
+    
+      
 		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.SECTION);
-				try {
-					VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.SECTION);
+			try {
+				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(section)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.SECTION__CLASS_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateClassCode",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(section, context) }),
-						new Object[] { section }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.SECTION__CLASS_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(section, context) }),
+						 new Object [] { section }));
 			}
 			return false;
 		}
@@ -210,7 +223,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,30 +236,42 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean validateMoodCode(Section section, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"SectionMoodCode","null");
+    
+      
 		if (VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.SECTION);
-				try {
-					VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.SECTION);
+			try {
+				VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		if (!EOCL_ENV.get().createQuery(VALIDATE_MOOD_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(section)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.SECTION__MOOD_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateMoodCode",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(section, context) }),
-						new Object[] { section }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.SECTION__MOOD_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateMoodCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(section, context) }),
+						 new Object [] { section }));
 			}
 			return false;
 		}
@@ -413,7 +438,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_ACTS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_ACTS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -421,16 +446,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Act> getActs(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_ACTS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(29));
-				try {
-					GET_ACTS__EOCL_QRY.set(helper.createQuery(GET_ACTS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(29));
+			try {
+				GET_ACTS__EOCL_QRY.set(helper.createQuery(GET_ACTS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_ACTS__EOCL_QRY.get());
@@ -467,7 +498,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_ENCOUNTERS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_ENCOUNTERS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,16 +506,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Encounter> getEncounters(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_ENCOUNTERS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(31));
-				try {
-					GET_ENCOUNTERS__EOCL_QRY.set(helper.createQuery(GET_ENCOUNTERS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(31));
+			try {
+				GET_ENCOUNTERS__EOCL_QRY.set(helper.createQuery(GET_ENCOUNTERS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_ENCOUNTERS__EOCL_QRY.get());
@@ -511,7 +548,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_OBSERVATIONS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_OBSERVATIONS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,16 +556,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Observation> getObservations(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_OBSERVATIONS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(32));
-				try {
-					GET_OBSERVATIONS__EOCL_QRY.set(helper.createQuery(GET_OBSERVATIONS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(32));
+			try {
+				GET_OBSERVATIONS__EOCL_QRY.set(helper.createQuery(GET_OBSERVATIONS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_OBSERVATIONS__EOCL_QRY.get());
@@ -555,7 +598,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_OBSERVATION_MEDIA__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_OBSERVATION_MEDIA__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -563,16 +606,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<ObservationMedia> getObservationMedia(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_OBSERVATION_MEDIA__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(33));
-				try {
-					GET_OBSERVATION_MEDIA__EOCL_QRY.set(helper.createQuery(GET_OBSERVATION_MEDIA__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(33));
+			try {
+				GET_OBSERVATION_MEDIA__EOCL_QRY.set(helper.createQuery(GET_OBSERVATION_MEDIA__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_OBSERVATION_MEDIA__EOCL_QRY.get());
@@ -599,7 +648,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_ORGANIZERS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_ORGANIZERS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -607,16 +656,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Organizer> getOrganizers(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_ORGANIZERS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(34));
-				try {
-					GET_ORGANIZERS__EOCL_QRY.set(helper.createQuery(GET_ORGANIZERS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(34));
+			try {
+				GET_ORGANIZERS__EOCL_QRY.set(helper.createQuery(GET_ORGANIZERS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_ORGANIZERS__EOCL_QRY.get());
@@ -643,7 +698,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_PROCEDURES__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_PROCEDURES__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -651,16 +706,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Procedure> getProcedures(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_PROCEDURES__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(35));
-				try {
-					GET_PROCEDURES__EOCL_QRY.set(helper.createQuery(GET_PROCEDURES__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(35));
+			try {
+				GET_PROCEDURES__EOCL_QRY.set(helper.createQuery(GET_PROCEDURES__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_PROCEDURES__EOCL_QRY.get());
@@ -687,7 +748,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_REGIONS_OF_INTEREST__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_REGIONS_OF_INTEREST__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -695,16 +756,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<RegionOfInterest> getRegionsOfInterest(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_REGIONS_OF_INTEREST__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(36));
-				try {
-					GET_REGIONS_OF_INTEREST__EOCL_QRY.set(helper.createQuery(GET_REGIONS_OF_INTEREST__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(36));
+			try {
+				GET_REGIONS_OF_INTEREST__EOCL_QRY.set(helper.createQuery(GET_REGIONS_OF_INTEREST__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_REGIONS_OF_INTEREST__EOCL_QRY.get());
@@ -731,7 +798,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_SECTIONS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_SECTIONS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -739,16 +806,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Section> getSections(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_SECTIONS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(37));
-				try {
-					GET_SECTIONS__EOCL_QRY.set(helper.createQuery(GET_SECTIONS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(37));
+			try {
+				GET_SECTIONS__EOCL_QRY.set(helper.createQuery(GET_SECTIONS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_SECTIONS__EOCL_QRY.get());
@@ -786,7 +859,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -794,17 +867,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<SubstanceAdministration> getSubstanceAdministrations(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(39));
-				try {
-					GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY.set(
-						helper.createQuery(GET_SUBSTANCE_ADMINISTRATIONS__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(39));
+			try {
+				GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY.set(helper.createQuery(GET_SUBSTANCE_ADMINISTRATIONS__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_SUBSTANCE_ADMINISTRATIONS__EOCL_QRY.get());
@@ -831,7 +909,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> GET_SUPPLIES__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > GET_SUPPLIES__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -839,16 +917,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static EList<Supply> getSupplies(Section section) {
+	
+		
+	
+	
+	
+	
 		if (GET_SUPPLIES__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(40));
-				try {
-					GET_SUPPLIES__EOCL_QRY.set(helper.createQuery(GET_SUPPLIES__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(40));
+			try {
+				GET_SUPPLIES__EOCL_QRY.set(helper.createQuery(GET_SUPPLIES__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(GET_SUPPLIES__EOCL_QRY.get());
@@ -875,7 +959,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_ACT_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_ACT_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -883,16 +967,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasActTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_ACT_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(41));
-				try {
-					HAS_ACT_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_ACT_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(41));
+			try {
+				HAS_ACT_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_ACT_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_ACT_TEMPLATE__STRING__EOCL_QRY.get());
@@ -919,7 +1009,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_CODE__STRING_STRING_STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_CODE__STRING_STRING_STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -927,17 +1017,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasCode(Section section, String code, String codeSystem, String codeSystemName) {
+	
+		
+	
+	
+	
+	
 		if (HAS_CODE__STRING_STRING_STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(42));
-				try {
-					HAS_CODE__STRING_STRING_STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(42));
+			try {
+				HAS_CODE__STRING_STRING_STRING__EOCL_QRY.set(helper.createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_CODE__STRING_STRING_STRING__EOCL_QRY.get());
@@ -966,7 +1061,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -974,17 +1069,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasEncounterTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(43));
-				try {
-					HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(43));
+			try {
+				HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_ENCOUNTER_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1011,7 +1111,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1019,17 +1119,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasObservationMediaTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(44));
-				try {
-					HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(44));
+			try {
+				HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_OBSERVATION_MEDIA_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1056,7 +1161,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1064,17 +1169,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasObservationTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(45));
-				try {
-					HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_OBSERVATION_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(45));
+			try {
+				HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_OBSERVATION_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_OBSERVATION_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1101,7 +1211,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1109,17 +1219,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasOrganizerTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(46));
-				try {
-					HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_ORGANIZER_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(46));
+			try {
+				HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_ORGANIZER_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_ORGANIZER_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1146,7 +1261,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1154,17 +1269,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasProcedureTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(47));
-				try {
-					HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_PROCEDURE_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(47));
+			try {
+				HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_PROCEDURE_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_PROCEDURE_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1191,7 +1311,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1199,17 +1319,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasRegionOfInterestTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(48));
-				try {
-					HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(48));
+			try {
+				HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_REGION_OF_INTEREST_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1236,7 +1361,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1244,17 +1369,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasSubstanceAdministrationTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(49));
-				try {
-					HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(49));
+			try {
+				HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_SUBSTANCE_ADMINISTRATION_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1281,7 +1411,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_SECTION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_SECTION_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1289,17 +1419,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasSectionTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(50));
-				try {
-					HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(50));
+			try {
+				HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_SECTION_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1326,7 +1461,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1334,17 +1469,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasSupplyTemplate(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(51));
-				try {
-					HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY.set(
-						helper.createQuery(HAS_SUPPLY_TEMPLATE__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(51));
+			try {
+				HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY.set(helper.createQuery(HAS_SUPPLY_TEMPLATE__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_SUPPLY_TEMPLATE__STRING__EOCL_QRY.get());
@@ -1371,7 +1511,7 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<OCLExpression<EClassifier>> HAS_TEMPLATE_ID__STRING__EOCL_QRY = new ThreadLocal<OCLExpression<EClassifier>>();
+	protected static ThreadLocal< OCLExpression<EClassifier> > HAS_TEMPLATE_ID__STRING__EOCL_QRY = new ThreadLocal< OCLExpression<EClassifier> >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1379,16 +1519,22 @@ public class SectionOperations extends ActOperations {
 	 * @generated
 	 */
 	public static boolean hasTemplateId(Section section, String templateId) {
+	
+		
+	
+	
+	
+	
 		if (HAS_TEMPLATE_ID__STRING__EOCL_QRY.get() == null) {
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setOperationContext(
-					CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(52));
-				try {
-					HAS_TEMPLATE_ID__STRING__EOCL_QRY.set(helper.createQuery(HAS_TEMPLATE_ID__STRING__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setOperationContext(CDAPackage.Literals.SECTION, CDAPackage.Literals.SECTION.getEAllOperations().get(52));
+			try {
+				HAS_TEMPLATE_ID__STRING__EOCL_QRY.set(helper.createQuery(HAS_TEMPLATE_ID__STRING__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
 		OCL.Query query = EOCL_ENV.get().createQuery(HAS_TEMPLATE_ID__STRING__EOCL_QRY.get());

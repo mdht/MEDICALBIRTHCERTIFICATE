@@ -254,13 +254,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		InfrastructureRootTypeId oldTypeId = typeId;
 		typeId = newTypeId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ENTITY__TYPE_ID, oldTypeId, newTypeId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__TYPE_ID, oldTypeId, newTypeId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -273,21 +268,15 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	public void setTypeId(InfrastructureRootTypeId newTypeId) {
 		if (newTypeId != typeId) {
 			NotificationChain msgs = null;
-			if (typeId != null) {
-				msgs = ((InternalEObject) typeId).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__TYPE_ID, null, msgs);
-			}
-			if (newTypeId != null) {
-				msgs = ((InternalEObject) newTypeId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__TYPE_ID, null, msgs);
-			}
+			if (typeId != null)
+				msgs = ((InternalEObject)typeId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__TYPE_ID, null, msgs);
+			if (newTypeId != null)
+				msgs = ((InternalEObject)newTypeId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__TYPE_ID, null, msgs);
 			msgs = basicSetTypeId(newTypeId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__TYPE_ID, newTypeId, newTypeId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__TYPE_ID, newTypeId, newTypeId));
 	}
 
 	/**
@@ -333,13 +322,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		CE oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ENTITY__CODE, oldCode, newCode);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -352,21 +336,15 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	public void setCode(CE newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (code != null) {
-				msgs = ((InternalEObject) code).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__CODE, null, msgs);
-			}
-			if (newCode != null) {
-				msgs = ((InternalEObject) newCode).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__CODE, null, msgs);
-			}
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__CODE, null, msgs);
 			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__CODE, newCode, newCode));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__CODE, newCode, newCode));
 	}
 
 	/**
@@ -387,13 +365,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		ED oldDesc = desc;
 		desc = newDesc;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.ENTITY__DESC, oldDesc, newDesc);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__DESC, oldDesc, newDesc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -406,21 +379,15 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	public void setDesc(ED newDesc) {
 		if (newDesc != desc) {
 			NotificationChain msgs = null;
-			if (desc != null) {
-				msgs = ((InternalEObject) desc).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__DESC, null, msgs);
-			}
-			if (newDesc != null) {
-				msgs = ((InternalEObject) newDesc).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__DESC, null, msgs);
-			}
+			if (desc != null)
+				msgs = ((InternalEObject)desc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__DESC, null, msgs);
+			if (newDesc != null)
+				msgs = ((InternalEObject)newDesc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.ENTITY__DESC, null, msgs);
 			msgs = basicSetDesc(newDesc, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__DESC, newDesc, newDesc));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__DESC, newDesc, newDesc));
 	}
 
 	/**
@@ -440,15 +407,11 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	 */
 	public void setNullFlavor(NullFlavor newNullFlavor) {
 		NullFlavor oldNullFlavor = nullFlavor;
-		nullFlavor = newNullFlavor == null
-				? NULL_FLAVOR_EDEFAULT
-				: newNullFlavor;
+		nullFlavor = newNullFlavor == null ? NULL_FLAVOR_EDEFAULT : newNullFlavor;
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__NULL_FLAVOR, oldNullFlavor,
-				nullFlavor, !oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__NULL_FLAVOR, oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 	}
 
 	/**
@@ -461,10 +424,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__NULL_FLAVOR, oldNullFlavor,
-				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 	}
 
 	/**
@@ -493,15 +454,11 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	 */
 	public void setClassCode(EntityClassRoot newClassCode) {
 		EntityClassRoot oldClassCode = classCode;
-		classCode = newClassCode == null
-				? CLASS_CODE_EDEFAULT
-				: newClassCode;
+		classCode = newClassCode == null ? CLASS_CODE_EDEFAULT : newClassCode;
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__CLASS_CODE, oldClassCode,
-				classCode, !oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
 	}
 
 	/**
@@ -514,10 +471,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		boolean oldClassCodeESet = classCodeESet;
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__CLASS_CODE, oldClassCode,
-				CLASS_CODE_EDEFAULT, oldClassCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 	}
 
 	/**
@@ -546,15 +501,11 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	 */
 	public void setDeterminerCode(EntityDeterminer newDeterminerCode) {
 		EntityDeterminer oldDeterminerCode = determinerCode;
-		determinerCode = newDeterminerCode == null
-				? DETERMINER_CODE_EDEFAULT
-				: newDeterminerCode;
+		determinerCode = newDeterminerCode == null ? DETERMINER_CODE_EDEFAULT : newDeterminerCode;
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCodeESet = true;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__DETERMINER_CODE, oldDeterminerCode,
-				determinerCode, !oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTITY__DETERMINER_CODE, oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
 	}
 
 	/**
@@ -567,10 +518,8 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCode = DETERMINER_CODE_EDEFAULT;
 		determinerCodeESet = false;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__DETERMINER_CODE,
-				oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTITY__DETERMINER_CODE, oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
 	}
 
 	/**
@@ -600,13 +549,13 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.ENTITY__REALM_CODE:
-				return ((InternalEList<?>) getRealmCodes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRealmCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENTITY__TYPE_ID:
 				return basicSetTypeId(null, msgs);
 			case CDAPackage.ENTITY__TEMPLATE_ID:
-				return ((InternalEList<?>) getTemplateIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTemplateIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENTITY__ID:
-				return ((InternalEList<?>) getIds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ENTITY__CODE:
 				return basicSetCode(null, msgs);
 			case CDAPackage.ENTITY__DESC:
@@ -656,33 +605,33 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 		switch (featureID) {
 			case CDAPackage.ENTITY__REALM_CODE:
 				getRealmCodes().clear();
-				getRealmCodes().addAll((Collection<? extends CS>) newValue);
+				getRealmCodes().addAll((Collection<? extends CS>)newValue);
 				return;
 			case CDAPackage.ENTITY__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) newValue);
+				setTypeId((InfrastructureRootTypeId)newValue);
 				return;
 			case CDAPackage.ENTITY__TEMPLATE_ID:
 				getTemplateIds().clear();
-				getTemplateIds().addAll((Collection<? extends II>) newValue);
+				getTemplateIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ENTITY__ID:
 				getIds().clear();
-				getIds().addAll((Collection<? extends II>) newValue);
+				getIds().addAll((Collection<? extends II>)newValue);
 				return;
 			case CDAPackage.ENTITY__CODE:
-				setCode((CE) newValue);
+				setCode((CE)newValue);
 				return;
 			case CDAPackage.ENTITY__DESC:
-				setDesc((ED) newValue);
+				setDesc((ED)newValue);
 				return;
 			case CDAPackage.ENTITY__NULL_FLAVOR:
-				setNullFlavor((NullFlavor) newValue);
+				setNullFlavor((NullFlavor)newValue);
 				return;
 			case CDAPackage.ENTITY__CLASS_CODE:
-				setClassCode((EntityClassRoot) newValue);
+				setClassCode((EntityClassRoot)newValue);
 				return;
 			case CDAPackage.ENTITY__DETERMINER_CODE:
-				setDeterminerCode((EntityDeterminer) newValue);
+				setDeterminerCode((EntityDeterminer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -700,7 +649,7 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 				getRealmCodes().clear();
 				return;
 			case CDAPackage.ENTITY__TYPE_ID:
-				setTypeId((InfrastructureRootTypeId) null);
+				setTypeId((InfrastructureRootTypeId)null);
 				return;
 			case CDAPackage.ENTITY__TEMPLATE_ID:
 				getTemplateIds().clear();
@@ -709,10 +658,10 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 				getIds().clear();
 				return;
 			case CDAPackage.ENTITY__CODE:
-				setCode((CE) null);
+				setCode((CE)null);
 				return;
 			case CDAPackage.ENTITY__DESC:
-				setDesc((ED) null);
+				setDesc((ED)null);
 				return;
 			case CDAPackage.ENTITY__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -764,29 +713,15 @@ public class EntityImpl extends org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl imp
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nullFlavor: ");
-		if (nullFlavorESet) {
-			result.append(nullFlavor);
-		} else {
-			result.append("<unset>");
-		}
+		if (nullFlavorESet) result.append(nullFlavor); else result.append("<unset>");
 		result.append(", classCode: ");
-		if (classCodeESet) {
-			result.append(classCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (classCodeESet) result.append(classCode); else result.append("<unset>");
 		result.append(", determinerCode: ");
-		if (determinerCodeESet) {
-			result.append(determinerCode);
-		} else {
-			result.append("<unset>");
-		}
+		if (determinerCodeESet) result.append(determinerCode); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

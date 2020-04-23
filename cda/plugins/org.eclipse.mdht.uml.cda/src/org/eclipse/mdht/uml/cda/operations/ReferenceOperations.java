@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.Reference;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.mdht.uml.hl7.rim.operations.ActRelationshipOperations;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -45,7 +46,7 @@ public class ReferenceOperations extends ActRelationshipOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -79,7 +80,7 @@ public class ReferenceOperations extends ActRelationshipOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,31 +94,42 @@ public class ReferenceOperations extends ActRelationshipOperations {
 	 */
 	public static boolean validateExternalActChoice(Reference reference, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ReferenceExternalActChoice","null");
+    
+      
 		if (VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.REFERENCE);
-				try {
-					VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.REFERENCE);
+			try {
+				VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			reference)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_EXTERNAL_ACT_CHOICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(reference)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.REFERENCE__EXTERNAL_ACT_CHOICE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateExternalActChoice",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(reference, context) }),
-						new Object[] { reference }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.REFERENCE__EXTERNAL_ACT_CHOICE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateExternalActChoice", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(reference, context) }),
+						 new Object [] { reference }));
 			}
 			return false;
 		}

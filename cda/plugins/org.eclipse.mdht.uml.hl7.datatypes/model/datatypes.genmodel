@@ -267,6 +267,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EAttribute datatypes.ecore#//AD/mixed"
           pluralizationException="true"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference datatypes.ecore#//AD/GUID"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="datatypes.ecore#//AD/delimiter">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="datatypes.ecore#//AD/delimiter/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="datatypes.ecore#//AD/delimiter/context"/>

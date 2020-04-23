@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubject;
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getClassCode <em>Class Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.RelatedSubject#getIdentityDocs <em>Identity Doc</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject()
@@ -336,5 +337,22 @@ public interface RelatedSubject extends Role {
 	 * @generated
 	 */
 	boolean isSetClassCode();
+
+	/**
+	 * Returns the value of the '<em><b>Identity Doc</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.cda.IdentityDoc}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Identity Doc</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Identity Doc</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_IdentityDoc()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='IdentityDoc' namespace='urn:f103' kind='element'"
+	 * @generated
+	 */
+	EList<IdentityDoc> getIdentityDocs();
 
 } // RelatedSubject

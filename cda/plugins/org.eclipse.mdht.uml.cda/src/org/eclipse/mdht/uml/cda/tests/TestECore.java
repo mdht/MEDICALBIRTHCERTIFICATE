@@ -33,6 +33,7 @@ import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesFactory;
 import org.eclipse.mdht.uml.hl7.datatypes.ST;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActClassDocumentEntryAct;
@@ -215,6 +216,24 @@ public class TestECore {
 			@Override
 			public void handleInfo(Diagnostic diagnostic) {
 				System.out.println(diagnostic.getMessage());
+
+			}
+
+			@Override
+			public boolean isCaptureValidationStatistics() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public ValidationStatistics getValidationStatistics() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public void setValidationStatistics(ValidationStatistics validationStatistics) {
+				// TODO Auto-generated method stub
 
 			}
 		};

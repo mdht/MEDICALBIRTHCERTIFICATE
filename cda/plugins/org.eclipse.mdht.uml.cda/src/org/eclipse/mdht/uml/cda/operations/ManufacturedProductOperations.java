@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.ManufacturedProduct;
 import org.eclipse.mdht.uml.cda.util.CDAValidator;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil;
 import org.eclipse.mdht.uml.hl7.rim.operations.RoleOperations;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -46,7 +47,7 @@ public class ManufacturedProductOperations extends RoleOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+	protected static final ThreadLocal< OCL > EOCL_ENV = new ThreadLocal< OCL >() {
 		@Override
 		public OCL initialValue() {
 			return OCL.newInstance();
@@ -80,7 +81,7 @@ public class ManufacturedProductOperations extends RoleOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,35 +95,42 @@ public class ManufacturedProductOperations extends RoleOperations {
 	 */
 	public static boolean validateManufacturedDrugOrOtherMaterial(ManufacturedProduct manufacturedProduct,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ManufacturedProductManufacturedDrugOrOtherMaterial","null");
+    
+      
 		if (VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.MANUFACTURED_PRODUCT);
-				try {
-					VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(
-							VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.MANUFACTURED_PRODUCT);
+			try {
+				VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(
-			VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-				manufacturedProduct)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_MANUFACTURED_DRUG_OR_OTHER_MATERIAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(manufacturedProduct)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE,
-						CDAValidator.MANUFACTURED_PRODUCT__MANUFACTURED_DRUG_OR_OTHER_MATERIAL,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateManufacturedDrugOrOtherMaterial",
-									org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										manufacturedProduct, context) }),
-						new Object[] { manufacturedProduct }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.MANUFACTURED_PRODUCT__MANUFACTURED_DRUG_OR_OTHER_MATERIAL,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateManufacturedDrugOrOtherMaterial", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(manufacturedProduct, context) }),
+						 new Object [] { manufacturedProduct }));
 			}
 			return false;
 		}
@@ -147,7 +155,7 @@ public class ManufacturedProductOperations extends RoleOperations {
 	 * @generated
 	 * @ordered
 	 */
-	protected static ThreadLocal<Constraint> VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal<Constraint>();
+	protected static ThreadLocal< Constraint > VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = new ThreadLocal< Constraint >();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,31 +169,42 @@ public class ManufacturedProductOperations extends RoleOperations {
 	 */
 	public static boolean validateClassCode(ManufacturedProduct manufacturedProduct, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+	
+		
+	
+	
+	
+	
+      
+      
+  	 
+  	 
+  	 
+    DatatypesUtil.increment(context,"ManufacturedProductClassCode","null");
+    
+      
 		if (VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get() == null) {
-
-			synchronized (EOCL_ENV) {
-				OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
-				helper.setContext(CDAPackage.Literals.MANUFACTURED_PRODUCT);
-				try {
-					VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(
-						helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
-				} catch (ParserException pe) {
-					throw new UnsupportedOperationException(pe.getLocalizedMessage());
-				}
+		
+		synchronized (EOCL_ENV) {
+			OCL.Helper helper = EOCL_ENV.get().createOCLHelper();
+			helper.setContext(CDAPackage.Literals.MANUFACTURED_PRODUCT);
+			try {
+				VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.set(helper.createInvariant(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP));
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 			}
 		}
-		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(
-			manufacturedProduct)) {
+		if (!EOCL_ENV.get().createQuery(VALIDATE_CLASS_CODE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV.get()).check(manufacturedProduct)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-					new BasicDiagnostic(
-						Diagnostic.ERROR, CDAValidator.DIAGNOSTIC_SOURCE, CDAValidator.MANUFACTURED_PRODUCT__CLASS_CODE,
-						org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(
-							"_UI_GenericInvariant_diagnostic",
-							new Object[] {
-									"validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(
-										manufacturedProduct, context) }),
-						new Object[] { manufacturedProduct }));
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CDAValidator.DIAGNOSTIC_SOURCE,
+						 CDAValidator.MANUFACTURED_PRODUCT__CLASS_CODE,
+						 org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validateClassCode", org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(manufacturedProduct, context) }),
+						 new Object [] { manufacturedProduct }));
 			}
 			return false;
 		}

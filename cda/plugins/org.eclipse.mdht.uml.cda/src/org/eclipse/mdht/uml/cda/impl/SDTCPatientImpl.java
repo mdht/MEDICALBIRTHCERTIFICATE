@@ -81,13 +81,8 @@ public class SDTCPatientImpl extends EObjectImpl implements SDTCPatient {
 		II oldId = id;
 		id = newId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, CDAPackage.SDTC_PATIENT__ID, oldId, newId);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDAPackage.SDTC_PATIENT__ID, oldId, newId);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -100,21 +95,15 @@ public class SDTCPatientImpl extends EObjectImpl implements SDTCPatient {
 	public void setId(II newId) {
 		if (newId != id) {
 			NotificationChain msgs = null;
-			if (id != null) {
-				msgs = ((InternalEObject) id).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SDTC_PATIENT__ID, null, msgs);
-			}
-			if (newId != null) {
-				msgs = ((InternalEObject) newId).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SDTC_PATIENT__ID, null, msgs);
-			}
+			if (id != null)
+				msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SDTC_PATIENT__ID, null, msgs);
+			if (newId != null)
+				msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDAPackage.SDTC_PATIENT__ID, null, msgs);
 			msgs = basicSetId(newId, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SDTC_PATIENT__ID, newId, newId));
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SDTC_PATIENT__ID, newId, newId));
 	}
 
 	/**
@@ -154,7 +143,7 @@ public class SDTCPatientImpl extends EObjectImpl implements SDTCPatient {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CDAPackage.SDTC_PATIENT__ID:
-				setId((II) newValue);
+				setId((II)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,7 +158,7 @@ public class SDTCPatientImpl extends EObjectImpl implements SDTCPatient {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CDAPackage.SDTC_PATIENT__ID:
-				setId((II) null);
+				setId((II)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -33,7 +33,7 @@ public interface CV extends CE {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.translation->size()=0'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.translation-&gt;size()=0'"
 	 * @generated
 	 */
 	boolean validateTranslation(DiagnosticChain diagnostics, Map<Object, Object> context);

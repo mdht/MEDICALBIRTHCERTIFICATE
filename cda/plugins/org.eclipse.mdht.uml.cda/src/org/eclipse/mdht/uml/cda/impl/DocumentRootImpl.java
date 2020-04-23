@@ -111,9 +111,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String, String>(
-				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
-				CDAPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, CDAPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -125,9 +123,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String, String>(
-				EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this,
-				CDAPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, CDAPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}
@@ -138,7 +134,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ClinicalDocument getClinicalDocument() {
-		return (ClinicalDocument) getMixed().get(CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, true);
+		return (ClinicalDocument)getMixed().get(CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, true);
 	}
 
 	/**
@@ -147,8 +143,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NotificationChain basicSetClinicalDocument(ClinicalDocument newClinicalDocument, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(
-			CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, newClinicalDocument, msgs);
+		return ((FeatureMap.Internal)getMixed()).basicAdd(CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, newClinicalDocument, msgs);
 	}
 
 	/**
@@ -157,8 +152,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setClinicalDocument(ClinicalDocument newClinicalDocument) {
-		((FeatureMap.Internal) getMixed()).set(
-			CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, newClinicalDocument);
+		((FeatureMap.Internal)getMixed()).set(CDAPackage.Literals.DOCUMENT_ROOT__CLINICAL_DOCUMENT, newClinicalDocument);
 	}
 
 	/**
@@ -170,11 +164,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CDAPackage.DOCUMENT_ROOT__MIXED:
-				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case CDAPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
 			case CDAPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,22 +182,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CDAPackage.DOCUMENT_ROOT__MIXED:
-				if (coreType) {
-					return getMixed();
-				}
-				return ((FeatureMap.Internal) getMixed()).getWrapper();
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case CDAPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				if (coreType) {
-					return getXMLNSPrefixMap();
-				} else {
-					return getXMLNSPrefixMap().map();
-				}
+				if (coreType) return getXMLNSPrefixMap();
+				else return getXMLNSPrefixMap().map();
 			case CDAPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				if (coreType) {
-					return getXSISchemaLocation();
-				} else {
-					return getXSISchemaLocation().map();
-				}
+				if (coreType) return getXSISchemaLocation();
+				else return getXSISchemaLocation().map();
 			case CDAPackage.DOCUMENT_ROOT__CLINICAL_DOCUMENT:
 				return getClinicalDocument();
 		}
@@ -219,16 +205,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CDAPackage.DOCUMENT_ROOT__MIXED:
-				((FeatureMap.Internal) getMixed()).set(newValue);
+				((FeatureMap.Internal)getMixed()).set(newValue);
 				return;
 			case CDAPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
+				((EStructuralFeature.Setting)getXMLNSPrefixMap()).set(newValue);
 				return;
 			case CDAPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
+				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
 				return;
 			case CDAPackage.DOCUMENT_ROOT__CLINICAL_DOCUMENT:
-				setClinicalDocument((ClinicalDocument) newValue);
+				setClinicalDocument((ClinicalDocument)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,7 +238,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				getXSISchemaLocation().clear();
 				return;
 			case CDAPackage.DOCUMENT_ROOT__CLINICAL_DOCUMENT:
-				setClinicalDocument((ClinicalDocument) null);
+				setClinicalDocument((ClinicalDocument)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -285,9 +271,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
