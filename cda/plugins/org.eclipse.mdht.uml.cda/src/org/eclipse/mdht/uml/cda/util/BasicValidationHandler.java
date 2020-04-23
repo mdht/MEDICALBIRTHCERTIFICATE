@@ -12,7 +12,7 @@ package org.eclipse.mdht.uml.cda.util;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
-import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 
 public class BasicValidationHandler implements ValidationHandler {
 	public void handleError(Diagnostic diagnostic) {
@@ -29,7 +29,7 @@ public class BasicValidationHandler implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#isCaptureValidationStatistics()
 	 */
 	@Override
@@ -40,7 +40,7 @@ public class BasicValidationHandler implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#getValidationStatistics()
 	 */
 	@Override
@@ -51,7 +51,7 @@ public class BasicValidationHandler implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#setValidationStatistics(org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics)
 	 */
 	@Override

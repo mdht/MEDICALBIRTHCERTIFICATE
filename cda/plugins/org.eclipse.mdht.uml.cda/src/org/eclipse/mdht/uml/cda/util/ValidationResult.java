@@ -17,7 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
-import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 
 // class to collect diagnostics produced during XML schema validation and/or EMF validation
 public class ValidationResult implements ValidationHandler {
@@ -119,7 +119,7 @@ public class ValidationResult implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#isCaptureValidationStatistics()
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class ValidationResult implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#getValidationStatistics()
 	 */
 	@Override
@@ -141,7 +141,7 @@ public class ValidationResult implements ValidationHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#setValidationStatistics(org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics)
 	 */
 	@Override

@@ -12,6 +12,7 @@ package org.eclipse.mdht.uml.cda.tests;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 
 public class SystemOutValidationHandler implements ValidationHandler {
 	public void handleError(Diagnostic diagnostic) {
@@ -24,5 +25,39 @@ public class SystemOutValidationHandler implements ValidationHandler {
 
 	public void handleInfo(Diagnostic diagnostic) {
 		System.out.println("Info: " + diagnostic.getMessage());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#isCaptureValidationStatistics()
+	 */
+	@Override
+	public boolean isCaptureValidationStatistics() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#getValidationStatistics()
+	 */
+	@Override
+	public ValidationStatistics getValidationStatistics() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#setValidationStatistics(org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.
+	 * ValidationStatistics)
+	 */
+	@Override
+	public void setValidationStatistics(ValidationStatistics validationStatistics) {
+		// TODO Auto-generated method stub
+
 	}
 }

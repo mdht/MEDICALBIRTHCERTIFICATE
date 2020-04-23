@@ -23,7 +23,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -109,6 +108,7 @@ import org.eclipse.mdht.uml.cda.internal.resource.CDAResource;
 import org.eclipse.mdht.uml.cda.internal.resource.CDAResourceFactoryImpl;
 import org.eclipse.mdht.uml.cda.internal.resource.CDAXSITypeProvider;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 import org.eclipse.mdht.uml.hl7.rim.InfrastructureRoot;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntry;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActRelationshipEntryRelationship;
@@ -708,27 +708,6 @@ public class CDAUtil {
 
 	public static boolean validate(ClinicalDocument clinicalDocument, ValidationHandler handler) {
 		return validate(clinicalDocument, handler, true);
-	}
-
-	public static class ValidationStatistics {
-
-		public long shallCount = 0;
-
-		public long shouldCount = 0;
-
-		public long mayCount = 0;
-
-		public static class CounterPer {
-			public long count = 0;
-		}
-
-		public HashMap<String, CounterPer> counterPer = new HashMap<String, CounterPer>();
-
-		public HashSet<String> countShallUnique = new HashSet<String>();
-
-		public HashSet<String> countShouldUnique = new HashSet<String>();
-
-		public HashSet<String> countMayUnique = new HashSet<String>();
 	}
 
 	public static boolean validate(ClinicalDocument clinicalDocument, ValidationHandler handler, boolean defaults) {

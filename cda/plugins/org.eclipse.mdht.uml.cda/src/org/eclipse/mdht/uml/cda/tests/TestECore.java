@@ -33,9 +33,9 @@ import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
-import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationStatistics;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesFactory;
 import org.eclipse.mdht.uml.hl7.datatypes.ST;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 import org.eclipse.mdht.uml.hl7.vocab.x_ActClassDocumentEntryAct;
 import org.eclipse.mdht.uml.hl7.vocab.x_DocumentActMood;
 
@@ -236,6 +236,7 @@ public class TestECore {
 				// TODO Auto-generated method stub
 
 			}
+
 		};
 		CDAUtil.performSchemaValidation(cd2, validator);
 

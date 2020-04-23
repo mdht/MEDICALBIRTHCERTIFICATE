@@ -43,6 +43,7 @@ import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.ValidationStatistics;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
@@ -282,6 +283,40 @@ public class AnalyzeCDAHandler extends AbstractHandler {
 		}
 
 		public void handleInfo(Diagnostic diagnostic) {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#isCaptureValidationStatistics()
+		 */
+		@Override
+		public boolean isCaptureValidationStatistics() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#getValidationStatistics()
+		 */
+		@Override
+		public ValidationStatistics getValidationStatistics() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler#setValidationStatistics(org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesUtil.
+		 * ValidationStatistics)
+		 */
+		@Override
+		public void setValidationStatistics(ValidationStatistics validationStatistics) {
+			// TODO Auto-generated method stub
 
 		}
 	};
